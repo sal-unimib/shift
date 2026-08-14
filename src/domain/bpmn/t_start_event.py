@@ -1,0 +1,21 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+from src.domain.bpmn.t_catch_event import TCatchEvent
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TStartEvent(TCatchEvent):
+    class Meta:
+        name = "tStartEvent"
+
+    is_interrupting: bool = field(
+        default=True,
+        metadata={
+            "name": "isInterrupting",
+            "type": "Attribute",
+        },
+    )

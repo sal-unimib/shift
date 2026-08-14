@@ -1,0 +1,33 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TDocumentation:
+    class Meta:
+        name = "tDocumentation"
+
+    id: None | str = field(
+        default=None,
+        metadata={
+            "type": "Attribute",
+        },
+    )
+    text_format: str = field(
+        default="text/plain",
+        metadata={
+            "name": "textFormat",
+            "type": "Attribute",
+        },
+    )
+    content: list[object] = field(
+        default_factory=list,
+        metadata={
+            "type": "Wildcard",
+            "namespace": "##any",
+            "mixed": True,
+        },
+    )

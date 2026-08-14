@@ -1,0 +1,22 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+from src.domain.bpmn.diagram_element import DiagramElement
+from src.domain.bpmn.point import Point
+
+__NAMESPACE__ = "http://www.omg.org/spec/DD/20100524/DI"
+
+
+@dataclass(kw_only=True)
+class Edge(DiagramElement):
+    class Meta:
+        namespace = "http://www.omg.org/spec/DD/20100524/DI"
+
+    waypoint: list[Point] = field(
+        default_factory=list,
+        metadata={
+            "type": "Element",
+            "min_occurs": 2,
+        },
+    )

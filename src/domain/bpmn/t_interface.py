@@ -1,0 +1,36 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from xml.etree.ElementTree import QName
+
+from src.domain.bpmn.operation import Operation
+from src.domain.bpmn.t_root_element import TRootElement
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TInterface(TRootElement):
+    class Meta:
+        name = "tInterface"
+
+    operation: list[Operation] = field(
+        default_factory=list,
+        metadata={
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+            "min_occurs": 1,
+        },
+    )
+    name: str = field(
+        metadata={
+            "type": "Attribute",
+        }
+    )
+    implementation_ref: None | QName = field(
+        default=None,
+        metadata={
+            "name": "implementationRef",
+            "type": "Attribute",
+        },
+    )

@@ -1,0 +1,39 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+from src.domain.bpmn.t_event_definition import TEventDefinition
+from src.domain.bpmn.t_expression import TExpression
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TTimerEventDefinition(TEventDefinition):
+    class Meta:
+        name = "tTimerEventDefinition"
+
+    time_date: None | TExpression = field(
+        default=None,
+        metadata={
+            "name": "timeDate",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    time_duration: None | TExpression = field(
+        default=None,
+        metadata={
+            "name": "timeDuration",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    time_cycle: None | TExpression = field(
+        default=None,
+        metadata={
+            "name": "timeCycle",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )

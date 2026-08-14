@@ -1,0 +1,46 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from xml.etree.ElementTree import QName
+
+from src.domain.bpmn.correlation_key import CorrelationKey
+from src.domain.bpmn.t_base_element import TBaseElement
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TConversationNode(TBaseElement):
+    class Meta:
+        name = "tConversationNode"
+
+    participant_ref: list[QName] = field(
+        default_factory=list,
+        metadata={
+            "name": "participantRef",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    message_flow_ref: list[QName] = field(
+        default_factory=list,
+        metadata={
+            "name": "messageFlowRef",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    correlation_key: list[CorrelationKey] = field(
+        default_factory=list,
+        metadata={
+            "name": "correlationKey",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    name: None | str = field(
+        default=None,
+        metadata={
+            "type": "Attribute",
+        },
+    )

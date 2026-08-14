@@ -1,0 +1,52 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+from src.domain.bpmn.t_base_element import TBaseElement
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TOutputSet(TBaseElement):
+    class Meta:
+        name = "tOutputSet"
+
+    data_output_refs: list[str] = field(
+        default_factory=list,
+        metadata={
+            "name": "dataOutputRefs",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    optional_output_refs: list[str] = field(
+        default_factory=list,
+        metadata={
+            "name": "optionalOutputRefs",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    while_executing_output_refs: list[str] = field(
+        default_factory=list,
+        metadata={
+            "name": "whileExecutingOutputRefs",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    input_set_refs: list[str] = field(
+        default_factory=list,
+        metadata={
+            "name": "inputSetRefs",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    name: None | str = field(
+        default=None,
+        metadata={
+            "type": "Attribute",
+        },
+    )

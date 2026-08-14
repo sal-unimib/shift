@@ -1,0 +1,13 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from src.domain.bpmn.t_base_element import TBaseElement
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TArtifact(TBaseElement):
+    class Meta:
+        name = "tArtifact"

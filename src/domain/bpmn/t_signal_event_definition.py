@@ -1,0 +1,22 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from xml.etree.ElementTree import QName
+
+from src.domain.bpmn.t_event_definition import TEventDefinition
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TSignalEventDefinition(TEventDefinition):
+    class Meta:
+        name = "tSignalEventDefinition"
+
+    signal_ref: None | QName = field(
+        default=None,
+        metadata={
+            "name": "signalRef",
+            "type": "Attribute",
+        },
+    )

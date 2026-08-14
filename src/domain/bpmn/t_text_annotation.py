@@ -1,0 +1,29 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+from src.domain.bpmn.t_artifact import TArtifact
+from src.domain.bpmn.text import Text
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TTextAnnotation(TArtifact):
+    class Meta:
+        name = "tTextAnnotation"
+
+    text: None | Text = field(
+        default=None,
+        metadata={
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    text_format: str = field(
+        default="text/plain",
+        metadata={
+            "name": "textFormat",
+            "type": "Attribute",
+        },
+    )

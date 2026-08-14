@@ -1,0 +1,14 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from src.domain.bpmn.t_root_element import TRootElement
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class RootElement(TRootElement):
+    class Meta:
+        name = "rootElement"
+        namespace = "http://www.omg.org/spec/BPMN/20100524/MODEL"

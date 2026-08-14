@@ -1,0 +1,14 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from src.domain.bpmn.t_conversation_association import TConversationAssociation
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class ConversationAssociation(TConversationAssociation):
+    class Meta:
+        name = "conversationAssociation"
+        namespace = "http://www.omg.org/spec/BPMN/20100524/MODEL"

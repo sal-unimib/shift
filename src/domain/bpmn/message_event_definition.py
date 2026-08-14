@@ -1,0 +1,14 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from src.domain.bpmn.t_message_event_definition import TMessageEventDefinition
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class MessageEventDefinition(TMessageEventDefinition):
+    class Meta:
+        name = "messageEventDefinition"
+        namespace = "http://www.omg.org/spec/BPMN/20100524/MODEL"

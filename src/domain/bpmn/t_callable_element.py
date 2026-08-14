@@ -1,0 +1,47 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from xml.etree.ElementTree import QName
+
+from src.domain.bpmn.io_binding import IoBinding
+from src.domain.bpmn.io_specification import IoSpecification
+from src.domain.bpmn.t_root_element import TRootElement
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TCallableElement(TRootElement):
+    class Meta:
+        name = "tCallableElement"
+
+    supported_interface_ref: list[QName] = field(
+        default_factory=list,
+        metadata={
+            "name": "supportedInterfaceRef",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    io_specification: None | IoSpecification = field(
+        default=None,
+        metadata={
+            "name": "ioSpecification",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    io_binding: list[IoBinding] = field(
+        default_factory=list,
+        metadata={
+            "name": "ioBinding",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    name: None | str = field(
+        default=None,
+        metadata={
+            "type": "Attribute",
+        },
+    )

@@ -1,0 +1,27 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from xml.etree.ElementTree import QName
+
+from src.domain.bpmn.t_base_element import TBaseElement
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TConversationAssociation(TBaseElement):
+    class Meta:
+        name = "tConversationAssociation"
+
+    inner_conversation_node_ref: QName = field(
+        metadata={
+            "name": "innerConversationNodeRef",
+            "type": "Attribute",
+        }
+    )
+    outer_conversation_node_ref: QName = field(
+        metadata={
+            "name": "outerConversationNodeRef",
+            "type": "Attribute",
+        }
+    )

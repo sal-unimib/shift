@@ -1,0 +1,37 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+from src.domain.bpmn.t_expression import TExpression
+from src.domain.bpmn.t_loop_characteristics import TLoopCharacteristics
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TStandardLoopCharacteristics(TLoopCharacteristics):
+    class Meta:
+        name = "tStandardLoopCharacteristics"
+
+    loop_condition: None | TExpression = field(
+        default=None,
+        metadata={
+            "name": "loopCondition",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    test_before: bool = field(
+        default=False,
+        metadata={
+            "name": "testBefore",
+            "type": "Attribute",
+        },
+    )
+    loop_maximum: None | int = field(
+        default=None,
+        metadata={
+            "name": "loopMaximum",
+            "type": "Attribute",
+        },
+    )

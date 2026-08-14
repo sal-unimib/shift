@@ -1,0 +1,18 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from src.domain.bpmn.t_correlation_property_retrieval_expression import (
+    TCorrelationPropertyRetrievalExpression,
+)
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class CorrelationPropertyRetrievalExpression(
+    TCorrelationPropertyRetrievalExpression
+):
+    class Meta:
+        name = "correlationPropertyRetrievalExpression"
+        namespace = "http://www.omg.org/spec/BPMN/20100524/MODEL"

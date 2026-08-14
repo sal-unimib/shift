@@ -1,0 +1,38 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from xml.etree.ElementTree import QName
+
+from src.domain.bpmn.data_state import DataState
+from src.domain.bpmn.t_flow_element import TFlowElement
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TDataObjectReference(TFlowElement):
+    class Meta:
+        name = "tDataObjectReference"
+
+    data_state: None | DataState = field(
+        default=None,
+        metadata={
+            "name": "dataState",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    item_subject_ref: None | QName = field(
+        default=None,
+        metadata={
+            "name": "itemSubjectRef",
+            "type": "Attribute",
+        },
+    )
+    data_object_ref: None | str = field(
+        default=None,
+        metadata={
+            "name": "dataObjectRef",
+            "type": "Attribute",
+        },
+    )

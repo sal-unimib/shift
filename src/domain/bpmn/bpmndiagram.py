@@ -1,0 +1,30 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+from src.domain.bpmn.bpmnlabel_style import BpmnlabelStyle
+from src.domain.bpmn.bpmnplane import Bpmnplane
+from src.domain.bpmn.diagram import Diagram
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/DI"
+
+
+@dataclass(kw_only=True)
+class Bpmndiagram(Diagram):
+    class Meta:
+        name = "BPMNDiagram"
+        namespace = "http://www.omg.org/spec/BPMN/20100524/DI"
+
+    bpmnplane: Bpmnplane = field(
+        metadata={
+            "name": "BPMNPlane",
+            "type": "Element",
+        }
+    )
+    bpmnlabel_style: list[BpmnlabelStyle] = field(
+        default_factory=list,
+        metadata={
+            "name": "BPMNLabelStyle",
+            "type": "Element",
+        },
+    )

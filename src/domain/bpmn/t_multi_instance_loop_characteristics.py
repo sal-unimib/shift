@@ -1,0 +1,107 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from xml.etree.ElementTree import QName
+
+from src.domain.bpmn.complex_behavior_definition import (
+    ComplexBehaviorDefinition,
+)
+from src.domain.bpmn.t_data_input import TDataInput
+from src.domain.bpmn.t_data_output import TDataOutput
+from src.domain.bpmn.t_expression import TExpression
+from src.domain.bpmn.t_loop_characteristics import TLoopCharacteristics
+from src.domain.bpmn.t_multi_instance_flow_condition import (
+    TMultiInstanceFlowCondition,
+)
+
+__NAMESPACE__ = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+
+
+@dataclass(kw_only=True)
+class TMultiInstanceLoopCharacteristics(TLoopCharacteristics):
+    class Meta:
+        name = "tMultiInstanceLoopCharacteristics"
+
+    loop_cardinality: None | TExpression = field(
+        default=None,
+        metadata={
+            "name": "loopCardinality",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    loop_data_input_ref: None | QName = field(
+        default=None,
+        metadata={
+            "name": "loopDataInputRef",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    loop_data_output_ref: None | QName = field(
+        default=None,
+        metadata={
+            "name": "loopDataOutputRef",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    input_data_item: None | TDataInput = field(
+        default=None,
+        metadata={
+            "name": "inputDataItem",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    output_data_item: None | TDataOutput = field(
+        default=None,
+        metadata={
+            "name": "outputDataItem",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    complex_behavior_definition: list[ComplexBehaviorDefinition] = field(
+        default_factory=list,
+        metadata={
+            "name": "complexBehaviorDefinition",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    completion_condition: None | TExpression = field(
+        default=None,
+        metadata={
+            "name": "completionCondition",
+            "type": "Element",
+            "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        },
+    )
+    is_sequential: bool = field(
+        default=False,
+        metadata={
+            "name": "isSequential",
+            "type": "Attribute",
+        },
+    )
+    behavior: TMultiInstanceFlowCondition = field(
+        default=TMultiInstanceFlowCondition.ALL,
+        metadata={
+            "type": "Attribute",
+        },
+    )
+    one_behavior_event_ref: None | QName = field(
+        default=None,
+        metadata={
+            "name": "oneBehaviorEventRef",
+            "type": "Attribute",
+        },
+    )
+    none_behavior_event_ref: None | QName = field(
+        default=None,
+        metadata={
+            "name": "noneBehaviorEventRef",
+            "type": "Attribute",
+        },
+    )
