@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="Definition_17_camunda" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.51.1">
+  <bpmn:process id="P17" name="Anticoagulation Monitoring Pathway" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="Form_17_1.0.0">{"id": "Form_17_1.0.0", "type": "default", "schemaVersion": 1, "components": [{"id": "Field_subject", "type": "textfield", "key": "subject"}, {"id": "Group_A1", "type": "group", "path": "A1", "components": [{"id": "Field_A1_resource", "type": "textfield", "key": "resource"}, {"id": "Field_A1_1000_medication", "type": "textfield", "key": "1000_medication"}, {"id": "Field_A1_1000_dosage_dose_and_rate", "type": "textfield", "key": "1000_dosage_dose_and_rate"}]}, {"id": "Group_A2", "type": "group", "path": "A2", "components": [{"id": "Field_A2_resource", "type": "textfield", "key": "resource"}, {"id": "Field_A2_1053_specimen_concept", "type": "textfield", "key": "1053_specimen_concept"}, {"id": "Field_A2_1053_body_site_concept", "type": "textfield", "key": "1053_body_site_concept"}]}, {"id": "Group_A3", "type": "group", "path": "A3", "components": [{"id": "Field_A3_resource", "type": "textfield", "key": "resource"}, {"id": "Field_A3_1051_priority", "type": "textfield", "key": "1051_priority"}, {"id": "Field_A3_1051_payload", "type": "textfield", "key": "1051_payload"}, {"id": "Field_A3_1051_requester", "type": "textfield", "key": "1051_requester"}, {"id": "Field_A3_1051_recipient", "type": "textfield", "key": "1051_recipient"}, {"id": "Field_A3_1051_information_provider", "type": "textfield", "key": "1051_information_provider"}]}, {"id": "Field_TC_A1_cycle", "type": "textfield", "key": "TC_A1_cycle"}, {"id": "Field_TC_A2_cycle", "type": "textfield", "key": "TC_A2_cycle"}, {"id": "Field_TC_A1_keep_alive_bound", "type": "textfield", "key": "TC_A1_keep_alive_bound"}, {"id": "Field_TC_A2_keep_alive_bound", "type": "textfield", "key": "TC_A2_keep_alive_bound"}, {"id": "Field_specimen_result", "type": "textfield", "key": "specimen_result"}]}</zeebe:userTaskForm>
+      <zeebe:versionTag value="1.0.0" />
+    </bpmn:extensionElements>
+    <bpmn:subProcess id="block_node_1">
+      <bpmn:incoming>div_gat_3_to_block_node_1</bpmn:incoming>
+      <bpmn:outgoing>block_node_1_to_conv_gat_4</bpmn:outgoing>
+      <bpmn:subProcess id="block_timer_start_event_1_cycle_scope" name="Scheduled execution" triggeredByEvent="true">
+        <bpmn:startEvent id="block_timer_start_event_1" name="Twice daily" isInterrupting="false">
+          <bpmn:outgoing>block_timer_start_event_1_to_A1</bpmn:outgoing>
+          <bpmn:timerEventDefinition id="block_timer_start_event_1_definition">
+            <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">= TC_A1_cycle</bpmn:timeCycle>
+          </bpmn:timerEventDefinition>
+        </bpmn:startEvent>
+        <bpmn:serviceTask id="A1" name="The patient takes anticoagulant therapy at a dose of 5 mg twice daily">
+          <bpmn:extensionElements>
+            <zeebe:taskDefinition type="ad_take_medication" />
+          </bpmn:extensionElements>
+          <bpmn:incoming>block_timer_start_event_1_to_A1</bpmn:incoming>
+          <bpmn:outgoing>A1_to_block_end_event_1</bpmn:outgoing>
+        </bpmn:serviceTask>
+        <bpmn:sequenceFlow id="block_timer_start_event_1_to_A1" sourceRef="block_timer_start_event_1" targetRef="A1" />
+        <bpmn:sequenceFlow id="A1_to_block_end_event_1" sourceRef="A1" targetRef="block_end_event_1" />
+        <bpmn:endEvent id="block_end_event_1">
+          <bpmn:incoming>A1_to_block_end_event_1</bpmn:incoming>
+        </bpmn:endEvent>
+      </bpmn:subProcess>
+      <bpmn:startEvent id="ka_start_event_1">
+        <bpmn:outgoing>ka_start_event_1_to_ka_timer_event_1</bpmn:outgoing>
+      </bpmn:startEvent>
+      <bpmn:sequenceFlow id="ka_start_event_1_to_ka_timer_event_1" sourceRef="ka_start_event_1" targetRef="ka_timer_event_1" />
+      <bpmn:sequenceFlow id="ka_timer_event_1_to_ka_end_event_1" sourceRef="ka_timer_event_1" targetRef="ka_end_event_1" />
+      <bpmn:intermediateCatchEvent id="ka_timer_event_1" name="">
+        <bpmn:incoming>ka_start_event_1_to_ka_timer_event_1</bpmn:incoming>
+        <bpmn:outgoing>ka_timer_event_1_to_ka_end_event_1</bpmn:outgoing>
+        <bpmn:timerEventDefinition id="ka_timer_event_1_definition">
+          <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">= TC_A1_keep_alive_bound</bpmn:timeDuration>
+        </bpmn:timerEventDefinition>
+      </bpmn:intermediateCatchEvent>
+      <bpmn:endEvent id="ka_end_event_1">
+        <bpmn:incoming>ka_timer_event_1_to_ka_end_event_1</bpmn:incoming>
+        <bpmn:terminateEventDefinition />
+      </bpmn:endEvent>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="block_node_2">
+      <bpmn:incoming>div_gat_3_to_block_node_2</bpmn:incoming>
+      <bpmn:outgoing>block_node_2_to_conv_gat_4</bpmn:outgoing>
+      <bpmn:subProcess id="block_timer_start_event_2_cycle_scope" name="Scheduled execution" triggeredByEvent="true">
+        <bpmn:startEvent id="block_timer_start_event_2" name="Every month" isInterrupting="false">
+          <bpmn:outgoing>block_timer_start_event_2_to_A2</bpmn:outgoing>
+          <bpmn:timerEventDefinition id="block_timer_start_event_2_definition">
+            <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">= TC_A2_cycle</bpmn:timeCycle>
+          </bpmn:timerEventDefinition>
+        </bpmn:startEvent>
+        <bpmn:serviceTask id="A2" name="Laboratory examinations are performed every month">
+          <bpmn:extensionElements>
+            <zeebe:taskDefinition type="ad_collect_specimen" />
+          </bpmn:extensionElements>
+          <bpmn:incoming>block_timer_start_event_2_to_A2</bpmn:incoming>
+          <bpmn:outgoing>A2_to_div_gat_1</bpmn:outgoing>
+        </bpmn:serviceTask>
+        <bpmn:serviceTask id="A3" name="A routine notification is issued">
+          <bpmn:extensionElements>
+            <zeebe:taskDefinition type="ad_alert_practitioner" />
+          </bpmn:extensionElements>
+          <bpmn:incoming>div_gat_1_to_A3</bpmn:incoming>
+          <bpmn:outgoing>A3_to_conv_gat_2</bpmn:outgoing>
+        </bpmn:serviceTask>
+        <bpmn:sequenceFlow id="A2_to_div_gat_1" sourceRef="A2" targetRef="div_gat_1" />
+        <bpmn:sequenceFlow id="div_gat_1_to_A3" name="If abnormal results are detected" sourceRef="div_gat_1" targetRef="A3">
+          <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">= specimen_result = "abnormal"</bpmn:conditionExpression>
+        </bpmn:sequenceFlow>
+        <bpmn:sequenceFlow id="A3_to_conv_gat_2" sourceRef="A3" targetRef="conv_gat_2" />
+        <bpmn:sequenceFlow id="block_timer_start_event_2_to_A2" sourceRef="block_timer_start_event_2" targetRef="A2" />
+        <bpmn:sequenceFlow id="conv_gat_2_to_block_end_event_2" sourceRef="conv_gat_2" targetRef="block_end_event_2" />
+        <bpmn:sequenceFlow id="div_gat_1_to_conv_gat_2" name="Otherwise" sourceRef="div_gat_1" targetRef="conv_gat_2" />
+        <bpmn:exclusiveGateway id="conv_gat_2" gatewayDirection="Converging">
+          <bpmn:incoming>A3_to_conv_gat_2</bpmn:incoming>
+          <bpmn:incoming>div_gat_1_to_conv_gat_2</bpmn:incoming>
+          <bpmn:outgoing>conv_gat_2_to_block_end_event_2</bpmn:outgoing>
+        </bpmn:exclusiveGateway>
+        <bpmn:exclusiveGateway id="div_gat_1" gatewayDirection="Diverging" default="div_gat_1_to_conv_gat_2">
+          <bpmn:incoming>A2_to_div_gat_1</bpmn:incoming>
+          <bpmn:outgoing>div_gat_1_to_A3</bpmn:outgoing>
+          <bpmn:outgoing>div_gat_1_to_conv_gat_2</bpmn:outgoing>
+        </bpmn:exclusiveGateway>
+        <bpmn:endEvent id="block_end_event_2">
+          <bpmn:incoming>conv_gat_2_to_block_end_event_2</bpmn:incoming>
+        </bpmn:endEvent>
+      </bpmn:subProcess>
+      <bpmn:startEvent id="ka_start_event_2">
+        <bpmn:outgoing>ka_start_event_2_to_ka_timer_event_2</bpmn:outgoing>
+      </bpmn:startEvent>
+      <bpmn:sequenceFlow id="ka_start_event_2_to_ka_timer_event_2" sourceRef="ka_start_event_2" targetRef="ka_timer_event_2" />
+      <bpmn:sequenceFlow id="ka_timer_event_2_to_ka_end_event_2" sourceRef="ka_timer_event_2" targetRef="ka_end_event_2" />
+      <bpmn:intermediateCatchEvent id="ka_timer_event_2" name="">
+        <bpmn:incoming>ka_start_event_2_to_ka_timer_event_2</bpmn:incoming>
+        <bpmn:outgoing>ka_timer_event_2_to_ka_end_event_2</bpmn:outgoing>
+        <bpmn:timerEventDefinition id="ka_timer_event_2_definition">
+          <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">= TC_A2_keep_alive_bound</bpmn:timeDuration>
+        </bpmn:timerEventDefinition>
+      </bpmn:intermediateCatchEvent>
+      <bpmn:endEvent id="ka_end_event_2">
+        <bpmn:incoming>ka_timer_event_2_to_ka_end_event_2</bpmn:incoming>
+        <bpmn:terminateEventDefinition />
+      </bpmn:endEvent>
+    </bpmn:subProcess>
+    <bpmn:startEvent id="start_node">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:Form_17_1.0.0" />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>start_node_to_div_gat_3</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="start_node_to_div_gat_3" sourceRef="start_node" targetRef="div_gat_3" />
+    <bpmn:sequenceFlow id="conv_gat_4_to_end_node" sourceRef="conv_gat_4" targetRef="end_node" />
+    <bpmn:sequenceFlow id="div_gat_3_to_block_node_1" sourceRef="div_gat_3" targetRef="block_node_1" />
+    <bpmn:sequenceFlow id="block_node_1_to_conv_gat_4" sourceRef="block_node_1" targetRef="conv_gat_4" />
+    <bpmn:sequenceFlow id="div_gat_3_to_block_node_2" sourceRef="div_gat_3" targetRef="block_node_2" />
+    <bpmn:sequenceFlow id="block_node_2_to_conv_gat_4" sourceRef="block_node_2" targetRef="conv_gat_4" />
+    <bpmn:parallelGateway id="div_gat_3" gatewayDirection="Diverging">
+      <bpmn:incoming>start_node_to_div_gat_3</bpmn:incoming>
+      <bpmn:outgoing>div_gat_3_to_block_node_1</bpmn:outgoing>
+      <bpmn:outgoing>div_gat_3_to_block_node_2</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="conv_gat_4" gatewayDirection="Converging">
+      <bpmn:incoming>block_node_1_to_conv_gat_4</bpmn:incoming>
+      <bpmn:incoming>block_node_2_to_conv_gat_4</bpmn:incoming>
+      <bpmn:outgoing>conv_gat_4_to_end_node</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="end_node">
+      <bpmn:incoming>conv_gat_4_to_end_node</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="P17_diagram">
+    <bpmndi:BPMNPlane id="P17_plane" bpmnElement="P17">
+      <bpmndi:BPMNShape id="block_node_1_shape" bpmnElement="block_node_1" isExpanded="true">
+        <dc:Bounds x="812" y="60" width="622" height="416" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="block_timer_start_event_1_cycle_scope_shape" bpmnElement="block_timer_start_event_1_cycle_scope" isExpanded="true">
+        <dc:Bounds x="852" y="120" width="542" height="190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="block_timer_start_event_1_shape" bpmnElement="block_timer_start_event_1">
+        <dc:Bounds x="892" y="207" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="883" y="243" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A1_shape" bpmnElement="A1">
+        <dc:Bounds x="1038" y="180" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="block_end_event_1_shape" bpmnElement="block_end_event_1">
+        <dc:Bounds x="1318" y="207" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="block_timer_start_event_1_to_A1_edge" bpmnElement="block_timer_start_event_1_to_A1">
+        <di:waypoint x="927.76" y="225" />
+        <di:waypoint x="1037.26" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A1_to_block_end_event_1_edge" bpmnElement="A1_to_block_end_event_1">
+        <di:waypoint x="1208.01" y="225" />
+        <di:waypoint x="1317.1100000000001" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ka_start_event_1_shape" bpmnElement="ka_start_event_1">
+        <dc:Bounds x="852" y="400" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ka_timer_event_1_shape" bpmnElement="ka_timer_event_1">
+        <dc:Bounds x="998" y="400" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ka_end_event_1_shape" bpmnElement="ka_end_event_1">
+        <dc:Bounds x="1144" y="400" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="ka_start_event_1_to_ka_timer_event_1_edge" bpmnElement="ka_start_event_1_to_ka_timer_event_1">
+        <di:waypoint x="888.09" y="418" />
+        <di:waypoint x="997.26" y="418" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ka_timer_event_1_to_ka_end_event_1_edge" bpmnElement="ka_timer_event_1_to_ka_end_event_1">
+        <di:waypoint x="1034.0900000000001" y="418" />
+        <di:waypoint x="1143.26" y="418" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="block_node_2_shape" bpmnElement="block_node_2" isExpanded="true">
+        <dc:Bounds x="456" y="541" width="1333" height="499" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="block_timer_start_event_2_cycle_scope_shape" bpmnElement="block_timer_start_event_2_cycle_scope" isExpanded="true">
+        <dc:Bounds x="496" y="601" width="1253" height="273" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="block_timer_start_event_2_shape" bpmnElement="block_timer_start_event_2">
+        <dc:Bounds x="536" y="761" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="523" y="797" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A2_shape" bpmnElement="A2">
+        <dc:Bounds x="683" y="734" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A3_shape" bpmnElement="A3">
+        <dc:Bounds x="1231" y="661" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="div_gat_1_shape" bpmnElement="div_gat_1" isMarkerVisible="true">
+        <dc:Bounds x="964" y="754" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="conv_gat_2_shape" bpmnElement="conv_gat_2" isMarkerVisible="true">
+        <dc:Bounds x="1512" y="754" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="block_end_event_2_shape" bpmnElement="block_end_event_2">
+        <dc:Bounds x="1673" y="761" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="A2_to_div_gat_1_edge" bpmnElement="A2_to_div_gat_1">
+        <di:waypoint x="853" y="778.625" />
+        <di:waypoint x="964" y="778.625" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_1_to_A3_edge" bpmnElement="div_gat_1_to_A3">
+        <di:waypoint x="989" y="753.625" />
+        <di:waypoint x="989" y="705.625" />
+        <di:waypoint x="1231.25" y="705.625" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1055" y="662" width="110" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A3_to_conv_gat_2_edge" bpmnElement="A3_to_conv_gat_2">
+        <di:waypoint x="1401" y="706" />
+        <di:waypoint x="1537" y="706" />
+        <di:waypoint x="1537" y="754" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="block_timer_start_event_2_to_A2_edge" bpmnElement="block_timer_start_event_2_to_A2">
+        <di:waypoint x="572.25" y="778.625" />
+        <di:waypoint x="682.51" y="778.625" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="conv_gat_2_to_block_end_event_2_edge" bpmnElement="conv_gat_2_to_block_end_event_2">
+        <di:waypoint x="1562" y="779" />
+        <di:waypoint x="1673" y="779" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_1_to_conv_gat_2_edge" bpmnElement="div_gat_1_to_conv_gat_2">
+        <di:waypoint x="1014" y="779" />
+        <di:waypoint x="1512" y="779" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1284" y="796" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ka_start_event_2_shape" bpmnElement="ka_start_event_2">
+        <dc:Bounds x="496" y="963" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ka_timer_event_2_shape" bpmnElement="ka_timer_event_2">
+        <dc:Bounds x="642" y="963" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ka_end_event_2_shape" bpmnElement="ka_end_event_2">
+        <dc:Bounds x="788" y="963" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="ka_start_event_2_to_ka_timer_event_2_edge" bpmnElement="ka_start_event_2_to_ka_timer_event_2">
+        <di:waypoint x="532.49" y="981.375" />
+        <di:waypoint x="641.66" y="981.375" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ka_timer_event_2_to_ka_end_event_2_edge" bpmnElement="ka_timer_event_2_to_ka_end_event_2">
+        <di:waypoint x="678.49" y="981.375" />
+        <di:waypoint x="787.6600000000001" y="981.375" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="start_node_shape" bpmnElement="start_node">
+        <dc:Bounds x="150" y="511" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="div_gat_3_shape" bpmnElement="div_gat_3">
+        <dc:Bounds x="296" y="504" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="conv_gat_4_shape" bpmnElement="conv_gat_4">
+        <dc:Bounds x="1899" y="504" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_node_shape" bpmnElement="end_node">
+        <dc:Bounds x="2059" y="511" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="start_node_to_div_gat_3_edge" bpmnElement="start_node_to_div_gat_3">
+        <di:waypoint x="186" y="529" />
+        <di:waypoint x="296" y="529" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="conv_gat_4_to_end_node_edge" bpmnElement="conv_gat_4_to_end_node">
+        <di:waypoint x="1949.2" y="529" />
+        <di:waypoint x="2059.2" y="529" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_3_to_block_node_1_edge" bpmnElement="div_gat_3_to_block_node_1">
+        <di:waypoint x="321" y="504" />
+        <di:waypoint x="321" y="268" />
+        <di:waypoint x="811.6" y="268" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="block_node_1_to_conv_gat_4_edge" bpmnElement="block_node_1_to_conv_gat_4">
+        <di:waypoint x="1434" y="268" />
+        <di:waypoint x="1924" y="268" />
+        <di:waypoint x="1924" y="504" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_3_to_block_node_2_edge" bpmnElement="div_gat_3_to_block_node_2">
+        <di:waypoint x="321" y="554" />
+        <di:waypoint x="321" y="790" />
+        <di:waypoint x="456" y="790" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="block_node_2_to_conv_gat_4_edge" bpmnElement="block_node_2_to_conv_gat_4">
+        <di:waypoint x="1789" y="790" />
+        <di:waypoint x="1924" y="790" />
+        <di:waypoint x="1924" y="554" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

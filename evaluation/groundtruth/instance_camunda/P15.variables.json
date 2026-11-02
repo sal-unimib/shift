@@ -1,0 +1,31 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P15A1",
+    "1053_specimen_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"119365002\", \"display\": \"Specimen from wound\"}], \"text\": \"wound specimen\"}",
+    "1053_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"22335008\", \"display\": \"Left foot\"}], \"text\": \"Left foot\"}"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P15A2",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"394609007\", \"display\": \"General surgery\"}], \"text\": \"general surgery specialist visit\"}"
+  },
+  "A3": {
+    "resource": "CommunicationRequest/P15A3",
+    "1051_priority": null,
+    "1051_payload": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Wound monitoring\", \"data\": \"c2lnbnMgb2YgYSB3b3JzZW5pbmcgaW5mZWN0aW9uIGhhdmUgYmVlbiBjb25maXJtZWQsIHBhdGllbnQgcmVhZHkgZm9yIGRlYnJpZGVtZW50\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "CareTeam/CT2",
+    "1051_information_provider": null
+  },
+  "A4": {
+    "resource": "ServiceRequest/P15A4",
+    "1057_therapy_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"36777000\", \"display\": \"Debridement\"}], \"text\": \"Debridement\"}",
+    "1057_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"22335008\", \"display\": \"Left foot\"}], \"text\": \"Left foot\"}"
+  },
+  "A5": {
+    "resource": "ServiceRequest/P15A5",
+    "1055_patient_instruction": "DocumentReference/D6"
+  },
+  "specimen_result": null,
+  "specialist_result": null
+}

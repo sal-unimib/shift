@@ -1,0 +1,120 @@
+{
+  "resourceType": "RequestOrchestration",
+  "id": "12",
+  "instantiatesCanonical": [
+    "http://localhost:8080/fhir/PlanDefinition/12|1.0.0"
+  ],
+  "status": "draft",
+  "intent": "plan",
+  "subject": {
+    "reference": "Patient/PT1"
+  },
+  "action": [
+    {
+      "linkId": "A1",
+      "title": "The patient completes a pain assessment survey",
+      "timingTiming": {
+        "repeat": {
+          "frequency": 1,
+          "period": 144,
+          "periodUnit": "s",
+          "boundsDuration": {
+            "value": 1008,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          }
+        },
+        "code": {
+          "text": "1 occurrence(s) every 144 seconds; for 1008 seconds"
+        }
+      },
+      "definitionCanonical": "ActivityDefinition/1002",
+      "dynamicValue": [
+        {
+          "path": "supportingInfo[0].reference",
+          "expression": {
+            "description": "pain assessment survey",
+            "language": "text/fhirpath",
+            "expression": "Questionnaire/Q6"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P12A1"
+      }
+    },
+    {
+      "linkId": "A2",
+      "title": "Analgesic treatment is administered",
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1000",
+      "dynamicValue": [
+        {
+          "path": "medication.concept",
+          "expression": {
+            "description": "Morphine",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"373529000\", \"display\": \"Morphine\"}], \"text\": \"Morphine\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "MedicationRequest/P12A2"
+      }
+    },
+    {
+      "linkId": "A3",
+      "title": "routine alerting of the practitioner",
+      "relatedAction": [
+        {
+          "targetId": "A2",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1051",
+      "dynamicValue": [
+        {
+          "path": "priority",
+          "expression": {
+            "description": "routine",
+            "language": "text/fhirpath",
+            "expression": "routine"
+          }
+        },
+        {
+          "path": "requester",
+          "expression": {
+            "description": "patient",
+            "language": "text/fhirpath",
+            "expression": "Patient/PT1"
+          }
+        },
+        {
+          "path": "recipient",
+          "expression": {
+            "description": "practitioner",
+            "language": "text/fhirpath",
+            "expression": "Practitioner/PR1"
+          }
+        },
+        {
+          "path": "payload[0].contentAttachment",
+          "expression": {
+            "description": "Analgesic treatment is administered to the patient",
+            "language": "text/fhirpath",
+            "expression": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Pain monitoring\", \"data\": \"QW5hbGdlc2ljIHRyZWF0bWVudCBpcyBhZG1pbmlzdGVyZWQgdG8gdGhlIHBhdGllbnQ=\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "CommunicationRequest/P12A3"
+      }
+    }
+  ]
+}

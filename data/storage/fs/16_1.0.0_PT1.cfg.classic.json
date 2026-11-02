@@ -1,0 +1,232 @@
+{
+  "cfg_type": "classic",
+  "id": "16",
+  "version": "1.0.0",
+  "title": "Pulmonary Rehabilitation Pathway",
+  "name": "P16",
+  "description": "The patient attends a respiratory disease specialist visit. Subsequently, the patient performs the prescribed exercises three times per week while undergoing SpO\u2082 monitoring. If oxygen saturation falls below the prescribed threshold, the practitioner is alerted.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient attends a respiratory disease specialist visit",
+      "activity_definition": "1059",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"41672002\", \"display\": \"Respiratory disease specialist\"}], \"text\": \"respiratory disease specialist visit\"}"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_A2",
+        "A1_to_A3"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "the patient performs the prescribed exercises three times per week",
+      "activity_definition": "1001",
+      "fhir_temporal_constraint": {
+        "label": "3 occurrence(s) every 144 seconds; for 4032 seconds",
+        "period": 144.0,
+        "period_max": null,
+        "period_unit": "s",
+        "frequency": 3,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": 4032.0,
+        "bounds_duration_unit": "s",
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"1409619008\", \"display\": \"Respiratory muscle strengthening training exercises\"}], \"text\": \"Respiratory muscle strengthening training exercises\"}"
+      },
+      "incoming": [
+        "A1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_end_node"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "Patient undergoes SpO2 monitoring",
+      "activity_definition": "1058",
+      "fhir_temporal_constraint": {
+        "label": "1 occurrence(s) every 24 seconds; for 4032 seconds",
+        "period": 24.0,
+        "period_max": null,
+        "period_unit": "s",
+        "frequency": 1,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": 4032.0,
+        "bounds_duration_unit": "s",
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"431314004\", \"display\": \"Peripheral oxygen saturation\"}], \"text\": \"SpO2\"}"
+      },
+      "incoming": [
+        "A1_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_A4",
+        "A3_to_F1"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "If oxygen saturation falls below the prescribed threshold, the practitioner is alerted",
+      "activity_definition": "1051",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "requester": "Patient/PT1",
+        "recipient": "Practitioner/PR1",
+        "payload[0].contentAttachment": "{ \"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Respiratory deseases monitoring\", \"data\": \"T3h5Z2VuIHNhdHVyYXRpb24gZmFsbHMgYmVsb3cgdGhlIHByZXNjcmliZWQgdGhyZXNob2xkIGR1cmluZyBleGVyY2lzZXM=\"}"
+      },
+      "incoming": [
+        "A3_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_end_node"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "A2_to_end_node",
+        "A4_to_end_node",
+        "F1_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "F1": {
+      "id": "F1",
+      "node_type": "FakeNode",
+      "incoming": [
+        "A3_to_F1"
+      ],
+      "outgoing": [
+        "F1_to_end_node"
+      ]
+    }
+  },
+  "edges": {
+    "A1_to_A2": {
+      "id": "A1_to_A2",
+      "source": "A1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A1_to_A3": {
+      "id": "A1_to_A3",
+      "source": "A1",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_A4": {
+      "id": "A3_to_A4",
+      "source": "A3",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%spo2 < 0.95",
+        "description": "If oxygen saturation falls below the prescribed threshold"
+      }
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_end_node": {
+      "id": "A2_to_end_node",
+      "source": "A2",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A4_to_end_node": {
+      "id": "A4_to_end_node",
+      "source": "A4",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_F1": {
+      "id": "A3_to_F1",
+      "source": "A3",
+      "target": "F1",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "F1_to_end_node": {
+      "id": "F1_to_end_node",
+      "source": "F1",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    }
+  },
+  "graph_type": "instance",
+  "subject_id": "PT1",
+  "request_orchestration_id": "16"
+}

@@ -1,0 +1,151 @@
+{
+  "resourceType": "RequestOrchestration",
+  "id": "6",
+  "instantiatesCanonical": [
+    "http://localhost:8080/fhir/PlanDefinition/6|1.0.0"
+  ],
+  "status": "draft",
+  "intent": "plan",
+  "subject": {
+    "reference": "Patient/PT1"
+  },
+  "action": [
+    {
+      "linkId": "A1",
+      "title": "The patient undergoes cardiac rehabilitation therapy",
+      "definitionCanonical": "ActivityDefinition/1057",
+      "timingTiming": {
+        "event": [
+          "2026-10-19T09:00:00+02:00"
+        ],
+        "code": {
+          "text": "2026-10-19T09:00:00+02:00"
+        }
+      },
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "cardiac rehabilitation therapy",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"313395003\", \"display\": \"Cardiac rehabilitation\"}], \"text\": \"cardiac rehabilitation therapy\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P06A1"
+      }
+    },
+    {
+      "linkId": "A2",
+      "title": "the patient performs aerobic exercises three times per day",
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end"
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "frequency": 3,
+          "period": 144,
+          "periodUnit": "s",
+          "duration": 3,
+          "durationMax": 3,
+          "durationUnit": "s",
+          "boundsDuration": {
+            "value": 4320,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          }
+        },
+        "code": {
+          "text": "3 seconds; 3 occurrence(s) every 144 seconds; for 4320 seconds"
+        }
+      },
+      "definitionCanonical": "ActivityDefinition/1001",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "aerobic exercises",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"1386227007\", \"display\": \"Aerobic exercise\"}], \"text\": \"aerobic exercises\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P06A2"
+      }
+    },
+    {
+      "linkId": "A3",
+      "title": "monitoring heart rate three times per day",
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end"
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "frequency": 3,
+          "period": 144,
+          "periodUnit": "s",
+          "boundsDuration": {
+            "value": 4320,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          }
+        },
+        "code": {
+          "text": "3 occurrence(s) every 144 seconds; for 4320 seconds"
+        }
+      },
+      "definitionCanonical": "ActivityDefinition/1058",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "heart rate",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"364075005\", \"display\": \"Heart rate\"}], \"text\": \"heart rate\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P06A3"
+      }
+    },
+    {
+      "linkId": "A4",
+      "title": "The patient subsequently completes a general health questionnaire",
+      "relatedAction": [
+        {
+          "targetId": "A2",
+          "relationship": "after-end"
+        },
+        {
+          "targetId": "A3",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1002",
+      "dynamicValue": [
+        {
+          "path": "supportingInfo[0].reference",
+          "expression": {
+            "description": "general health questionnaire",
+            "language": "text/fhirpath",
+            "expression": "Questionnaire/Q4"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P06A4"
+      }
+    }
+  ]
+}

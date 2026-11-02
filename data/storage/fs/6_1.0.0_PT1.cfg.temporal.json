@@ -1,0 +1,564 @@
+{
+  "cfg_type": "temporal",
+  "id": "6",
+  "version": "1.0.0",
+  "title": "Cardiac Rehabilitation After Myocardial Infarction",
+  "name": "P06",
+  "description": "The patient undergoes cardiac rehabilitation therapy. After that, the patient performs aerobic exercises three times per day while monitoring heart rate. The patient subsequently completes a general health questionnaire.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient undergoes cardiac rehabilitation therapy",
+      "activity_definition": "1057",
+      "fhir_temporal_constraint": {
+        "label": "2026-10-19T09:00:00+02:00",
+        "period": null,
+        "period_max": null,
+        "period_unit": null,
+        "frequency": null,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": "2026-10-19T09:00:00+02:00",
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"313395003\", \"display\": \"Cardiac rehabilitation\"}], \"text\": \"cardiac rehabilitation therapy\"}"
+      },
+      "incoming": [
+        "timer_node_1_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_div_gat_1"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "The patient subsequently completes a general health questionnaire",
+      "activity_definition": "1002",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "supportingInfo[0].reference": "Questionnaire/Q4"
+      },
+      "incoming": [
+        "conv_gat_2_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_end_node"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_timer_node_1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "A4_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "div_gat_1": {
+      "id": "div_gat_1",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "A1_to_div_gat_1"
+      ],
+      "outgoing": [
+        "div_gat_1_to_block_node_1",
+        "div_gat_1_to_block_node_2"
+      ]
+    },
+    "conv_gat_2": {
+      "id": "conv_gat_2",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "block_node_1_to_conv_gat_2",
+        "block_node_2_to_conv_gat_2"
+      ],
+      "outgoing": [
+        "conv_gat_2_to_A4"
+      ]
+    },
+    "block_node_1": {
+      "id": "block_node_1",
+      "node_type": "BlockNode",
+      "title": null,
+      "nodes": {
+        "A2": {
+          "id": "A2",
+          "node_type": "ActionNode",
+          "title": "the patient performs aerobic exercises three times per day",
+          "activity_definition": "1001",
+          "fhir_temporal_constraint": {
+            "label": "3 seconds; 3 occurrence(s) every 144 seconds; for 4320 seconds",
+            "period": 144.0,
+            "period_max": null,
+            "period_unit": "s",
+            "frequency": 3,
+            "frequency_max": null,
+            "count": null,
+            "count_max": null,
+            "day_of_week": [],
+            "time_of_day": [],
+            "when": [],
+            "offset": null,
+            "code": null,
+            "duration": 3.0,
+            "duration_unit": "s",
+            "duration_max": 3.0,
+            "bounds_duration": 4320.0,
+            "bounds_duration_unit": "s",
+            "bounds_period_start": null,
+            "bounds_period_end": null,
+            "event": null,
+            "offset_duration": null,
+            "offset_duration_unit": null
+          },
+          "temporal_constraint": {
+            "action_id": "A2",
+            "temporal_category": "execution_duration",
+            "label": "3 seconds",
+            "duration": 3.0,
+            "duration_unit": "s"
+          },
+          "attributes": {
+            "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"1386227007\", \"display\": \"Aerobic exercise\"}], \"text\": \"aerobic exercises\"}"
+          },
+          "incoming": [
+            "block_timer_start_event_1_to_A2"
+          ],
+          "outgoing": [
+            "A2_to_boundary_node_1",
+            "A2_to_conv_bound_1"
+          ]
+        },
+        "block_timer_start_event_1": {
+          "id": "block_timer_start_event_1",
+          "node_type": "TimerEventNode",
+          "event_type": "start",
+          "temporal_constraint": {
+            "action_id": "A2",
+            "temporal_category": "standard_cycle",
+            "label": "3 occurrence(s) every 144 seconds",
+            "period": 144.0,
+            "period_max": null,
+            "period_unit": "s",
+            "frequency": 3,
+            "frequency_max": null,
+            "count": null,
+            "count_max": null
+          },
+          "incoming": [],
+          "outgoing": [
+            "block_timer_start_event_1_to_A2"
+          ]
+        },
+        "block_end_event_1": {
+          "id": "block_end_event_1",
+          "node_type": "EventNode",
+          "event_type": "end",
+          "incoming": [
+            "conv_bound_1_to_block_end_event_1"
+          ],
+          "outgoing": []
+        },
+        "ka_start_event_1": {
+          "id": "ka_start_event_1",
+          "node_type": "EventNode",
+          "event_type": "start",
+          "incoming": [],
+          "outgoing": [
+            "ka_start_event_1_to_ka_timer_event_1"
+          ]
+        },
+        "ka_timer_event_1": {
+          "id": "ka_timer_event_1",
+          "node_type": "TimerEventNode",
+          "event_type": "intermediate",
+          "temporal_constraint": {
+            "action_id": "A2",
+            "temporal_category": "keep_alive_bound",
+            "label": "for 4320 seconds",
+            "bounds_duration": 4320.0,
+            "bounds_duration_unit": "s",
+            "bounds_period_start": null,
+            "bounds_period_end": null
+          },
+          "incoming": [
+            "ka_start_event_1_to_ka_timer_event_1"
+          ],
+          "outgoing": [
+            "ka_timer_event_1_to_ka_end_event_1"
+          ]
+        },
+        "ka_end_event_1": {
+          "id": "ka_end_event_1",
+          "node_type": "EventNode",
+          "event_type": "end",
+          "incoming": [
+            "ka_timer_event_1_to_ka_end_event_1"
+          ],
+          "outgoing": []
+        },
+        "boundary_node_1": {
+          "id": "boundary_node_1",
+          "node_type": "TimerEventNode",
+          "event_type": "boundary",
+          "temporal_constraint": {
+            "action_id": "A2",
+            "temporal_category": "execution_bound",
+            "label": "3 seconds",
+            "duration_max": 3.0,
+            "duration_unit": "s",
+            "bounds_duration": 4320.0,
+            "bounds_duration_unit": "s"
+          },
+          "incoming": [
+            "A2_to_boundary_node_1"
+          ],
+          "outgoing": [
+            "boundary_node_1_to_conv_bound_1"
+          ]
+        },
+        "conv_bound_1": {
+          "id": "conv_bound_1",
+          "node_type": "GatewayNode",
+          "gateway_class": "exclusive",
+          "gateway_direction": "convergent",
+          "incoming": [
+            "A2_to_conv_bound_1",
+            "boundary_node_1_to_conv_bound_1"
+          ],
+          "outgoing": [
+            "conv_bound_1_to_block_end_event_1"
+          ]
+        }
+      },
+      "edges": {
+        "block_timer_start_event_1_to_A2": {
+          "id": "block_timer_start_event_1_to_A2",
+          "source": "block_timer_start_event_1",
+          "target": "A2",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "ka_start_event_1_to_ka_timer_event_1": {
+          "id": "ka_start_event_1_to_ka_timer_event_1",
+          "source": "ka_start_event_1",
+          "target": "ka_timer_event_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "ka_timer_event_1_to_ka_end_event_1": {
+          "id": "ka_timer_event_1_to_ka_end_event_1",
+          "source": "ka_timer_event_1",
+          "target": "ka_end_event_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "conv_bound_1_to_block_end_event_1": {
+          "id": "conv_bound_1_to_block_end_event_1",
+          "source": "conv_bound_1",
+          "target": "block_end_event_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "A2_to_boundary_node_1": {
+          "id": "A2_to_boundary_node_1",
+          "source": "A2",
+          "target": "boundary_node_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "A2_to_conv_bound_1": {
+          "id": "A2_to_conv_bound_1",
+          "source": "A2",
+          "target": "conv_bound_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "boundary_node_1_to_conv_bound_1": {
+          "id": "boundary_node_1_to_conv_bound_1",
+          "source": "boundary_node_1",
+          "target": "conv_bound_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        }
+      },
+      "incoming": [
+        "div_gat_1_to_block_node_1"
+      ],
+      "outgoing": [
+        "block_node_1_to_conv_gat_2"
+      ]
+    },
+    "block_node_2": {
+      "id": "block_node_2",
+      "node_type": "BlockNode",
+      "title": null,
+      "nodes": {
+        "A3": {
+          "id": "A3",
+          "node_type": "ActionNode",
+          "title": "monitoring heart rate three times per day",
+          "activity_definition": "1058",
+          "fhir_temporal_constraint": {
+            "label": "3 occurrence(s) every 144 seconds; for 4320 seconds",
+            "period": 144.0,
+            "period_max": null,
+            "period_unit": "s",
+            "frequency": 3,
+            "frequency_max": null,
+            "count": null,
+            "count_max": null,
+            "day_of_week": [],
+            "time_of_day": [],
+            "when": [],
+            "offset": null,
+            "code": null,
+            "duration": null,
+            "duration_unit": null,
+            "duration_max": null,
+            "bounds_duration": 4320.0,
+            "bounds_duration_unit": "s",
+            "bounds_period_start": null,
+            "bounds_period_end": null,
+            "event": null,
+            "offset_duration": null,
+            "offset_duration_unit": null
+          },
+          "temporal_constraint": null,
+          "attributes": {
+            "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"364075005\", \"display\": \"Heart rate\"}], \"text\": \"heart rate\"}"
+          },
+          "incoming": [
+            "block_timer_start_event_2_to_A3"
+          ],
+          "outgoing": [
+            "A3_to_block_end_event_2"
+          ]
+        },
+        "block_timer_start_event_2": {
+          "id": "block_timer_start_event_2",
+          "node_type": "TimerEventNode",
+          "event_type": "start",
+          "temporal_constraint": {
+            "action_id": "A3",
+            "temporal_category": "standard_cycle",
+            "label": "3 occurrence(s) every 144 seconds",
+            "period": 144.0,
+            "period_max": null,
+            "period_unit": "s",
+            "frequency": 3,
+            "frequency_max": null,
+            "count": null,
+            "count_max": null
+          },
+          "incoming": [],
+          "outgoing": [
+            "block_timer_start_event_2_to_A3"
+          ]
+        },
+        "block_end_event_2": {
+          "id": "block_end_event_2",
+          "node_type": "EventNode",
+          "event_type": "end",
+          "incoming": [
+            "A3_to_block_end_event_2"
+          ],
+          "outgoing": []
+        },
+        "ka_start_event_2": {
+          "id": "ka_start_event_2",
+          "node_type": "EventNode",
+          "event_type": "start",
+          "incoming": [],
+          "outgoing": [
+            "ka_start_event_2_to_ka_timer_event_2"
+          ]
+        },
+        "ka_timer_event_2": {
+          "id": "ka_timer_event_2",
+          "node_type": "TimerEventNode",
+          "event_type": "intermediate",
+          "temporal_constraint": {
+            "action_id": "A3",
+            "temporal_category": "keep_alive_bound",
+            "label": "for 4320 seconds",
+            "bounds_duration": 4320.0,
+            "bounds_duration_unit": "s",
+            "bounds_period_start": null,
+            "bounds_period_end": null
+          },
+          "incoming": [
+            "ka_start_event_2_to_ka_timer_event_2"
+          ],
+          "outgoing": [
+            "ka_timer_event_2_to_ka_end_event_2"
+          ]
+        },
+        "ka_end_event_2": {
+          "id": "ka_end_event_2",
+          "node_type": "EventNode",
+          "event_type": "end",
+          "incoming": [
+            "ka_timer_event_2_to_ka_end_event_2"
+          ],
+          "outgoing": []
+        }
+      },
+      "edges": {
+        "block_timer_start_event_2_to_A3": {
+          "id": "block_timer_start_event_2_to_A3",
+          "source": "block_timer_start_event_2",
+          "target": "A3",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "A3_to_block_end_event_2": {
+          "id": "A3_to_block_end_event_2",
+          "source": "A3",
+          "target": "block_end_event_2",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "ka_start_event_2_to_ka_timer_event_2": {
+          "id": "ka_start_event_2_to_ka_timer_event_2",
+          "source": "ka_start_event_2",
+          "target": "ka_timer_event_2",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "ka_timer_event_2_to_ka_end_event_2": {
+          "id": "ka_timer_event_2_to_ka_end_event_2",
+          "source": "ka_timer_event_2",
+          "target": "ka_end_event_2",
+          "relationship": "after-end",
+          "execution_condition": null
+        }
+      },
+      "incoming": [
+        "div_gat_1_to_block_node_2"
+      ],
+      "outgoing": [
+        "block_node_2_to_conv_gat_2"
+      ]
+    },
+    "timer_node_1": {
+      "id": "timer_node_1",
+      "node_type": "TimerEventNode",
+      "event_type": "intermediate",
+      "temporal_constraint": {
+        "action_id": "A1",
+        "temporal_category": "exact",
+        "label": "2026-10-19T09:00:00+02:00",
+        "event": "2026-10-19T09:00:00+02:00"
+      },
+      "incoming": [
+        "start_node_to_timer_node_1"
+      ],
+      "outgoing": [
+        "timer_node_1_to_A1"
+      ]
+    }
+  },
+  "edges": {
+    "A4_to_end_node": {
+      "id": "A4_to_end_node",
+      "source": "A4",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A1_to_div_gat_1": {
+      "id": "A1_to_div_gat_1",
+      "source": "A1",
+      "target": "div_gat_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "conv_gat_2_to_A4": {
+      "id": "conv_gat_2_to_A4",
+      "source": "conv_gat_2",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_1_to_block_node_1": {
+      "id": "div_gat_1_to_block_node_1",
+      "source": "div_gat_1",
+      "target": "block_node_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "block_node_1_to_conv_gat_2": {
+      "id": "block_node_1_to_conv_gat_2",
+      "source": "block_node_1",
+      "target": "conv_gat_2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_1_to_block_node_2": {
+      "id": "div_gat_1_to_block_node_2",
+      "source": "div_gat_1",
+      "target": "block_node_2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "block_node_2_to_conv_gat_2": {
+      "id": "block_node_2_to_conv_gat_2",
+      "source": "block_node_2",
+      "target": "conv_gat_2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_timer_node_1": {
+      "id": "start_node_to_timer_node_1",
+      "source": "start_node",
+      "target": "timer_node_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "timer_node_1_to_A1": {
+      "id": "timer_node_1_to_A1",
+      "source": "timer_node_1",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    }
+  },
+  "graph_type": "instance",
+  "subject_id": "PT1",
+  "request_orchestration_id": "6"
+}

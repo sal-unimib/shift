@@ -1,0 +1,303 @@
+{
+  "cfg_type": "classic",
+  "id": "20",
+  "version": "1.0.0",
+  "title": "Chronic Wound Management Pathway",
+  "name": "P20",
+  "description": "The patient completes a wound assessment survey and undergoes specimen collection. If infection is suspected, therapeutic intervention is initiated. Subsequently, the patient follows a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control, while takes amoxicillin 1 g every 8 hours for 7 days, and attends a follow-up visit after four weeks.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient completes a wound assessment survey",
+      "activity_definition": "1002",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "supportingInfo[0].reference": "Questionnaire/Q7"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_A3",
+        "A1_to_F1"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "The patient undergoes specimen collection",
+      "activity_definition": "1053",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "start_node_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_A3",
+        "A2_to_F1"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "If infection is suspected, therapeutic intervention is initiated",
+      "activity_definition": "1057",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "A1_to_A3",
+        "A2_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_A4",
+        "A3_to_A5",
+        "A3_to_A6"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "the patient follows a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control",
+      "activity_definition": "1054",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "oralDiet.instruction": "\"a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control\""
+      },
+      "incoming": [
+        "A3_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_end_node"
+      ]
+    },
+    "A5": {
+      "id": "A5",
+      "node_type": "ActionNode",
+      "title": "the patient takes amoxicillin 1 g every 8 hours for 7 days",
+      "activity_definition": "1000",
+      "fhir_temporal_constraint": {
+        "label": "Every 8 hour; for 7 days",
+        "period": 8.0,
+        "period_max": null,
+        "period_unit": "h",
+        "frequency": 1,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": 7.0,
+        "bounds_duration_unit": "d",
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "medication.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"372687004\", \"display\": \"Amoxicillin\"}], \"text\": \"amoxicillin\"}",
+        "dosageInstruction[0].doseAndRate[0]": "{\"doseQuantity\": {\"value\": 1.0, \"unit\": \"mg\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"mg\"}}"
+      },
+      "incoming": [
+        "A3_to_A5"
+      ],
+      "outgoing": [
+        "A5_to_end_node"
+      ]
+    },
+    "A6": {
+      "id": "A6",
+      "node_type": "ActionNode",
+      "title": "The patient attends a follow-up visit after four weeks",
+      "activity_definition": "1059",
+      "fhir_temporal_constraint": {
+        "label": "4 wk",
+        "period": null,
+        "period_max": null,
+        "period_unit": null,
+        "frequency": null,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": 4.0,
+        "offset_duration_unit": "wk"
+      },
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "A3_to_A6"
+      ],
+      "outgoing": [
+        "A6_to_end_node"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1",
+        "start_node_to_A2"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "A4_to_end_node",
+        "A5_to_end_node",
+        "A6_to_end_node",
+        "F1_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "F1": {
+      "id": "F1",
+      "node_type": "FakeNode",
+      "incoming": [
+        "A1_to_F1",
+        "A2_to_F1"
+      ],
+      "outgoing": [
+        "F1_to_end_node"
+      ]
+    }
+  },
+  "edges": {
+    "A1_to_A3": {
+      "id": "A1_to_A3",
+      "source": "A1",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%specimen_result = \"abnormal\"",
+        "description": "If infection is suspected"
+      }
+    },
+    "A2_to_A3": {
+      "id": "A2_to_A3",
+      "source": "A2",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%specimen_result = \"abnormal\"",
+        "description": "If infection is suspected"
+      }
+    },
+    "A3_to_A4": {
+      "id": "A3_to_A4",
+      "source": "A3",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_A5": {
+      "id": "A3_to_A5",
+      "source": "A3",
+      "target": "A5",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_A6": {
+      "id": "A3_to_A6",
+      "source": "A3",
+      "target": "A6",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_A2": {
+      "id": "start_node_to_A2",
+      "source": "start_node",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A4_to_end_node": {
+      "id": "A4_to_end_node",
+      "source": "A4",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A5_to_end_node": {
+      "id": "A5_to_end_node",
+      "source": "A5",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A6_to_end_node": {
+      "id": "A6_to_end_node",
+      "source": "A6",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A1_to_F1": {
+      "id": "A1_to_F1",
+      "source": "A1",
+      "target": "F1",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "F1_to_end_node": {
+      "id": "F1_to_end_node",
+      "source": "F1",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "A2_to_F1": {
+      "id": "A2_to_F1",
+      "source": "A2",
+      "target": "F1",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    }
+  }
+}

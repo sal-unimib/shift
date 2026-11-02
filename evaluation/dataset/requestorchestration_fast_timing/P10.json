@@ -1,0 +1,160 @@
+{
+  "resourceType": "RequestOrchestration",
+  "id": "10",
+  "instantiatesCanonical": [
+    "http://localhost:8080/fhir/PlanDefinition/10|1.0.0"
+  ],
+  "status": "draft",
+  "intent": "plan",
+  "subject": {
+    "reference": "Patient/PT1"
+  },
+  "action": [
+    {
+      "linkId": "A1",
+      "title": "The patient completes anamnesis",
+      "definitionCanonical": "ActivityDefinition/1002",
+      "dynamicValue": [
+        {
+          "path": "supportingInfo[0].reference",
+          "expression": {
+            "description": "anamnesis",
+            "language": "text/fhirpath",
+            "expression": "Questionnaire/Q5"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P10A1"
+      }
+    },
+    {
+      "linkId": "A2",
+      "title": "blood sample collection",
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1053",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "blood sample",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"119297000\", \"display\": \"Blood specimen\"}], \"text\": \"blood sample\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P10A2"
+      }
+    },
+    {
+      "linkId": "A3",
+      "title": "ECG recording",
+      "relatedAction": [
+        {
+          "targetId": "A2",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1058",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "ECG",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"29303009\", \"display\": \"Electrocardiographic procedure\"}], \"text\": \"ECG\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P10A3"
+      }
+    },
+    {
+      "linkId": "A4",
+      "title": "chest X-ray examination",
+      "relatedAction": [
+        {
+          "targetId": "A3",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1056",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "chest X-ray",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"399208008\", \"display\": \"Plain X-ray of chest\"}], \"text\": \"chest X-ray\"}"
+          }
+        },
+        {
+          "path": "bodySite.concept",
+          "expression": {
+            "description": "chest",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"51185008\", \"display\": \"Thoracic structure\"}], \"text\": \"chest\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P10A4"
+      }
+    },
+    {
+      "linkId": "A5",
+      "title": "The patient then undergoes an anaesthesia consultation",
+      "relatedAction": [
+        {
+          "targetId": "A4",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1059",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "anaesthesia consultation",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"398228004\", \"display\": \"Anesthesia consultation\"}], \"text\": \"anaesthesia consultation\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P10A5"
+      }
+    },
+    {
+      "linkId": "A6",
+      "title": "The patient receives preoperative education regarding the surgical procedure",
+      "relatedAction": [
+        {
+          "targetId": "A5",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1055",
+      "dynamicValue": [
+        {
+          "path": "patientInstruction[0].instructionReference",
+          "expression": {
+            "description": "preoperative education on surgical procedure",
+            "language": "text/fhirpath",
+            "expression": "DocumentReference/D5"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P10A6"
+      }
+    }
+  ]
+}

@@ -1,0 +1,538 @@
+{
+  "cfg_type": "temporal",
+  "id": "20",
+  "version": "1.0.0",
+  "title": "Chronic Wound Management Pathway",
+  "name": "P20",
+  "description": "The patient completes a wound assessment survey and undergoes specimen collection. If infection is suspected, therapeutic intervention is initiated. Subsequently, the patient follows a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control, while takes amoxicillin 1 g every 8 hours for 7 days, and attends a follow-up visit after four weeks.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient completes a wound assessment survey",
+      "activity_definition": "1002",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "supportingInfo[0].reference": "Questionnaire/Q7"
+      },
+      "incoming": [
+        "div_gat_1_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_synchronized_choice_1_join"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "The patient undergoes specimen collection",
+      "activity_definition": "1053",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "div_gat_1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_synchronized_choice_1_join"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "If infection is suspected, therapeutic intervention is initiated",
+      "activity_definition": "1057",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "div_gat_4_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_div_gat_2"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "the patient follows a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control",
+      "activity_definition": "1054",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "oralDiet.instruction": "\"a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control\""
+      },
+      "incoming": [
+        "div_gat_2_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_conv_gat_3"
+      ]
+    },
+    "A6": {
+      "id": "A6",
+      "node_type": "ActionNode",
+      "title": "The patient attends a follow-up visit after four weeks",
+      "activity_definition": "1059",
+      "fhir_temporal_constraint": {
+        "label": "4 wk",
+        "period": null,
+        "period_max": null,
+        "period_unit": null,
+        "frequency": null,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": 4.0,
+        "offset_duration_unit": "wk"
+      },
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "timer_node_1_to_A6"
+      ],
+      "outgoing": [
+        "A6_to_conv_gat_3"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_div_gat_1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "conv_gat_5_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "F1": {
+      "id": "F1",
+      "node_type": "FakeNode",
+      "incoming": [
+        "div_gat_4_to_F1"
+      ],
+      "outgoing": [
+        "F1_to_conv_gat_5"
+      ]
+    },
+    "synchronized_choice_1_join": {
+      "id": "synchronized_choice_1_join",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "A1_to_synchronized_choice_1_join",
+        "A2_to_synchronized_choice_1_join"
+      ],
+      "outgoing": [
+        "synchronized_choice_1_join_to_div_gat_4"
+      ]
+    },
+    "div_gat_1": {
+      "id": "div_gat_1",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "start_node_to_div_gat_1"
+      ],
+      "outgoing": [
+        "div_gat_1_to_A1",
+        "div_gat_1_to_A2"
+      ]
+    },
+    "div_gat_2": {
+      "id": "div_gat_2",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "A3_to_div_gat_2"
+      ],
+      "outgoing": [
+        "div_gat_2_to_A4",
+        "div_gat_2_to_block_node_1",
+        "div_gat_2_to_timer_node_1"
+      ]
+    },
+    "conv_gat_3": {
+      "id": "conv_gat_3",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "A4_to_conv_gat_3",
+        "A6_to_conv_gat_3",
+        "block_node_1_to_conv_gat_3"
+      ],
+      "outgoing": [
+        "conv_gat_3_to_conv_gat_5"
+      ]
+    },
+    "div_gat_4": {
+      "id": "div_gat_4",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "synchronized_choice_1_join_to_div_gat_4"
+      ],
+      "outgoing": [
+        "div_gat_4_to_A3",
+        "div_gat_4_to_F1"
+      ]
+    },
+    "conv_gat_5": {
+      "id": "conv_gat_5",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "F1_to_conv_gat_5",
+        "conv_gat_3_to_conv_gat_5"
+      ],
+      "outgoing": [
+        "conv_gat_5_to_end_node"
+      ]
+    },
+    "block_node_1": {
+      "id": "block_node_1",
+      "node_type": "BlockNode",
+      "title": null,
+      "nodes": {
+        "A5": {
+          "id": "A5",
+          "node_type": "ActionNode",
+          "title": "the patient takes amoxicillin 1 g every 8 hours for 7 days",
+          "activity_definition": "1000",
+          "fhir_temporal_constraint": {
+            "label": "Every 8 hour; for 7 days",
+            "period": 8.0,
+            "period_max": null,
+            "period_unit": "h",
+            "frequency": 1,
+            "frequency_max": null,
+            "count": null,
+            "count_max": null,
+            "day_of_week": [],
+            "time_of_day": [],
+            "when": [],
+            "offset": null,
+            "code": null,
+            "duration": null,
+            "duration_unit": null,
+            "duration_max": null,
+            "bounds_duration": 7.0,
+            "bounds_duration_unit": "d",
+            "bounds_period_start": null,
+            "bounds_period_end": null,
+            "event": null,
+            "offset_duration": null,
+            "offset_duration_unit": null
+          },
+          "temporal_constraint": null,
+          "attributes": {
+            "medication.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"372687004\", \"display\": \"Amoxicillin\"}], \"text\": \"amoxicillin\"}",
+            "dosageInstruction[0].doseAndRate[0]": "{\"doseQuantity\": {\"value\": 1.0, \"unit\": \"mg\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"mg\"}}"
+          },
+          "incoming": [
+            "block_timer_start_event_1_to_A5"
+          ],
+          "outgoing": [
+            "A5_to_block_end_event_1"
+          ]
+        },
+        "block_timer_start_event_1": {
+          "id": "block_timer_start_event_1",
+          "node_type": "TimerEventNode",
+          "event_type": "start",
+          "temporal_constraint": {
+            "action_id": "A5",
+            "temporal_category": "standard_cycle",
+            "label": "Every 8 hour",
+            "period": 8.0,
+            "period_max": null,
+            "period_unit": "h",
+            "frequency": 1,
+            "frequency_max": null,
+            "count": null,
+            "count_max": null
+          },
+          "incoming": [],
+          "outgoing": [
+            "block_timer_start_event_1_to_A5"
+          ]
+        },
+        "block_end_event_1": {
+          "id": "block_end_event_1",
+          "node_type": "EventNode",
+          "event_type": "end",
+          "incoming": [
+            "A5_to_block_end_event_1"
+          ],
+          "outgoing": []
+        },
+        "ka_start_event_1": {
+          "id": "ka_start_event_1",
+          "node_type": "EventNode",
+          "event_type": "start",
+          "incoming": [],
+          "outgoing": [
+            "ka_start_event_1_to_ka_timer_event_1"
+          ]
+        },
+        "ka_timer_event_1": {
+          "id": "ka_timer_event_1",
+          "node_type": "TimerEventNode",
+          "event_type": "intermediate",
+          "temporal_constraint": {
+            "action_id": "A5",
+            "temporal_category": "keep_alive_bound",
+            "label": "for 7 days",
+            "bounds_duration": 7.0,
+            "bounds_duration_unit": "d",
+            "bounds_period_start": null,
+            "bounds_period_end": null
+          },
+          "incoming": [
+            "ka_start_event_1_to_ka_timer_event_1"
+          ],
+          "outgoing": [
+            "ka_timer_event_1_to_ka_end_event_1"
+          ]
+        },
+        "ka_end_event_1": {
+          "id": "ka_end_event_1",
+          "node_type": "EventNode",
+          "event_type": "end",
+          "incoming": [
+            "ka_timer_event_1_to_ka_end_event_1"
+          ],
+          "outgoing": []
+        }
+      },
+      "edges": {
+        "block_timer_start_event_1_to_A5": {
+          "id": "block_timer_start_event_1_to_A5",
+          "source": "block_timer_start_event_1",
+          "target": "A5",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "A5_to_block_end_event_1": {
+          "id": "A5_to_block_end_event_1",
+          "source": "A5",
+          "target": "block_end_event_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "ka_start_event_1_to_ka_timer_event_1": {
+          "id": "ka_start_event_1_to_ka_timer_event_1",
+          "source": "ka_start_event_1",
+          "target": "ka_timer_event_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "ka_timer_event_1_to_ka_end_event_1": {
+          "id": "ka_timer_event_1_to_ka_end_event_1",
+          "source": "ka_timer_event_1",
+          "target": "ka_end_event_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        }
+      },
+      "incoming": [
+        "div_gat_2_to_block_node_1"
+      ],
+      "outgoing": [
+        "block_node_1_to_conv_gat_3"
+      ]
+    },
+    "timer_node_1": {
+      "id": "timer_node_1",
+      "node_type": "TimerEventNode",
+      "event_type": "intermediate",
+      "temporal_constraint": {
+        "action_id": "A6",
+        "temporal_category": "offset",
+        "label": "4 wk",
+        "offset_duration": 4.0,
+        "offset_duration_unit": "wk"
+      },
+      "incoming": [
+        "div_gat_2_to_timer_node_1"
+      ],
+      "outgoing": [
+        "timer_node_1_to_A6"
+      ]
+    }
+  },
+  "edges": {
+    "A1_to_synchronized_choice_1_join": {
+      "id": "A1_to_synchronized_choice_1_join",
+      "source": "A1",
+      "target": "synchronized_choice_1_join",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_synchronized_choice_1_join": {
+      "id": "A2_to_synchronized_choice_1_join",
+      "source": "A2",
+      "target": "synchronized_choice_1_join",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_div_gat_1": {
+      "id": "start_node_to_div_gat_1",
+      "source": "start_node",
+      "target": "div_gat_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_1_to_A1": {
+      "id": "div_gat_1_to_A1",
+      "source": "div_gat_1",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_1_to_A2": {
+      "id": "div_gat_1_to_A2",
+      "source": "div_gat_1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_div_gat_2": {
+      "id": "A3_to_div_gat_2",
+      "source": "A3",
+      "target": "div_gat_2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_2_to_A4": {
+      "id": "div_gat_2_to_A4",
+      "source": "div_gat_2",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A4_to_conv_gat_3": {
+      "id": "A4_to_conv_gat_3",
+      "source": "A4",
+      "target": "conv_gat_3",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A6_to_conv_gat_3": {
+      "id": "A6_to_conv_gat_3",
+      "source": "A6",
+      "target": "conv_gat_3",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_4_to_A3": {
+      "id": "div_gat_4_to_A3",
+      "source": "div_gat_4",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%specimen_result = \"abnormal\"",
+        "description": "If infection is suspected"
+      }
+    },
+    "div_gat_4_to_F1": {
+      "id": "div_gat_4_to_F1",
+      "source": "div_gat_4",
+      "target": "F1",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "F1_to_conv_gat_5": {
+      "id": "F1_to_conv_gat_5",
+      "source": "F1",
+      "target": "conv_gat_5",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "conv_gat_3_to_conv_gat_5": {
+      "id": "conv_gat_3_to_conv_gat_5",
+      "source": "conv_gat_3",
+      "target": "conv_gat_5",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "conv_gat_5_to_end_node": {
+      "id": "conv_gat_5_to_end_node",
+      "source": "conv_gat_5",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "synchronized_choice_1_join_to_div_gat_4": {
+      "id": "synchronized_choice_1_join_to_div_gat_4",
+      "source": "synchronized_choice_1_join",
+      "target": "div_gat_4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_2_to_block_node_1": {
+      "id": "div_gat_2_to_block_node_1",
+      "source": "div_gat_2",
+      "target": "block_node_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "block_node_1_to_conv_gat_3": {
+      "id": "block_node_1_to_conv_gat_3",
+      "source": "block_node_1",
+      "target": "conv_gat_3",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_2_to_timer_node_1": {
+      "id": "div_gat_2_to_timer_node_1",
+      "source": "div_gat_2",
+      "target": "timer_node_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "timer_node_1_to_A6": {
+      "id": "timer_node_1_to_A6",
+      "source": "timer_node_1",
+      "target": "A6",
+      "relationship": "after-end",
+      "execution_condition": null
+    }
+  }
+}

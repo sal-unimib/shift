@@ -1,0 +1,23 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P03A1",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"365812005\", \"display\": \"Finding of blood glucose level\"}], \"text\": \"blood glucose\"}"
+  },
+  "A2": {
+    "resource": "CommunicationRequest/P03A2",
+    "1051_priority": "asap",
+    "1051_payload": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Glucose level alert\", \"data\": \"R2x1Y29zZSBsZXZlbCBpcyBhYm92ZSAyMDAgbWcvZEw=\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "Practitioner/PR1",
+    "1051_information_provider": null
+  },
+  "A3": {
+    "resource": "ServiceRequest/P03A3",
+    "1001_exercise_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"129006008\", \"display\": \"Walking\"}], \"text\": \"walking session\"}"
+  },
+  "TC_A1_cycle": "R/P1D",
+  "TC_A3_execution_duration": "PT30M",
+  "TC_A1_keep_alive_bound": "P6M",
+  "glucose_level": null
+}

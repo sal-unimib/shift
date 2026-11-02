@@ -1,0 +1,337 @@
+{
+  "cfg_type": "temporal",
+  "id": "1",
+  "version": "1.0.0",
+  "title": "Postoperative Rehabilitation Initiation",
+  "name": "P01",
+  "description": "The patient undergoes surgery procedure. One week later, a specialist follow-up visit is performed. Subsequently, the patient completes a clinical questionnaire and receives education on generic home rehabilitation program. The patient then performs the rehabilitation exercises daily for four weeks.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient undergoes surgery procedure",
+      "activity_definition": "1052",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"387713003\", \"display\": \"Surgical procedure\"}], \"text\": \"surgery procedure\"}"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_timer_node_1"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "One week later, a specialist follow-up visit is performed",
+      "activity_definition": "1059",
+      "fhir_temporal_constraint": {
+        "label": "1 wk",
+        "period": null,
+        "period_max": null,
+        "period_unit": null,
+        "frequency": null,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": 1.0,
+        "offset_duration_unit": "wk"
+      },
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "timer_node_1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_A3"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "the patient completes a clinical questionnaire",
+      "activity_definition": "1002",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "A2_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_A4"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "The patient receives education on generic home rehabilitation program",
+      "activity_definition": "1055",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "patientInstruction[0].instructionReference": "DocumentReference/D1"
+      },
+      "incoming": [
+        "A3_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_block_node_1"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "block_node_1_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "block_node_1": {
+      "id": "block_node_1",
+      "node_type": "BlockNode",
+      "title": null,
+      "nodes": {
+        "A5": {
+          "id": "A5",
+          "node_type": "ActionNode",
+          "title": "The patient then performs the prescribed exercises daily for four weeks",
+          "activity_definition": "1001",
+          "fhir_temporal_constraint": {
+            "label": "daily; for four weeks",
+            "period": 1.0,
+            "period_max": null,
+            "period_unit": "d",
+            "frequency": 1,
+            "frequency_max": null,
+            "count": null,
+            "count_max": null,
+            "day_of_week": [],
+            "time_of_day": [],
+            "when": [],
+            "offset": null,
+            "code": null,
+            "duration": null,
+            "duration_unit": null,
+            "duration_max": null,
+            "bounds_duration": 4.0,
+            "bounds_duration_unit": "wk",
+            "bounds_period_start": null,
+            "bounds_period_end": null,
+            "event": null,
+            "offset_duration": null,
+            "offset_duration_unit": null
+          },
+          "temporal_constraint": null,
+          "attributes": {},
+          "incoming": [
+            "block_timer_start_event_1_to_A5"
+          ],
+          "outgoing": [
+            "A5_to_block_end_event_1"
+          ]
+        },
+        "block_timer_start_event_1": {
+          "id": "block_timer_start_event_1",
+          "node_type": "TimerEventNode",
+          "event_type": "start",
+          "temporal_constraint": {
+            "action_id": "A5",
+            "temporal_category": "standard_cycle",
+            "label": "daily",
+            "period": 1.0,
+            "period_max": null,
+            "period_unit": "d",
+            "frequency": 1,
+            "frequency_max": null,
+            "count": null,
+            "count_max": null
+          },
+          "incoming": [],
+          "outgoing": [
+            "block_timer_start_event_1_to_A5"
+          ]
+        },
+        "block_end_event_1": {
+          "id": "block_end_event_1",
+          "node_type": "EventNode",
+          "event_type": "end",
+          "incoming": [
+            "A5_to_block_end_event_1"
+          ],
+          "outgoing": []
+        },
+        "ka_start_event_1": {
+          "id": "ka_start_event_1",
+          "node_type": "EventNode",
+          "event_type": "start",
+          "incoming": [],
+          "outgoing": [
+            "ka_start_event_1_to_ka_timer_event_1"
+          ]
+        },
+        "ka_timer_event_1": {
+          "id": "ka_timer_event_1",
+          "node_type": "TimerEventNode",
+          "event_type": "intermediate",
+          "temporal_constraint": {
+            "action_id": "A5",
+            "temporal_category": "keep_alive_bound",
+            "label": "for four weeks",
+            "bounds_duration": 4.0,
+            "bounds_duration_unit": "wk",
+            "bounds_period_start": null,
+            "bounds_period_end": null
+          },
+          "incoming": [
+            "ka_start_event_1_to_ka_timer_event_1"
+          ],
+          "outgoing": [
+            "ka_timer_event_1_to_ka_end_event_1"
+          ]
+        },
+        "ka_end_event_1": {
+          "id": "ka_end_event_1",
+          "node_type": "EventNode",
+          "event_type": "end",
+          "incoming": [
+            "ka_timer_event_1_to_ka_end_event_1"
+          ],
+          "outgoing": []
+        }
+      },
+      "edges": {
+        "block_timer_start_event_1_to_A5": {
+          "id": "block_timer_start_event_1_to_A5",
+          "source": "block_timer_start_event_1",
+          "target": "A5",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "A5_to_block_end_event_1": {
+          "id": "A5_to_block_end_event_1",
+          "source": "A5",
+          "target": "block_end_event_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "ka_start_event_1_to_ka_timer_event_1": {
+          "id": "ka_start_event_1_to_ka_timer_event_1",
+          "source": "ka_start_event_1",
+          "target": "ka_timer_event_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        },
+        "ka_timer_event_1_to_ka_end_event_1": {
+          "id": "ka_timer_event_1_to_ka_end_event_1",
+          "source": "ka_timer_event_1",
+          "target": "ka_end_event_1",
+          "relationship": "after-end",
+          "execution_condition": null
+        }
+      },
+      "incoming": [
+        "A4_to_block_node_1"
+      ],
+      "outgoing": [
+        "block_node_1_to_end_node"
+      ]
+    },
+    "timer_node_1": {
+      "id": "timer_node_1",
+      "node_type": "TimerEventNode",
+      "event_type": "intermediate",
+      "temporal_constraint": {
+        "action_id": "A2",
+        "temporal_category": "offset",
+        "label": "1 wk",
+        "offset_duration": 1.0,
+        "offset_duration_unit": "wk"
+      },
+      "incoming": [
+        "A1_to_timer_node_1"
+      ],
+      "outgoing": [
+        "timer_node_1_to_A2"
+      ]
+    }
+  },
+  "edges": {
+    "A2_to_A3": {
+      "id": "A2_to_A3",
+      "source": "A2",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_A4": {
+      "id": "A3_to_A4",
+      "source": "A3",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A4_to_block_node_1": {
+      "id": "A4_to_block_node_1",
+      "source": "A4",
+      "target": "block_node_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "block_node_1_to_end_node": {
+      "id": "block_node_1_to_end_node",
+      "source": "block_node_1",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A1_to_timer_node_1": {
+      "id": "A1_to_timer_node_1",
+      "source": "A1",
+      "target": "timer_node_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "timer_node_1_to_A2": {
+      "id": "timer_node_1_to_A2",
+      "source": "timer_node_1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    }
+  }
+}

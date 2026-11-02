@@ -1,0 +1,132 @@
+{
+    "resourceType": "RequestOrchestration",
+    "id": "19",
+    "instantiatesCanonical": [
+        "http://localhost:8080/fhir/PlanDefinition/19|1.0.0"
+    ],
+    "status": "draft",
+    "intent": "plan",
+    "subject": {
+        "reference": "Patient/PT1"
+    },
+    "action": [
+        {
+            "linkId": "A1",
+            "title": "The patient completes a general health questionnaire",
+            "definitionCanonical": "ActivityDefinition/1002",
+            "dynamicValue": [
+                {
+                    "path": "supportingInfo[0].reference",
+                    "expression": {
+                        "description": "general health questionnaire",
+                        "language": "text/fhirpath",
+                        "expression": "Questionnaire/Q4"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P19A1"
+            }
+        },
+        {
+            "linkId": "A2",
+            "title": "The patient attends a geriatric specialist visit",
+            "relatedAction": [
+                {
+                    "targetId": "A1",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1059",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "geriatric specialist visit",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"90655003\", \"display\": \"Geriatrics specialist\"}], \"text\": \"geriatric specialist visit\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P19A2"
+            }
+        },
+        {
+            "linkId": "A3",
+            "title": "the patient receives education on the prescribed care plan",
+            "relatedAction": [
+                {
+                    "targetId": "A2",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1055",
+            "dynamicValue": [],
+            "resource": {
+                "reference": "ServiceRequest/P19A3"
+            }
+        },
+        {
+            "linkId": "A4",
+            "title": "the patient performs the prescribed exercises for 30 minutes",
+            "relatedAction": [
+                {
+                    "targetId": "A3",
+                    "relationship": "after-end"
+                }
+            ],
+            "timingTiming": {
+                "repeat": {
+                    "duration": 20,
+                    "durationMax": 30,
+                    "durationUnit": "min",
+                    "frequency": 3,
+                    "period": 1,
+                    "periodUnit": "wk"
+                },
+                "code": {
+                    "text": "For 20 minutes; 30 minutes; 3 times per week"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1001",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "balance exercise",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"386293009\", \"display\": \"Balance exercise\"}], \"text\": \"balance exercise\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P19A4"
+            }
+        },
+        {
+            "linkId": "A5",
+            "title": "the patient follows a protein-rich Mediterranean diet with adequate hydration and soft-textured foods",
+            "relatedAction": [
+                {
+                    "targetId": "A3",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1054",
+            "dynamicValue": [
+                {
+                    "path": "oralDiet.instruction",
+                    "expression": {
+                        "description": "protein-rich Mediterranean diet with adequate hydration and soft-textured foods",
+                        "language": "text/fhirpath",
+                        "expression": "\"protein-rich Mediterranean diet with adequate hydration and soft-textured foods\""
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "NutritionOrder/P19A5"
+            }
+        }
+    ]
+}

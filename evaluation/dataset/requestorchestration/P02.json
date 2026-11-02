@@ -1,0 +1,177 @@
+{
+    "resourceType": "RequestOrchestration",
+    "id": "2",
+    "instantiatesCanonical": [
+        "http://localhost:8080/fhir/PlanDefinition/2|1.0.0"
+    ],
+    "status": "draft",
+    "intent": "plan",
+    "subject": {
+        "reference": "Patient/PT1"
+    },
+    "action": [
+        {
+            "linkId": "A1",
+            "title": "The patient completes a post-stroke follow up questionnaire",
+            "definitionCanonical": "ActivityDefinition/1002",
+            "resource": {
+                "reference": "ServiceRequest/P02A1"
+            },
+            "dynamicValue": [
+                {
+                    "path": "supportingInfo[0].reference",
+                    "expression": {
+                        "description": "post-stroke follow up questionnaire",
+                        "language": "text/fhirpath",
+                        "expression": "Questionnaire/Q2"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "A2",
+            "title": "vital signs are monitored for ten days",
+            "resource": {
+                "reference": "ServiceRequest/P02A2"
+            },
+            "relatedAction": [
+                {
+                    "targetId": "A1",
+                    "relationship": "after-end"
+                }
+            ],
+            "timingTiming": {
+                "repeat": {
+                    "frequency": 1,
+                    "period": 1,
+                    "periodUnit": "h",
+                    "boundsDuration": {
+                        "value": 10,
+                        "unit": "d",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                    }
+                },
+                "code": {
+                    "text": "Every hour; for ten days"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1058",
+            "dynamicValue": []
+        },
+        {
+            "linkId": "A3",
+            "title": "the practitioner is alerted with urgent priority if abnormal values are detected",
+            "resource": {
+                "reference": "CommunicationRequest/P02A3"
+            },
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "if abnormal values are detected",
+                        "language": "text/fhirpath",
+                        "expression": "%vital_sign_result = \"abnormal\""
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A2",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1051",
+            "dynamicValue": [
+                {
+                    "path": "priority",
+                    "expression": {
+                        "description": "with urgent priority",
+                        "language": "text/fhirpath",
+                        "expression": "urgent"
+                    }
+                },
+                {
+                    "path": "requester",
+                    "expression": {
+                        "description": "patient",
+                        "language": "text/fhirpath",
+                        "expression": "Patient/PT1"
+                    }
+                },
+                {
+                    "path": "recipient",
+                    "expression": {
+                        "description": "practitioner",
+                        "language": "text/fhirpath",
+                        "expression": "Practitioner/PR1"
+                    }
+                },
+                {
+                    "path": "payload[0].contentAttachment",
+                    "expression": {
+                        "description": "Abnormal vital signs where have been detected",
+                        "language": "text/fhirpath",
+                        "expression": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Abormal Vital Signs\", \"data\": \"QWJub3JtYWwgdml0YWwgc2lnbnMgd2hlcmUgaGF2ZSBiZWVuIGRldGVjdGVk\"}"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "A4",
+            "title": "the patient attends a cardiology specialist follow-up visit",
+            "resource": {
+                "reference": "ServiceRequest/P02A4"
+            },
+            "relatedAction": [
+                {
+                    "targetId": "A1",
+                    "relationship": "after-end"
+                }
+            ],
+            "timingTiming": {
+                "event": [
+                    "2026-10-19T09:00:00+02:00"
+                ],
+                "code": {
+                    "text": "2026-10-19T09:00:00+02:00"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1059",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "cardiology specialist follow-up visit",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"310134005\", \"display\": \"Cardiology\"}], \"text\": \"cardiology specialist follow-up visit\"}"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "A5",
+            "title": "The patient receives post-stroke lifestyle education",
+            "resource": {
+                "reference": "ServiceRequest/P02A5"
+            },
+            "relatedAction": [
+                {
+                    "targetId": "A4",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1055",
+            "dynamicValue": [
+                {
+                    "path": "patientInstruction[0].instructionReference",
+                    "expression": {
+                        "description": "post-stroke lifestyle education",
+                        "language": "text/fhirpath",
+                        "expression": "DocumentReference/D2"
+                    }
+                }
+            ]
+        }
+    ]
+}

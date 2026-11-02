@@ -1,0 +1,6919 @@
+{
+  "categories": [
+    "actions",
+    "edges",
+    "temporal_constraints",
+    "subprocesses",
+    "gateways"
+  ],
+  "by_process": [
+    {
+      "process": "P01",
+      "status": "evaluated",
+      "tp": 21,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P02",
+      "status": "evaluated",
+      "tp": 29,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P03",
+      "status": "evaluated",
+      "tp": 17,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P04",
+      "status": "evaluated",
+      "tp": 24,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P05",
+      "status": "evaluated",
+      "tp": 19,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P06",
+      "status": "evaluated",
+      "tp": 22,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P07",
+      "status": "evaluated",
+      "tp": 7,
+      "fp": 10,
+      "fn": 14,
+      "precision": 0.4117647058823529,
+      "recall": 0.3333333333333333,
+      "f1": 0.3684210526315789,
+      "error": null
+    },
+    {
+      "process": "P08",
+      "status": "evaluated",
+      "tp": 41,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P09",
+      "status": "evaluated",
+      "tp": 27,
+      "fp": 6,
+      "fn": 8,
+      "precision": 0.8181818181818182,
+      "recall": 0.7714285714285715,
+      "f1": 0.7941176470588235,
+      "error": null
+    },
+    {
+      "process": "P10",
+      "status": "evaluated",
+      "tp": 13,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P11",
+      "status": "evaluated",
+      "tp": 39,
+      "fp": 9,
+      "fn": 10,
+      "precision": 0.8125,
+      "recall": 0.7959183673469388,
+      "f1": 0.8041237113402062,
+      "error": null
+    },
+    {
+      "process": "P12",
+      "status": "evaluated",
+      "tp": 7,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P13",
+      "status": "evaluated",
+      "tp": 17,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P14",
+      "status": "evaluated",
+      "tp": 19,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P15",
+      "status": "evaluated",
+      "tp": 17,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P16",
+      "status": "evaluated",
+      "tp": 27,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P17",
+      "status": "evaluated",
+      "tp": 33,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P18",
+      "status": "evaluated",
+      "tp": 19,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P19",
+      "status": "evaluated",
+      "tp": 16,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    },
+    {
+      "process": "P20",
+      "status": "evaluated",
+      "tp": 39,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "error": null
+    }
+  ],
+  "by_category": [
+    {
+      "category": "actions",
+      "level": "category",
+      "tp": 89,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "edges",
+      "level": "category",
+      "tp": 244,
+      "fp": 19,
+      "fn": 23,
+      "precision": 0.9277566539923955,
+      "recall": 0.9138576779026217,
+      "f1": 0.9207547169811321,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "temporal_constraints",
+      "level": "category",
+      "tp": 40,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "subprocesses",
+      "level": "category",
+      "tp": 32,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.9696969696969697,
+      "recall": 0.9696969696969697,
+      "f1": 0.9696969696969697,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "gateways",
+      "level": "category",
+      "tp": 48,
+      "fp": 5,
+      "fn": 8,
+      "precision": 0.9056603773584906,
+      "recall": 0.8571428571428571,
+      "f1": 0.8807339449541285,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "timer_events",
+      "level": "check",
+      "tp": 40,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "timer_values",
+      "level": "check",
+      "tp": 40,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "subprocess_actions",
+      "level": "check",
+      "tp": 66,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "subprocess_edges",
+      "level": "check",
+      "tp": 119,
+      "fp": 6,
+      "fn": 7,
+      "precision": 0.952,
+      "recall": 0.9444444444444444,
+      "f1": 0.9482071713147411,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "diverging_gateways",
+      "level": "check",
+      "tp": 23,
+      "fp": 3,
+      "fn": 5,
+      "precision": 0.8846153846153846,
+      "recall": 0.8214285714285714,
+      "f1": 0.8518518518518519,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    },
+    {
+      "category": "converging_gateways",
+      "level": "check",
+      "tp": 25,
+      "fp": 2,
+      "fn": 3,
+      "precision": 0.9259259259259259,
+      "recall": 0.8928571428571429,
+      "f1": 0.9090909090909091,
+      "evaluated_processes": 20,
+      "error_processes": 0
+    }
+  ],
+  "cases": [
+    {
+      "process": "P01",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/1_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P01.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 11,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 21,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P02",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/2_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P02.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 29,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P03",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/3_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P03.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P04",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/4_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P04.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 13,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 11,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 24,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P05",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/5_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P05.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 19,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P06",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/6_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P06.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 22,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P07",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/7_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P07.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 2,
+          "fp": 8,
+          "fn": 10,
+          "precision": 0.2,
+          "recall": 0.16666666666666666,
+          "f1": 0.18181818181818182,
+          "missing": [
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "action",
+                  "A1"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "action",
+                  "A2"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "action",
+                  "A3"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "action",
+                  "A4"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A5"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "action",
+                  "A3"
+                ],
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "action",
+                  "A5"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A5"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A5"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ],
+                [
+                  "endEvent",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A5"
+                  ],
+                  [],
+                  false
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "action",
+                  "A2"
+                ],
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "additional": [
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "action",
+                  "A1"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "action",
+                  "A2"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "action",
+                  "A3"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A1"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "action",
+                  "A4"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "action",
+                  "A2"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A5"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "action",
+                  "A3"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A5"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "action",
+                  "A5"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A5"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A5"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ],
+                [
+                  "endEvent",
+                  [
+                    "process"
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A5"
+                  ],
+                  [],
+                  false
+                ]
+              ]
+            ]
+          ]
+        },
+        "temporal_constraints": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "missing": [
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [
+                "A1"
+              ],
+              [
+                "A2",
+                "A3"
+              ],
+              "diverging",
+              1,
+              2
+            ],
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [
+                "A2",
+                "A3"
+              ],
+              [],
+              "converging",
+              2,
+              1
+            ],
+            [
+              "exclusiveGateway",
+              [
+                "process"
+              ],
+              [
+                "A1"
+              ],
+              [
+                "A2",
+                "A3",
+                "A4"
+              ],
+              "diverging",
+              1,
+              2
+            ],
+            [
+              "exclusiveGateway",
+              [
+                "process"
+              ],
+              [
+                "A2",
+                "A3",
+                "A5"
+              ],
+              [],
+              "converging",
+              2,
+              1
+            ]
+          ],
+          "additional": [
+            [
+              "exclusiveGateway",
+              [
+                "process"
+              ],
+              [
+                "A1"
+              ],
+              [
+                "A2",
+                "A3",
+                "A4"
+              ],
+              "diverging",
+              1,
+              3
+            ],
+            [
+              "exclusiveGateway",
+              [
+                "process"
+              ],
+              [
+                "A2",
+                "A3",
+                "A5"
+              ],
+              [],
+              "converging",
+              3,
+              1
+            ]
+          ]
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "missing": [
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [
+                "A1"
+              ],
+              [
+                "A2",
+                "A3"
+              ],
+              "diverging",
+              1,
+              2
+            ],
+            [
+              "exclusiveGateway",
+              [
+                "process"
+              ],
+              [
+                "A1"
+              ],
+              [
+                "A2",
+                "A3",
+                "A4"
+              ],
+              "diverging",
+              1,
+              2
+            ]
+          ],
+          "additional": [
+            [
+              "exclusiveGateway",
+              [
+                "process"
+              ],
+              [
+                "A1"
+              ],
+              [
+                "A2",
+                "A3",
+                "A4"
+              ],
+              "diverging",
+              1,
+              3
+            ]
+          ]
+        },
+        "converging_gateways": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "missing": [
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [
+                "A2",
+                "A3"
+              ],
+              [],
+              "converging",
+              2,
+              1
+            ],
+            [
+              "exclusiveGateway",
+              [
+                "process"
+              ],
+              [
+                "A2",
+                "A3",
+                "A5"
+              ],
+              [],
+              "converging",
+              2,
+              1
+            ]
+          ],
+          "additional": [
+            [
+              "exclusiveGateway",
+              [
+                "process"
+              ],
+              [
+                "A2",
+                "A3",
+                "A5"
+              ],
+              [],
+              "converging",
+              3,
+              1
+            ]
+          ]
+        }
+      },
+      "total": {
+        "tp": 7,
+        "fp": 10,
+        "fn": 14,
+        "precision": 0.4117647058823529,
+        "recall": 0.3333333333333333,
+        "f1": 0.3684210526315789
+      }
+    },
+    {
+      "process": "P08",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/8_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P08.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 22,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 13,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 41,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P09",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/9_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P09.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 14,
+          "fp": 5,
+          "fn": 6,
+          "precision": 0.7368421052631579,
+          "recall": 0.7,
+          "f1": 0.717948717948718,
+          "missing": [
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "startEvent",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  true,
+                  false
+                ],
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "action",
+                  "A1"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "action",
+                  "A2"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "action",
+                  "A5"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "subprocess",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A4"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ]
+              ]
+            ]
+          ],
+          "additional": [
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "startEvent",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  true,
+                  false
+                ],
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  "diverging",
+                  1,
+                  4
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  "diverging",
+                  1,
+                  4
+                ],
+                [
+                  "action",
+                  "A1"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  "diverging",
+                  1,
+                  4
+                ],
+                [
+                  "action",
+                  "A2"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  "diverging",
+                  1,
+                  4
+                ],
+                [
+                  "action",
+                  "A5"
+                ]
+              ]
+            ],
+            [
+              [
+                "process"
+              ],
+              [
+                [
+                  "parallelGateway",
+                  [
+                    "process"
+                  ],
+                  [],
+                  [
+                    "A1",
+                    "A2",
+                    "A4",
+                    "A5"
+                  ],
+                  "diverging",
+                  1,
+                  4
+                ],
+                [
+                  "subprocess",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A4"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        },
+        "temporal_constraints": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 4,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.8,
+          "recall": 0.6666666666666666,
+          "f1": 0.7272727272727273,
+          "missing": [
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [],
+              [
+                "A1",
+                "A2",
+                "A4",
+                "A5"
+              ],
+              "diverging",
+              1,
+              3
+            ],
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [],
+              [
+                "A1",
+                "A2"
+              ],
+              "diverging",
+              1,
+              2
+            ]
+          ],
+          "additional": [
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [],
+              [
+                "A1",
+                "A2",
+                "A4",
+                "A5"
+              ],
+              "diverging",
+              1,
+              4
+            ]
+          ]
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "f1": 0.4,
+          "missing": [
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [],
+              [
+                "A1",
+                "A2",
+                "A4",
+                "A5"
+              ],
+              "diverging",
+              1,
+              3
+            ],
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [],
+              [
+                "A1",
+                "A2"
+              ],
+              "diverging",
+              1,
+              2
+            ]
+          ],
+          "additional": [
+            [
+              "parallelGateway",
+              [
+                "process"
+              ],
+              [],
+              [
+                "A1",
+                "A2",
+                "A4",
+                "A5"
+              ],
+              "diverging",
+              1,
+              4
+            ]
+          ]
+        },
+        "converging_gateways": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 27,
+        "fp": 6,
+        "fn": 8,
+        "precision": 0.8181818181818182,
+        "recall": 0.7714285714285715,
+        "f1": 0.7941176470588235
+      }
+    },
+    {
+      "process": "P10",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/10_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P10.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 13,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P11",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/11_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P11.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 20,
+          "fp": 6,
+          "fn": 7,
+          "precision": 0.7692307692307693,
+          "recall": 0.7407407407407407,
+          "f1": 0.7547169811320755,
+          "missing": [
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A2"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "action",
+                  "A3"
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "action",
+                  "A4"
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A3"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A4"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ],
+                [
+                  "endEvent",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  false
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "additional": [
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A2"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "action",
+                  "A3"
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "action",
+                  "A4"
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A3"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A4"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ],
+                [
+                  "endEvent",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  false
+                ]
+              ]
+            ]
+          ]
+        },
+        "temporal_constraints": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 5,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.8333333333333334,
+          "recall": 0.8333333333333334,
+          "f1": 0.8333333333333334,
+          "missing": [
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A1",
+                "A2",
+                "A3",
+                "A4"
+              ],
+              [
+                [
+                  [
+                    "action",
+                    "A1"
+                  ],
+                  [
+                    "action",
+                    "A2"
+                  ]
+                ],
+                [
+                  [
+                    "action",
+                    "A2"
+                  ],
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2"
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    "diverging",
+                    1,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    "action",
+                    "A3"
+                  ],
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2",
+                      "A3",
+                      "A4"
+                    ],
+                    [],
+                    "converging",
+                    3,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    "action",
+                    "A4"
+                  ],
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2",
+                      "A3",
+                      "A4"
+                    ],
+                    [],
+                    "converging",
+                    3,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2",
+                      "A3",
+                      "A4"
+                    ],
+                    [],
+                    "converging",
+                    3,
+                    1
+                  ],
+                  [
+                    "endEvent",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2",
+                      "A3",
+                      "A4"
+                    ],
+                    [],
+                    false
+                  ]
+                ],
+                [
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2"
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    "diverging",
+                    1,
+                    3
+                  ],
+                  [
+                    "action",
+                    "A3"
+                  ]
+                ],
+                [
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2"
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    "diverging",
+                    1,
+                    3
+                  ],
+                  [
+                    "action",
+                    "A4"
+                  ]
+                ],
+                [
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2"
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    "diverging",
+                    1,
+                    3
+                  ],
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2",
+                      "A3",
+                      "A4"
+                    ],
+                    [],
+                    "converging",
+                    3,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    "startEvent",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [],
+                    [
+                      "A1"
+                    ],
+                    false,
+                    true
+                  ],
+                  [
+                    "action",
+                    "A1"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "additional": [
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A1",
+                "A2",
+                "A3",
+                "A4"
+              ],
+              [
+                [
+                  [
+                    "action",
+                    "A1"
+                  ],
+                  [
+                    "action",
+                    "A2"
+                  ]
+                ],
+                [
+                  [
+                    "action",
+                    "A2"
+                  ],
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2"
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    "diverging",
+                    1,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    "action",
+                    "A3"
+                  ],
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    [],
+                    "converging",
+                    2,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    "action",
+                    "A4"
+                  ],
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    [],
+                    "converging",
+                    2,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2"
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    "diverging",
+                    1,
+                    2
+                  ],
+                  [
+                    "action",
+                    "A3"
+                  ]
+                ],
+                [
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A2"
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    "diverging",
+                    1,
+                    2
+                  ],
+                  [
+                    "action",
+                    "A4"
+                  ]
+                ],
+                [
+                  [
+                    "exclusiveGateway",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    [],
+                    "converging",
+                    2,
+                    1
+                  ],
+                  [
+                    "endEvent",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [
+                      "A3",
+                      "A4"
+                    ],
+                    [],
+                    false
+                  ]
+                ],
+                [
+                  [
+                    "startEvent",
+                    [
+                      "process",
+                      [
+                        "subprocess",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ],
+                      [
+                        "event",
+                        [
+                          "A1",
+                          "A2",
+                          "A3",
+                          "A4"
+                        ]
+                      ]
+                    ],
+                    [],
+                    [
+                      "A1"
+                    ],
+                    false,
+                    true
+                  ],
+                  [
+                    "action",
+                    "A1"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 2,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5,
+          "missing": [
+            [
+              "exclusiveGateway",
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A2",
+                "A3",
+                "A4"
+              ],
+              [],
+              "converging",
+              3,
+              1
+            ],
+            [
+              "exclusiveGateway",
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A2"
+              ],
+              [
+                "A3",
+                "A4"
+              ],
+              "diverging",
+              1,
+              3
+            ]
+          ],
+          "additional": [
+            [
+              "exclusiveGateway",
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A2"
+              ],
+              [
+                "A3",
+                "A4"
+              ],
+              "diverging",
+              1,
+              2
+            ],
+            [
+              "exclusiveGateway",
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A3",
+                "A4"
+              ],
+              [],
+              "converging",
+              2,
+              1
+            ]
+          ]
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 12,
+          "fp": 6,
+          "fn": 7,
+          "precision": 0.6666666666666666,
+          "recall": 0.631578947368421,
+          "f1": 0.6486486486486487,
+          "missing": [
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A2"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "action",
+                  "A3"
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "action",
+                  "A4"
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A3"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A4"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ],
+                [
+                  "endEvent",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  false
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  3
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2",
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  3,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "additional": [
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A2"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "action",
+                  "A3"
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A2"
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  "diverging",
+                  1,
+                  2
+                ],
+                [
+                  "action",
+                  "A4"
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A3"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "action",
+                  "A4"
+                ],
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "exclusiveGateway",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  "converging",
+                  2,
+                  1
+                ],
+                [
+                  "endEvent",
+                  [
+                    "process",
+                    [
+                      "subprocess",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ],
+                    [
+                      "event",
+                      [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "A4"
+                      ]
+                    ]
+                  ],
+                  [
+                    "A3",
+                    "A4"
+                  ],
+                  [],
+                  false
+                ]
+              ]
+            ]
+          ]
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5,
+          "missing": [
+            [
+              "exclusiveGateway",
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A2"
+              ],
+              [
+                "A3",
+                "A4"
+              ],
+              "diverging",
+              1,
+              3
+            ]
+          ],
+          "additional": [
+            [
+              "exclusiveGateway",
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A2"
+              ],
+              [
+                "A3",
+                "A4"
+              ],
+              "diverging",
+              1,
+              2
+            ]
+          ]
+        },
+        "converging_gateways": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5,
+          "missing": [
+            [
+              "exclusiveGateway",
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A2",
+                "A3",
+                "A4"
+              ],
+              [],
+              "converging",
+              3,
+              1
+            ]
+          ],
+          "additional": [
+            [
+              "exclusiveGateway",
+              [
+                "process",
+                [
+                  "subprocess",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ],
+                [
+                  "event",
+                  [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4"
+                  ]
+                ]
+              ],
+              [
+                "A3",
+                "A4"
+              ],
+              [],
+              "converging",
+              2,
+              1
+            ]
+          ]
+        }
+      },
+      "total": {
+        "tp": 39,
+        "fp": 9,
+        "fn": 10,
+        "precision": 0.8125,
+        "recall": 0.7959183673469388,
+        "f1": 0.8041237113402062
+      }
+    },
+    {
+      "process": "P12",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/12_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P12.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P13",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/13_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P13.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P14",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/14_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P14.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 19,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P15",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/15_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P15.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P16",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/16_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P16.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 15,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 27,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P17",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/17_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P17.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 18,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 33,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P18",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/18_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P18.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 11,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 19,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P19",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/19_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P19.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 16,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "process": "P20",
+      "status": "evaluated",
+      "actual_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/data/storage/fs/20_1.0.0.bpmn",
+      "reference_bpmn": "/Users/gallo/dottorato/tesi/e2e_implementation_temp/shift/evaluation/groundtruth/definition/P20.bpmn",
+      "generation_error": null,
+      "metrics": {
+        "actions": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "edges": {
+          "tp": 22,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "temporal_constraints": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocesses": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "gateways": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "checks": {
+        "timer_events": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "timer_values": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_actions": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "subprocess_edges": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "diverging_gateways": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        },
+        "converging_gateways": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "missing": [],
+          "additional": []
+        }
+      },
+      "total": {
+        "tp": 39,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  ],
+  "notes": [
+    "Edges are actual local sequenceFlow source/target pairs, not projected action precedence.",
+    "Technical node IDs are matched using node type, scope and nearby action IDs; clinical IDs remain exact.",
+    "Process metrics sum the five category counts. Diagnostic subchecks are also aggregated but never counted twice in process totals.",
+    "Differences are structural agreement results, not proof of behavioural equivalence."
+  ]
+}

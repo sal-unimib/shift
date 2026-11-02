@@ -1,0 +1,139 @@
+{
+    "resourceType": "RequestOrchestration",
+    "id": "17",
+    "instantiatesCanonical": [
+        "http://localhost:8080/fhir/PlanDefinition/17|1.0.0"
+    ],
+    "status": "draft",
+    "intent": "plan",
+    "subject": {
+        "reference": "Patient/PT1"
+    },
+    "action": [
+        {
+            "linkId": "A1",
+            "title": "The patient takes anticoagulant therapy at a dose of 5 mg twice daily",
+            "timingTiming": {
+                "repeat": {
+                    "frequency": 1,
+                    "period": 1,
+                    "periodUnit": "d",
+                    "timeOfDay": [
+                        "19:00:00"
+                    ]
+                },
+                "code": {
+                    "text": "Every day at 19:00"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1000",
+            "dynamicValue": [
+                {
+                    "path": "medication.concept",
+                    "expression": {
+                        "description": "Warfarin",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"372756006\", \"display\": \"Warfarin\"}], \"text\": \"Warfarin\"}"
+                    }
+                },
+                {
+                    "path": "dosageInstruction[0].doseAndRate[0]",
+                    "expression": {
+                        "description": "5 mg",
+                        "language": "text/fhirpath",
+                        "expression": "{\"doseQuantity\": {\"value\": 5.0, \"unit\": \"mg\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"mg\"}}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "MedicationRequest/P17A1"
+            }
+        },
+        {
+            "linkId": "A2",
+            "title": "Laboratory examinations are performed every month",
+            "timingTiming": {
+                "repeat": {
+                    "frequency": 1,
+                    "period": 1,
+                    "periodUnit": "mo"
+                },
+                "code": {
+                    "text": "Every month"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1053",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "blood sample collection",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"119297000\", \"display\": \"Blood specimen\"}], \"text\": \"blood sample collection\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P17A2"
+            }
+        },
+        {
+            "linkId": "A3",
+            "title": "A routine notification is issued",
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "If abnormal results are detected",
+                        "language": "text/fhirpath",
+                        "expression": "%specimen_result = \"abnormal\""
+                    }
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1051",
+            "dynamicValue": [
+                {
+                    "path": "priority",
+                    "expression": {
+                        "description": "routine",
+                        "language": "text/fhirpath",
+                        "expression": "routine"
+                    }
+                },
+                {
+                    "path": "requester",
+                    "expression": {
+                        "description": "patient",
+                        "language": "text/fhirpath",
+                        "expression": "Patient/PT1"
+                    }
+                },
+                {
+                    "path": "recipient",
+                    "expression": {
+                        "description": "practitioner",
+                        "language": "text/fhirpath",
+                        "expression": "Practitioner/PR1"
+                    }
+                },
+                {
+                    "path": "payload[0].contentAttachment",
+                    "expression": {
+                        "description": "Blood collection with abnormal results",
+                        "language": "text/fhirpath",
+                        "expression": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Anticoagulation monitoring\", \"data\": \"Qmxvb2QgY29sbGVjdGlvbiB3aXRoIGFibm9ybWFsIHJlc3VsdHM=\"}"
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A2",
+                    "relationship": "after-end"
+                }
+            ],
+            "resource": {
+                "reference": "CommunicationRequest/P17A3"
+            }
+        }
+    ]
+}

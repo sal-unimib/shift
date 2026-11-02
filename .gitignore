@@ -1,9 +1,11 @@
-pyrightconfig.json
+__pycache__
+.DS_Store
 .vscode
+
 .venv
+camunda/connector-secrets.txt
+
+data/storage/db
 .env
 logs
-.DS_Store
-__pycache__
-temp.ipynb
-data
+camunda_jobworkers/data/

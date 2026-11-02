@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definition_12" targetNamespace="http://bpmn.io/schema/bpmn" exporter="SHIFT" exporterVersion="1.0.0-beta">
+  <bpmn:process id="P12" name="Postoperative Pain Management Pathway">
+    <bpmn:task id="A1" name="The patient completes a pain assessment survey">
+      <bpmn:incoming>start_node_to_A1</bpmn:incoming>
+      <bpmn:outgoing>A1_to_A2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="A2" name="Analgesic treatment is administered">
+      <bpmn:incoming>A1_to_A2</bpmn:incoming>
+      <bpmn:outgoing>A2_to_A3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="A3" name="routine alerting of the practitioner">
+      <bpmn:incoming>A2_to_A3</bpmn:incoming>
+      <bpmn:outgoing>A3_to_end_node</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:startEvent id="start_node">
+      <bpmn:outgoing>start_node_to_A1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="A1_to_A2" sourceRef="A1" targetRef="A2"/>
+    <bpmn:sequenceFlow id="A2_to_A3" sourceRef="A2" targetRef="A3"/>
+    <bpmn:sequenceFlow id="start_node_to_A1" sourceRef="start_node" targetRef="A1"/>
+    <bpmn:sequenceFlow id="A3_to_end_node" sourceRef="A3" targetRef="end_node"/>
+    <bpmn:endEvent id="end_node">
+      <bpmn:incoming>A3_to_end_node</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="P12_diagram">
+    <bpmndi:BPMNPlane id="P12_plane" bpmnElement="P12">
+      <bpmndi:BPMNShape id="A1_shape" bpmnElement="A1">
+        <dc:Bounds x="206.0" y="60.0" width="170" height="90"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A2_shape" bpmnElement="A2">
+        <dc:Bounds x="486.0" y="60.0" width="170" height="90"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A3_shape" bpmnElement="A3">
+        <dc:Bounds x="766.0" y="60.0" width="170" height="90"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_node_shape" bpmnElement="end_node">
+        <dc:Bounds x="1046.0" y="87.0" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="start_node_shape" bpmnElement="start_node">
+        <dc:Bounds x="60.0" y="87.0" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="A1_to_A2_edge" bpmnElement="A1_to_A2">
+        <di:waypoint x="376.15" y="105.0"/>
+        <di:waypoint x="485.77" y="105.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A2_to_A3_edge" bpmnElement="A2_to_A3">
+        <di:waypoint x="656.15" y="105.0"/>
+        <di:waypoint x="765.77" y="105.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A3_to_end_node_edge" bpmnElement="A3_to_end_node">
+        <di:waypoint x="936.41" y="105.0"/>
+        <di:waypoint x="1045.51" y="105.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="start_node_to_A1_edge" bpmnElement="start_node_to_A1">
+        <di:waypoint x="96.16" y="105.0"/>
+        <di:waypoint x="205.66" y="105.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

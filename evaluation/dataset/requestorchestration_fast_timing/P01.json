@@ -1,0 +1,158 @@
+{
+  "resourceType": "RequestOrchestration",
+  "id": "1",
+  "instantiatesCanonical": [
+    "http://localhost:8080/fhir/PlanDefinition/1|1.0.0"
+  ],
+  "status": "draft",
+  "intent": "plan",
+  "subject": {
+    "reference": "Patient/PT1"
+  },
+  "action": [
+    {
+      "linkId": "A1",
+      "title": "The patient undergoes surgery procedure",
+      "definitionCanonical": "ActivityDefinition/1052",
+      "resource": {
+        "reference": "ServiceRequest/P01A1"
+      },
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "surgery procedure",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"84877006\", \"display\": \"Arthroscopy of knee with meniscus repair\"}], \"text\": \"surgery procedure\"}"
+          }
+        },
+        {
+          "path": "bodySite.concept",
+          "expression": {
+            "description": "left knee",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"82169009\", \"display\": \"Structure of left knee region\"}], \"text\": \"left knee\"}"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "A2",
+      "title": "One week later, a specialist follow-up visit is performed",
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end",
+          "offsetDuration": {
+            "value": 1008,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          }
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1059",
+      "resource": {
+        "reference": "ServiceRequest/P01A2"
+      },
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "Surgical orthopedic specialty",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"1345027006\", \"display\": \"Surgical orthopedic specialty\"}], \"text\": \"Surgical orthopedic specialty\"}"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "A3",
+      "title": "the patient completes a clinical questionnaire",
+      "relatedAction": [
+        {
+          "targetId": "A2",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1002",
+      "resource": {
+        "reference": "ServiceRequest/P01A3"
+      },
+      "dynamicValue": [
+        {
+          "path": "supportingInfo[0].reference",
+          "expression": {
+            "description": "Post-surgery questionnaire",
+            "language": "text/fhirpath",
+            "expression": "Questionnaire/Q1"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "A4",
+      "title": "The patient receives education on generic home rehabilitation program",
+      "resource": {
+        "reference": "ServiceRequest/P01A4"
+      },
+      "relatedAction": [
+        {
+          "targetId": "A3",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1055",
+      "dynamicValue": [
+        {
+          "path": "patientInstruction[0].instructionReference",
+          "expression": {
+            "description": "generic home rehabilitation program",
+            "language": "text/fhirpath",
+            "expression": "DocumentReference/D1"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "A5",
+      "title": "The patient then performs the prescribed exercises daily for four weeks",
+      "resource": {
+        "reference": "ServiceRequest/P01A5"
+      },
+      "relatedAction": [
+        {
+          "targetId": "A4",
+          "relationship": "after-end"
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "boundsDuration": {
+            "value": 4032,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          },
+          "frequency": 1,
+          "period": 144,
+          "periodUnit": "s"
+        },
+        "code": {
+          "text": "1 occurrence(s) every 144 seconds; for 4032 seconds"
+        }
+      },
+      "definitionCanonical": "ActivityDefinition/1001",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "Surgical orthopedic specialty",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"229155001\", \"display\": \"Knee exercises\"}], \"text\": \"Knee exercises\"}"
+          }
+        }
+      ]
+    }
+  ]
+}

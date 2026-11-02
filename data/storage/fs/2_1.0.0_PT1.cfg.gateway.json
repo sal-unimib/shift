@@ -1,0 +1,331 @@
+{
+  "cfg_type": "gateway",
+  "id": "2",
+  "version": "1.0.0",
+  "title": "Heart Failure Follow-up Management",
+  "name": "P02",
+  "description": "The patient completes a post-stroke follow up questionnaire. Thereafter, vital signs are monitored for ten days, and the practitioner is alerted with urgent priority if abnormal values are detected. In parallel, the patient attends a cardiology specialist follow-up visit and subsequently receives post-stroke lifestyle education.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient completes a post-stroke follow up questionnaire",
+      "activity_definition": "1002",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "supportingInfo[0].reference": "Questionnaire/Q2"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_div_gat_3"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "vital signs are monitored for ten days",
+      "activity_definition": "1058",
+      "fhir_temporal_constraint": {
+        "label": "1 occurrence(s) every 6 seconds; for 1440 seconds",
+        "period": 6.0,
+        "period_max": null,
+        "period_unit": "s",
+        "frequency": 1,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": 1440.0,
+        "bounds_duration_unit": "s",
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "div_gat_3_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_div_gat_1"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "the practitioner is alerted with urgent priority if abnormal values are detected",
+      "activity_definition": "1051",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "priority": "urgent",
+        "requester": "Patient/PT1",
+        "recipient": "Practitioner/PR1",
+        "payload[0].contentAttachment": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Abormal Vital Signs\", \"data\": \"QWJub3JtYWwgdml0YWwgc2lnbnMgd2hlcmUgaGF2ZSBiZWVuIGRldGVjdGVk\"}"
+      },
+      "incoming": [
+        "div_gat_1_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_conv_gat_2"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "the patient attends a cardiology specialist follow-up visit",
+      "activity_definition": "1059",
+      "fhir_temporal_constraint": {
+        "label": "2026-10-19T09:00:00+02:00",
+        "period": null,
+        "period_max": null,
+        "period_unit": null,
+        "frequency": null,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": "2026-10-19T09:00:00+02:00",
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"310134005\", \"display\": \"Cardiology\"}], \"text\": \"cardiology specialist follow-up visit\"}"
+      },
+      "incoming": [
+        "div_gat_3_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_A5"
+      ]
+    },
+    "A5": {
+      "id": "A5",
+      "node_type": "ActionNode",
+      "title": "The patient receives post-stroke lifestyle education",
+      "activity_definition": "1055",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "patientInstruction[0].instructionReference": "DocumentReference/D2"
+      },
+      "incoming": [
+        "A4_to_A5"
+      ],
+      "outgoing": [
+        "A5_to_conv_gat_4"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "conv_gat_4_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "F1": {
+      "id": "F1",
+      "node_type": "FakeNode",
+      "incoming": [
+        "div_gat_1_to_F1"
+      ],
+      "outgoing": [
+        "F1_to_conv_gat_2"
+      ]
+    },
+    "div_gat_1": {
+      "id": "div_gat_1",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "A2_to_div_gat_1"
+      ],
+      "outgoing": [
+        "div_gat_1_to_A3",
+        "div_gat_1_to_F1"
+      ]
+    },
+    "conv_gat_2": {
+      "id": "conv_gat_2",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "A3_to_conv_gat_2",
+        "F1_to_conv_gat_2"
+      ],
+      "outgoing": [
+        "conv_gat_2_to_conv_gat_4"
+      ]
+    },
+    "div_gat_3": {
+      "id": "div_gat_3",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "A1_to_div_gat_3"
+      ],
+      "outgoing": [
+        "div_gat_3_to_A2",
+        "div_gat_3_to_A4"
+      ]
+    },
+    "conv_gat_4": {
+      "id": "conv_gat_4",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "A5_to_conv_gat_4",
+        "conv_gat_2_to_conv_gat_4"
+      ],
+      "outgoing": [
+        "conv_gat_4_to_end_node"
+      ]
+    }
+  },
+  "edges": {
+    "A4_to_A5": {
+      "id": "A4_to_A5",
+      "source": "A4",
+      "target": "A5",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_div_gat_1": {
+      "id": "A2_to_div_gat_1",
+      "source": "A2",
+      "target": "div_gat_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_1_to_A3": {
+      "id": "div_gat_1_to_A3",
+      "source": "div_gat_1",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%vital_sign_result = \"abnormal\"",
+        "description": "if abnormal values are detected"
+      }
+    },
+    "div_gat_1_to_F1": {
+      "id": "div_gat_1_to_F1",
+      "source": "div_gat_1",
+      "target": "F1",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "A3_to_conv_gat_2": {
+      "id": "A3_to_conv_gat_2",
+      "source": "A3",
+      "target": "conv_gat_2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "F1_to_conv_gat_2": {
+      "id": "F1_to_conv_gat_2",
+      "source": "F1",
+      "target": "conv_gat_2",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "A1_to_div_gat_3": {
+      "id": "A1_to_div_gat_3",
+      "source": "A1",
+      "target": "div_gat_3",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_3_to_A2": {
+      "id": "div_gat_3_to_A2",
+      "source": "div_gat_3",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_3_to_A4": {
+      "id": "div_gat_3_to_A4",
+      "source": "div_gat_3",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A5_to_conv_gat_4": {
+      "id": "A5_to_conv_gat_4",
+      "source": "A5",
+      "target": "conv_gat_4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "conv_gat_2_to_conv_gat_4": {
+      "id": "conv_gat_2_to_conv_gat_4",
+      "source": "conv_gat_2",
+      "target": "conv_gat_4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "conv_gat_4_to_end_node": {
+      "id": "conv_gat_4_to_end_node",
+      "source": "conv_gat_4",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    }
+  },
+  "graph_type": "instance",
+  "subject_id": "PT1",
+  "request_orchestration_id": "2"
+}

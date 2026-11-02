@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: shift-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: shift
+    volumes:
+      - ./data/storage/db:/var/lib/postgresql/data

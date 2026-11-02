@@ -1,0 +1,170 @@
+{
+    "resourceType": "RequestOrchestration",
+    "id": "14",
+    "instantiatesCanonical": [
+        "http://localhost:8080/fhir/PlanDefinition/14|1.0.0"
+    ],
+    "status": "draft",
+    "intent": "plan",
+    "subject": {
+        "reference": "Patient/PT1"
+    },
+    "action": [
+        {
+            "linkId": "A1",
+            "title": "The patient completes a general health questionnaire every day",
+            "timingTiming": {
+                "repeat": {
+                    "frequency": 1,
+                    "period": 1,
+                    "periodUnit": "d",
+                    "timeOfDay": [
+                        "12:00:00"
+                    ]
+                },
+                "code": {
+                    "text": "Every day at 12:00"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1002",
+            "dynamicValue": [
+                {
+                    "path": "supportingInfo[0].reference",
+                    "expression": {
+                        "description": "general health questionnaire",
+                        "language": "text/fhirpath",
+                        "expression": "Questionnaire/Q4"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P14A1"
+            }
+        },
+        {
+            "linkId": "A2",
+            "title": "respiratory parameters are monitored for 30 minutes",
+            "relatedAction": [
+                {
+                    "targetId": "A1",
+                    "relationship": "after-end"
+                }
+            ],
+            "timingTiming": {
+                "repeat": {
+                    "duration": 30,
+                    "durationUnit": "min"
+                },
+                "code": {
+                    "text": "For 30 minutes"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1058",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "respiratory parameters",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"106048009\", \"display\": \"Respiratory finding\"}], \"text\": \"respiratory parameters\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P14A2"
+            }
+        },
+        {
+            "linkId": "A3",
+            "title": "If abnormal respiratory parameters are detected, the practitioner is alerted urgently",
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "If abnormal respiratory parameters are detected",
+                        "language": "text/fhirpath",
+                        "expression": "%respiration_rate > 25"
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A2",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1051",
+            "dynamicValue": [
+                {
+                    "path": "priority",
+                    "expression": {
+                        "description": "urgently",
+                        "language": "text/fhirpath",
+                        "expression": "urgent"
+                    }
+                },
+                {
+                    "path": "requester",
+                    "expression": {
+                        "description": "patient",
+                        "language": "text/fhirpath",
+                        "expression": "Patient/PT1"
+                    }
+                },
+                {
+                    "path": "recipient",
+                    "expression": {
+                        "description": "practitioner",
+                        "language": "text/fhirpath",
+                        "expression": "Practitioner/PR1"
+                    }
+                },
+                {
+                    "path": "payload[0].contentAttachment",
+                    "expression": {
+                        "description": "abnormal respiratory parameters detected",
+                        "language": "text/fhirpath",
+                        "expression": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Respiratory parameters monitoring\", \"data\": \"YWJub3JtYWwgcmVzcGlyYXRvcnkgcGFyYW1ldGVycyBkZXRlY3RlZA==\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "CommunicationRequest/P14A3"
+            }
+        },
+        {
+            "linkId": "A4",
+            "title": "Otherwise, the patient is educated on correct inhaler use",
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "Otherwise",
+                        "language": "text/fhirpath",
+                        "expression": "Otherwise"
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A2",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1055",
+            "dynamicValue": [
+                {
+                    "path": "patientInstruction[0].instructionReference",
+                    "expression": {
+                        "description": "correct inhaler use",
+                        "language": "text/fhirpath",
+                        "expression": "DocumentReference/D4"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P14A4"
+            }
+        }
+    ]
+}

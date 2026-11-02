@@ -1,0 +1,31 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P02A1",
+    "1002_questionnaire": "Questionnaire/Q2"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P02A2",
+    "1058_observation_concept": null
+  },
+  "A3": {
+    "resource": "CommunicationRequest/P02A3",
+    "1051_priority": "urgent",
+    "1051_payload": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Abormal Vital Signs\", \"data\": \"QWJub3JtYWwgdml0YWwgc2lnbnMgd2hlcmUgaGF2ZSBiZWVuIGRldGVjdGVk\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "Practitioner/PR1",
+    "1051_information_provider": null
+  },
+  "A4": {
+    "resource": "ServiceRequest/P02A4",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"310134005\", \"display\": \"Cardiology\"}], \"text\": \"cardiology specialist follow-up visit\"}"
+  },
+  "A5": {
+    "resource": "ServiceRequest/P02A5",
+    "1055_patient_instruction": "DocumentReference/D2"
+  },
+  "TC_A4_exact": "2026-10-19T09:00:00+02:00",
+  "TC_A2_cycle": "R/PT1H",
+  "TC_A2_keep_alive_bound": "P10D",
+  "vital_sign_result": null
+}

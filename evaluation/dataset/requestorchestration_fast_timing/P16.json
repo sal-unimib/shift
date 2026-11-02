@@ -1,0 +1,162 @@
+{
+  "resourceType": "RequestOrchestration",
+  "id": "16",
+  "instantiatesCanonical": [
+    "http://localhost:8080/fhir/PlanDefinition/16|1.0.0"
+  ],
+  "status": "draft",
+  "intent": "plan",
+  "subject": {
+    "reference": "Patient/PT1"
+  },
+  "action": [
+    {
+      "linkId": "A1",
+      "title": "The patient attends a respiratory disease specialist visit",
+      "definitionCanonical": "ActivityDefinition/1059",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "respiratory disease specialist visit",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"41672002\", \"display\": \"Respiratory disease specialist\"}], \"text\": \"respiratory disease specialist visit\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P16A1"
+      }
+    },
+    {
+      "linkId": "A2",
+      "title": "the patient performs the prescribed exercises three times per week",
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end"
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "frequency": 3,
+          "period": 144,
+          "periodUnit": "s",
+          "boundsDuration": {
+            "value": 4032,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          }
+        },
+        "code": {
+          "text": "3 occurrence(s) every 144 seconds; for 4032 seconds"
+        }
+      },
+      "definitionCanonical": "ActivityDefinition/1001",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "Respiratory muscle strengthening training exercises",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"1409619008\", \"display\": \"Respiratory muscle strengthening training exercises\"}], \"text\": \"Respiratory muscle strengthening training exercises\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P16A2"
+      }
+    },
+    {
+      "linkId": "A3",
+      "title": "Patient undergoes SpO2 monitoring",
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end"
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "frequency": 1,
+          "period": 24,
+          "periodUnit": "s",
+          "boundsDuration": {
+            "value": 4032,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          }
+        },
+        "code": {
+          "text": "1 occurrence(s) every 24 seconds; for 4032 seconds"
+        }
+      },
+      "definitionCanonical": "ActivityDefinition/1058",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "SpO2",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"431314004\", \"display\": \"Peripheral oxygen saturation\"}], \"text\": \"SpO2\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P16A3"
+      }
+    },
+    {
+      "linkId": "A4",
+      "title": "If oxygen saturation falls below the prescribed threshold, the practitioner is alerted",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "description": "If oxygen saturation falls below the prescribed threshold",
+            "language": "text/fhirpath",
+            "expression": "%spo2 < 0.95"
+          }
+        }
+      ],
+      "relatedAction": [
+        {
+          "targetId": "A3",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1051",
+      "dynamicValue": [
+        {
+          "path": "requester",
+          "expression": {
+            "description": "patient",
+            "language": "text/fhirpath",
+            "expression": "Patient/PT1"
+          }
+        },
+        {
+          "path": "recipient",
+          "expression": {
+            "description": "practitioner",
+            "language": "text/fhirpath",
+            "expression": "Practitioner/PR1"
+          }
+        },
+        {
+          "path": "payload[0].contentAttachment",
+          "expression": {
+            "description": "Oxygen saturation falls below the prescribed threshold during exercises",
+            "language": "text/fhirpath",
+            "expression": "{ \"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Respiratory deseases monitoring\", \"data\": \"T3h5Z2VuIHNhdHVyYXRpb24gZmFsbHMgYmVsb3cgdGhlIHByZXNjcmliZWQgdGhyZXNob2xkIGR1cmluZyBleGVyY2lzZXM=\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "CommunicationRequest/P16A4"
+      }
+    }
+  ]
+}

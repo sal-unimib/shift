@@ -1,0 +1,44 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P11A1",
+    "1002_questionnaire": "Questionnaire/Q4"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P11A2",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"75367002\", \"display\": \"Blood pressure\"}], \"text\": \"blood pressure\"}"
+  },
+  "A3": {
+    "resource": "CommunicationRequest/P11A3",
+    "1051_priority": "urgent",
+    "1051_payload": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Blood pressure monitoring\", \"data\": \"Qmxvb2QgcHJlc3N1cmUgaXMgYmV0d2VlbiB0aGUgZGVmaW5lZCBsb3cgYW5kIGhpZ2ggdGhyZXNob2xkcw==\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "Practitioner/PR1",
+    "1051_information_provider": null
+  },
+  "A4": {
+    "resource": "CommunicationRequest/P11A4",
+    "1051_priority": "stat",
+    "1051_payload": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Blood pressure monitoring\", \"data\": \"Qmxvb2QgcHJlc3N1cmUgZXhjZWVkcyB0aGUgaGlnaCB0aHJlc2hvbGQ=\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "CareTeam/CT1",
+    "1051_information_provider": null
+  },
+  "A5": {
+    "resource": "MedicationRequest/P11A5",
+    "1000_medication": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"386872004\", \"display\": \"Ramipril\"}], \"text\": \"ramipril\"}",
+    "1000_dosage_dose_and_rate": "{\"doseQuantity\": {\"value\": 2.5, \"unit\": \"mg\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"mg\"}}"
+  },
+  "A6": {
+    "resource": "ServiceRequest/P11A6",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"310134005\", \"display\": \"Cardiology\"}], \"text\": \"cardiology specialist follow-up visit\"}"
+  },
+  "TC_A1_cycle": "R/PT12H",
+  "TC_A5_cycle": "R/P1D",
+  "TC_A6_cycle": "R/P6M",
+  "TC_A1_keep_alive_bound": "P100Y",
+  "TC_A5_keep_alive_bound": "P100Y",
+  "TC_A6_keep_alive_bound": "P100Y",
+  "systolic": null,
+  "diastolic": null
+}

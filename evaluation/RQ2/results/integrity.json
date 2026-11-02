@@ -1,0 +1,36 @@
+{
+  "records": 25503,
+  "instances": 20,
+  "malformed_json_lines": 0,
+  "duplicate_jobs": 0,
+  "duplicate_task_instances": 0,
+  "operational_activations": 25503,
+  "activations_without_result_record": [],
+  "records_without_activation_log": 0,
+  "polling_errors": 0,
+  "operational_errors": 21,
+  "rejected_completions": 21,
+  "rejected_cases": {
+    "P06/A2": 21
+  },
+  "max_activation_gap_seconds": 7.517935,
+  "worker_overhead_median_seconds": 0.00094487390363562,
+  "worker_overhead_max_seconds": 0.09064112247734508,
+  "first_worker_invocation": "2026-10-26T08:14:53.840884+00:00",
+  "last_worker_result": "2026-10-26T22:51:22.155121+00:00",
+  "observation_end": "2026-10-26T22:51:00.161000+00:00",
+  "records_after_observation_end": 12,
+  "engine_states": {
+    "COMPLETED": 12,
+    "TERMINATED": 8
+  },
+  "active_incidents_at_audit": 0,
+  "p13_duration_seconds": 52561.309,
+  "engine_evidence": "Process-level states and timestamps only; no full task/scope event history",
+  "engine_element_instances": 89155,
+  "historical_incidents": 693,
+  "historical_incident_processes": [
+    "P11"
+  ],
+  "full_engine_export_complete": true
+}

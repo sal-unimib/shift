@@ -1,0 +1,22 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P13A1",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"394810000\", \"display\": \"Rheumatology\"}], \"text\": \"rheumatology specialist visit\"}"
+  },
+  "A2": {
+    "resource": "MedicationRequest/P13A2",
+    "1000_medication": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"116593003\", \"display\": \"Methylprednisolone\"}], \"text\": \"Methylprednisolone\"}",
+    "1000_dosage_dose_and_rate": "{\"doseQuantity\": {\"value\": 12.0, \"unit\": \"g\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"g\"}}"
+  },
+  "A3": {
+    "resource": "ServiceRequest/P13A3",
+    "1001_exercise_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"229072005\", \"display\": \"Aerobic exercises\"}], \"text\": \"Aerobic exercises\"}"
+  },
+  "TC_A1_cycle": "R/P1M",
+  "TC_A1_keep_alive_bound": "P1Y",
+  "TC_A2_cycle": "R/P1D",
+  "TC_A2_keep_alive_bound": "P1M",
+  "TC_A3_cycle": "R/PT84H",
+  "TC_A3_keep_alive_bound": "P1M"
+}

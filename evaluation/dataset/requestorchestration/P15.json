@@ -1,0 +1,190 @@
+{
+    "resourceType": "RequestOrchestration",
+    "id": "15",
+    "instantiatesCanonical": [
+        "http://localhost:8080/fhir/PlanDefinition/15|1.0.0"
+    ],
+    "status": "draft",
+    "intent": "plan",
+    "subject": {
+        "reference": "Patient/PT1"
+    },
+    "action": [
+        {
+            "linkId": "A1",
+            "title": "The patient undergoes wound specimen collection",
+            "definitionCanonical": "ActivityDefinition/1053",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "wound specimen",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"119365002\", \"display\": \"Specimen from wound\"}], \"text\": \"wound specimen\"}"
+                    }
+                },
+                {
+                    "path": "bodySite.concept",
+                    "expression": {
+                        "description": "Left foot",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"22335008\", \"display\": \"Left foot\"}], \"text\": \"Left foot\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P15A1"
+            }
+        },
+        {
+            "linkId": "A2",
+            "title": "If an ulcer is detected, the patient attends a general surgery specialist visit",
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "If an ulcer is detected",
+                        "language": "text/fhirpath",
+                        "expression": "%specimen_result = \"ulcer\" or %specimen_result = \"infection\""
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A1",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1059",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "general surgery specialist visit",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"394609007\", \"display\": \"General surgery\"}], \"text\": \"general surgery specialist visit\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P15A2"
+            }
+        },
+        {
+            "linkId": "A3",
+            "title": "If signs of infection worsen, the clinical team is alerted",
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "If signs of infection worsen",
+                        "language": "text/fhirpath",
+                        "expression": "%specialist_result = \"bad\""
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A1",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1051",
+            "dynamicValue": [
+                {
+                    "path": "requester",
+                    "expression": {
+                        "description": "patient",
+                        "language": "text/fhirpath",
+                        "expression": "Patient/PT1"
+                    }
+                },
+                {
+                    "path": "recipient",
+                    "expression": {
+                        "description": "clinical team",
+                        "language": "text/fhirpath",
+                        "expression": "CareTeam/CT2"
+                    }
+                },
+                {
+                    "path": "payload[0].contentAttachment",
+                    "expression": {
+                        "description": "signs of a worsening infection have been confirmed, patient ready for debridement",
+                        "language": "text/fhirpath",
+                        "expression": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Wound monitoring\", \"data\": \"c2lnbnMgb2YgYSB3b3JzZW5pbmcgaW5mZWN0aW9uIGhhdmUgYmVlbiBjb25maXJtZWQsIHBhdGllbnQgcmVhZHkgZm9yIGRlYnJpZGVtZW50\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "CommunicationRequest/P15A3"
+            }
+        },
+        {
+            "linkId": "A4",
+            "title": "therapeutic intervention is initiated",
+            "relatedAction": [
+                {
+                    "targetId": "A3",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1057",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "Debridement",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"36777000\", \"display\": \"Debridement\"}], \"text\": \"Debridement\"}"
+                    }
+                },
+                {
+                    "path": "bodySite.concept",
+                    "expression": {
+                        "description": "Left foot",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"22335008\", \"display\": \"Left foot\"}], \"text\": \"Left foot\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P15A4"
+            }
+        },
+        {
+            "linkId": "A5",
+            "title": "Otherwise, the patient receives education on home wound care and medication guidelines",
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "Otherwise",
+                        "language": "text/fhirpath",
+                        "expression": "Otherwise"
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A1",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1055",
+            "dynamicValue": [
+                {
+                    "path": "patientInstruction[0].instructionReference",
+                    "expression": {
+                        "description": "home wound care and medication guidelines",
+                        "language": "text/fhirpath",
+                        "expression": "DocumentReference/D6"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P15A5"
+            }
+        }
+    ]
+}

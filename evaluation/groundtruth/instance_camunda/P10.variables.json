@@ -1,0 +1,29 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P10A1",
+    "1002_questionnaire": "Questionnaire/Q5"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P10A2",
+    "1053_specimen_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"119297000\", \"display\": \"Blood specimen\"}], \"text\": \"blood sample\"}",
+    "1053_body_site_concept": null
+  },
+  "A3": {
+    "resource": "ServiceRequest/P10A3",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"29303009\", \"display\": \"Electrocardiographic procedure\"}], \"text\": \"ECG\"}"
+  },
+  "A4": {
+    "resource": "ServiceRequest/P10A4",
+    "1056_imaging_modality_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"399208008\", \"display\": \"Plain X-ray of chest\"}], \"text\": \"chest X-ray\"}",
+    "1056_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"51185008\", \"display\": \"Thoracic structure\"}], \"text\": \"chest\"}"
+  },
+  "A5": {
+    "resource": "ServiceRequest/P10A5",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"398228004\", \"display\": \"Anesthesia consultation\"}], \"text\": \"anaesthesia consultation\"}"
+  },
+  "A6": {
+    "resource": "ServiceRequest/P10A6",
+    "1055_patient_instruction": "DocumentReference/D5"
+  }
+}

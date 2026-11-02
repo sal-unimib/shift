@@ -1,0 +1,27 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P01A1",
+    "1052_clinical_procedure_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"84877006\", \"display\": \"Arthroscopy of knee with meniscus repair\"}], \"text\": \"surgery procedure\"}",
+    "1052_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"82169009\", \"display\": \"Structure of left knee region\"}], \"text\": \"left knee\"}"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P01A2",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"1345027006\", \"display\": \"Surgical orthopedic specialty\"}], \"text\": \"Surgical orthopedic specialty\"}"
+  },
+  "A3": {
+    "resource": "ServiceRequest/P01A3",
+    "1002_questionnaire": "Questionnaire/Q1"
+  },
+  "A4": {
+    "resource": "ServiceRequest/P01A4",
+    "1055_patient_instruction": "DocumentReference/D1"
+  },
+  "A5": {
+    "resource": "ServiceRequest/P01A5",
+    "1001_exercise_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"229155001\", \"display\": \"Knee exercises\"}], \"text\": \"Knee exercises\"}"
+  },
+  "TC_A2_offset": "P1W",
+  "TC_A5_cycle": "R/P1D",
+  "TC_A5_keep_alive_bound": "P4W"
+}

@@ -1,0 +1,24 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P05A1",
+    "1053_specimen_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"167217005\", \"display\": \"Urine examination\"}], \"text\": \"urine laboratory examination\"}",
+    "1053_body_site_concept": null
+  },
+  "A2": {
+    "resource": "ServiceRequest/P05A2",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"394589003\", \"display\": \"Nephrology\"}], \"text\": \"nephrology specialist visit\"}"
+  },
+  "A3": {
+    "resource": "NutritionOrder/P05A3",
+    "1054_oral_diet": "\"low-sodium diet\"",
+    "1054_supplement": null,
+    "1054_enteral_formula": null
+  },
+  "A4": {
+    "resource": "ServiceRequest/P05A4",
+    "1055_patient_instruction": "DocumentReference/D3"
+  },
+  "TC_A1_cycle": "R/P3M",
+  "TC_A1_keep_alive_bound": "P100Y"
+}

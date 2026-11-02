@@ -1,0 +1,289 @@
+{
+  "cfg_type": "classic",
+  "id": "11",
+  "version": "1.0.0",
+  "title": "Hypertension Management Pathway",
+  "name": "P11",
+  "description": "The patient completes a general health questionnaire twice a day and measures blood pressure. If blood pressure is between the defined low and high thresholds, the practitioner is alerted urgently; if it exceeds the high threshold, the emergency team is alerted with stat priority. The patient takes ramipril 2.5 mg once daily. Every six months, the patient attends a cardiology specialist follow-up visit.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient completes a general health questionnaire twice a day",
+      "activity_definition": "1002",
+      "fhir_temporal_constraint": {
+        "label": "Twice a day",
+        "period": 1.0,
+        "period_max": null,
+        "period_unit": "d",
+        "frequency": 2,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "supportingInfo[0].reference": "Questionnaire/Q4"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_A2"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "The patient measures blood pressure",
+      "activity_definition": "1058",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"75367002\", \"display\": \"Blood pressure\"}], \"text\": \"blood pressure\"}"
+      },
+      "incoming": [
+        "A1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_A3",
+        "A2_to_A4"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "If blood pressure is between the defined low and high thresholds, the practitioner is alerted urgently",
+      "activity_definition": "1051",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "priority": "urgent"
+      },
+      "incoming": [
+        "A2_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_end_node"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "if it exceeds the high threshold, the emergency team is alerted with stat priority",
+      "activity_definition": "1051",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "priority": "stat"
+      },
+      "incoming": [
+        "A2_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_end_node"
+      ]
+    },
+    "A5": {
+      "id": "A5",
+      "node_type": "ActionNode",
+      "title": "The patient takes ramipril 2.5 mg once daily",
+      "activity_definition": "1000",
+      "fhir_temporal_constraint": {
+        "label": "Once a day",
+        "period": 1.0,
+        "period_max": null,
+        "period_unit": "d",
+        "frequency": 1,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "medication.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"386872004\", \"display\": \"Ramipril\"}], \"text\": \"ramipril\"}",
+        "dosageInstruction[0].doseAndRate[0]": "{\"doseQuantity\": {\"value\": 2.5, \"unit\": \"mg\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"mg\"}}"
+      },
+      "incoming": [
+        "start_node_to_A5"
+      ],
+      "outgoing": [
+        "A5_to_end_node"
+      ]
+    },
+    "A6": {
+      "id": "A6",
+      "node_type": "ActionNode",
+      "title": "Every six months, the patient attends a cardiology specialist follow-up visit",
+      "activity_definition": "1059",
+      "fhir_temporal_constraint": {
+        "label": "Every six months",
+        "period": 6.0,
+        "period_max": null,
+        "period_unit": "mo",
+        "frequency": 1,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"310134005\", \"display\": \"Cardiology\"}], \"text\": \"cardiology specialist follow-up visit\"}"
+      },
+      "incoming": [
+        "start_node_to_A6"
+      ],
+      "outgoing": [
+        "A6_to_end_node"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1",
+        "start_node_to_A5",
+        "start_node_to_A6"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "A3_to_end_node",
+        "A4_to_end_node",
+        "A5_to_end_node",
+        "A6_to_end_node"
+      ],
+      "outgoing": []
+    }
+  },
+  "edges": {
+    "A1_to_A2": {
+      "id": "A1_to_A2",
+      "source": "A1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_A3": {
+      "id": "A2_to_A3",
+      "source": "A2",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%systolic > %systolic_low_threshold and %systolic < %systolic_high_threshold and %diastolic > %diastolic_low_threshold and %diastolic < %diastolic_high_threshold",
+        "description": "If blood pressure is between the defined low and high thresholds"
+      }
+    },
+    "A2_to_A4": {
+      "id": "A2_to_A4",
+      "source": "A2",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%systolic >= %systolic_high_threshold and %diastolic >= %diastolic_high_threshold",
+        "description": "if blood pressure exceeds the high threshold"
+      }
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_A5": {
+      "id": "start_node_to_A5",
+      "source": "start_node",
+      "target": "A5",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_A6": {
+      "id": "start_node_to_A6",
+      "source": "start_node",
+      "target": "A6",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_end_node": {
+      "id": "A3_to_end_node",
+      "source": "A3",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A4_to_end_node": {
+      "id": "A4_to_end_node",
+      "source": "A4",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A5_to_end_node": {
+      "id": "A5_to_end_node",
+      "source": "A5",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A6_to_end_node": {
+      "id": "A6_to_end_node",
+      "source": "A6",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    }
+  }
+}

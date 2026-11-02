@@ -1,0 +1,32 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P08A1",
+    "1056_imaging_modality_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"816077007\", \"display\": \"Magnetic resonance imaging of brain\"}], \"text\": \"brain MRI\"}",
+    "1056_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"12738006\", \"display\": \"Brain structure\"}], \"text\": \"brain\"}"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P08A2",
+    "1057_therapy_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"91251008\", \"display\": \"Physical therapy procedure\"}], \"text\": \"physiotherapy\"}",
+    "1057_body_site_concept": null
+  },
+  "A3": {
+    "resource": "ServiceRequest/P08A3",
+    "1001_exercise_concept": null
+  },
+  "A4": {
+    "resource": "ServiceRequest/P08A4",
+    "1002_questionnaire": null
+  },
+  "A5": {
+    "resource": "ServiceRequest/P08A5",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"310134005\", \"display\": \"Cardiology\"}], \"text\": \"cardiology follow-up visit\"}"
+  },
+  "TC_A1_exact": "2026-10-19T09:00:00+02:00",
+  "TC_A2_cycle": "R/P1W",
+  "TC_A2_keep_alive_bound": "P1M",
+  "TC_A3_cycle": "R/P1D",
+  "TC_A3_keep_alive_bound": "P3M",
+  "TC_A4_cycle": "R/P1M",
+  "TC_A4_keep_alive_bound": "P3M"
+}

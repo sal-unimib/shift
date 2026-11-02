@@ -1,0 +1,424 @@
+{
+  "instances": [
+    {
+      "process": "P01",
+      "data": {
+        "processDefinitionId": "P01",
+        "processDefinitionName": "Postoperative Rehabilitation Initiation",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:14:53.817000+00:00",
+        "endDate": "2026-10-26T09:39:01.903000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127027",
+        "processDefinitionKey": "2251799813905613",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127027",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P02",
+      "data": {
+        "processDefinitionId": "P02",
+        "processDefinitionName": "Heart Failure Follow-up Management",
+        "processDefinitionVersion": 4,
+        "processDefinitionVersionTag": "1.0.0_PT1",
+        "startDate": "2026-10-26T08:14:54.610000+00:00",
+        "endDate": "2026-10-26T08:38:56.076000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127044",
+        "processDefinitionKey": "2251799813914966",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127044",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P03",
+      "data": {
+        "processDefinitionId": "P03",
+        "processDefinitionName": "Diabetes Monitoring and Treatment Adjustment",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:14:54.817000+00:00",
+        "endDate": "2026-10-26T15:26:55.535000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127061",
+        "processDefinitionKey": "2251799813905686",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127061",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P04",
+      "data": {
+        "processDefinitionId": "P04",
+        "processDefinitionName": "Post-surgical Infection Monitoring",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:14:55.060000+00:00",
+        "endDate": "2026-10-26T22:51:24.414000+00:00",
+        "state": "TERMINATED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127077",
+        "processDefinitionKey": "2251799813905703",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127077",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P05",
+      "data": {
+        "processDefinitionId": "P05",
+        "processDefinitionName": "Chronic Kidney Disease Follow-up",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:14:55.362000+00:00",
+        "endDate": "2026-10-26T22:51:24.433000+00:00",
+        "state": "TERMINATED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127107",
+        "processDefinitionKey": "2251799813905720",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127107",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P06",
+      "data": {
+        "processDefinitionId": "P06",
+        "processDefinitionName": "Cardiac Rehabilitation After Myocardial Infarction",
+        "processDefinitionVersion": 2,
+        "processDefinitionVersionTag": "1.0.0_PT1",
+        "startDate": "2026-10-26T08:14:55.891000+00:00",
+        "endDate": "2026-10-26T09:27:00.493000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127128",
+        "processDefinitionKey": "2251799813911086",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127128",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P07",
+      "data": {
+        "processDefinitionId": "P07",
+        "processDefinitionName": "Oncology Chemotherapy Monitoring Pathway",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0_PT1",
+        "startDate": "2026-10-26T08:14:56.426000+00:00",
+        "endDate": "2026-10-26T22:51:24.412000+00:00",
+        "state": "TERMINATED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127157",
+        "processDefinitionKey": "2251799813905760",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127157",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P08",
+      "data": {
+        "processDefinitionId": "P08",
+        "processDefinitionName": "Stroke Rehabilitation Pathway",
+        "processDefinitionVersion": 3,
+        "processDefinitionVersionTag": "1.0.0_PT1",
+        "startDate": "2026-10-26T08:14:57.009000+00:00",
+        "endDate": "2026-10-26T11:50:59.149000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127173",
+        "processDefinitionKey": "2251799813915104",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127173",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P09",
+      "data": {
+        "processDefinitionId": "P09",
+        "processDefinitionName": "COPD Exacerbation Management",
+        "processDefinitionVersion": 2,
+        "processDefinitionVersionTag": "1.0.0_PT1",
+        "startDate": "2026-10-26T08:14:57.620000+00:00",
+        "endDate": "2026-10-26T22:51:24.404000+00:00",
+        "state": "TERMINATED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127198",
+        "processDefinitionKey": "2251799813915139",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127198",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P10",
+      "data": {
+        "processDefinitionId": "P10",
+        "processDefinitionName": "Multimodal Preoperative Optimization Pathway",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:14:57.766000+00:00",
+        "endDate": "2026-10-26T08:15:04.180000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127236",
+        "processDefinitionKey": "2251799813905893",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127236",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P11",
+      "data": {
+        "processDefinitionId": "P11",
+        "processDefinitionName": "Hypertension Management Pathway",
+        "processDefinitionVersion": 3,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:14:57.996000+00:00",
+        "endDate": "2026-10-26T22:51:25.064000+00:00",
+        "state": "TERMINATED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127250",
+        "processDefinitionKey": "2251799813915190",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127250",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P12",
+      "data": {
+        "processDefinitionId": "P12",
+        "processDefinitionName": "Postoperative Pain Management Pathway",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0_PT1",
+        "startDate": "2026-10-26T08:14:58.316000+00:00",
+        "endDate": "2026-10-26T08:31:46.433000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127299",
+        "processDefinitionKey": "2251799813905982",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127299",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P13",
+      "data": {
+        "processDefinitionId": "P13",
+        "processDefinitionName": "Osteoarthritis Conservative Treatment Pathway",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0_PT1",
+        "startDate": "2026-10-26T08:14:58.852000+00:00",
+        "endDate": "2026-10-26T22:51:00.161000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127348",
+        "processDefinitionKey": "2251799813906004",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127348",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P14",
+      "data": {
+        "processDefinitionId": "P14",
+        "processDefinitionName": "Asthma Long-term Control Pathway",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:14:59.149000+00:00",
+        "endDate": "2026-10-26T22:51:24.409000+00:00",
+        "state": "TERMINATED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127384",
+        "processDefinitionKey": "2251799813906025",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127384",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P15",
+      "data": {
+        "processDefinitionId": "P15",
+        "processDefinitionName": "Diabetic Foot Care Pathway",
+        "processDefinitionVersion": 2,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:14:59.362000+00:00",
+        "endDate": "2026-10-26T08:15:00.870000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127400",
+        "processDefinitionKey": "2251799813915340",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127400",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P16",
+      "data": {
+        "processDefinitionId": "P16",
+        "processDefinitionName": "Pulmonary Rehabilitation Pathway",
+        "processDefinitionVersion": 3,
+        "processDefinitionVersionTag": "1.0.0_PT1",
+        "startDate": "2026-10-26T08:15:00.125000+00:00",
+        "endDate": "2026-10-26T09:22:15.868000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127429",
+        "processDefinitionKey": "2251799813915369",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127429",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P17",
+      "data": {
+        "processDefinitionId": "P17",
+        "processDefinitionName": "Anticoagulation Monitoring Pathway",
+        "processDefinitionVersion": 2,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:15:00.418000+00:00",
+        "endDate": "2026-10-26T22:51:24.412000+00:00",
+        "state": "TERMINATED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127447",
+        "processDefinitionKey": "2251799813915388",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127447",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P18",
+      "data": {
+        "processDefinitionId": "P18",
+        "processDefinitionName": "Breast Cancer Diagnostic Pathway",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:15:00.591000+00:00",
+        "endDate": "2026-10-26T08:15:07.684000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127476",
+        "processDefinitionKey": "2251799813906147",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127476",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P19",
+      "data": {
+        "processDefinitionId": "P19",
+        "processDefinitionName": "Frailty Assessment Pathway",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0_PT1",
+        "startDate": "2026-10-26T08:15:00.924000+00:00",
+        "endDate": "2026-10-26T22:51:24.406000+00:00",
+        "state": "TERMINATED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127502",
+        "processDefinitionKey": "2251799813906167",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127502",
+        "tags": [],
+        "businessId": null
+      }
+    },
+    {
+      "process": "P20",
+      "data": {
+        "processDefinitionId": "P20",
+        "processDefinitionName": "Chronic Wound Management Pathway",
+        "processDefinitionVersion": 1,
+        "processDefinitionVersionTag": "1.0.0",
+        "startDate": "2026-10-26T08:15:01.140000+00:00",
+        "endDate": "2026-10-26T08:15:02.573000+00:00",
+        "state": "COMPLETED",
+        "hasIncident": false,
+        "tenantId": "<default>",
+        "processInstanceKey": "2251799814127524",
+        "processDefinitionKey": "2251799813906216",
+        "parentProcessInstanceKey": null,
+        "parentElementInstanceKey": null,
+        "rootProcessInstanceKey": "2251799814127524",
+        "tags": [],
+        "businessId": null
+      }
+    }
+  ]
+}

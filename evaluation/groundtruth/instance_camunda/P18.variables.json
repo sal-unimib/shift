@@ -1,0 +1,25 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P18A1",
+    "1056_imaging_modality_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"71651007\", \"display\": \"Mammography\"}], \"text\": \"mammography\"}",
+    "1056_body_site_concept": null
+  },
+  "A2": {
+    "resource": "ServiceRequest/P18A2",
+    "1056_imaging_modality_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"47079000\", \"display\": \"Ultrasonography of breast\"}], \"text\": \"breast ultrasound examination\"}",
+    "1056_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"76752008\", \"display\": \"Breast structure\"}], \"text\": \"breast\"}"
+  },
+  "A3": {
+    "resource": "ServiceRequest/P18A3",
+    "1052_clinical_procedure_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"46662001\", \"display\": \"Examination of breast\"}], \"text\": \"breast examination\"}",
+    "1052_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"76752008\", \"display\": \"Breast structure\"}], \"text\": \"breast\"}"
+  },
+  "A4": {
+    "resource": "ServiceRequest/P18A4",
+    "1053_specimen_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"122548005\", \"display\": \"Biopsy of breast\"}], \"text\": \"breast biopsy\"}",
+    "1053_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"76752008\", \"display\": \"Breast structure\"}], \"text\": \"breast\"}"
+  },
+  "procedure_result": null,
+  "imaging_result": null
+}

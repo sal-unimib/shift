@@ -1,0 +1,284 @@
+{
+  "cfg_type": "temporal",
+  "id": "18",
+  "version": "1.0.0",
+  "title": "Breast Cancer Diagnostic Pathway",
+  "name": "P18",
+  "description": "The patient undergoes mammography followed by breast ultrasound examination. If the results require further investigation, a breast examination is performed. If indicated by the specialist, a breast biopsy is subsequently carried out.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient undergoes mammography",
+      "activity_definition": "1056",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"71651007\", \"display\": \"Mammography\"}], \"text\": \"mammography\"}"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_A2"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "breast ultrasound examination",
+      "activity_definition": "1056",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"47079000\", \"display\": \"Ultrasonography of breast\"}], \"text\": \"breast ultrasound examination\"}",
+        "bodySite.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"76752008\", \"display\": \"Breast structure\"}], \"text\": \"breast\"}"
+      },
+      "incoming": [
+        "A1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_div_gat_3"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "If results require further investigation, a breast examination is performed",
+      "activity_definition": "1052",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"46662001\", \"display\": \"Examination of breast\"}], \"text\": \"breast examination\"}",
+        "bodySite.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"76752008\", \"display\": \"Breast structure\"}], \"text\": \"breast\"}"
+      },
+      "incoming": [
+        "div_gat_3_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_div_gat_1"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "a breast biopsy is carried out",
+      "activity_definition": "1053",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"122548005\", \"display\": \"Biopsy of breast\"}], \"text\": \"breast biopsy\"}",
+        "bodySite.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"76752008\", \"display\": \"Breast structure\"}], \"text\": \"breast\"}"
+      },
+      "incoming": [
+        "div_gat_1_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_conv_gat_2"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "conv_gat_4_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "F1": {
+      "id": "F1",
+      "node_type": "FakeNode",
+      "incoming": [
+        "div_gat_3_to_F1"
+      ],
+      "outgoing": [
+        "F1_to_conv_gat_4"
+      ]
+    },
+    "F2": {
+      "id": "F2",
+      "node_type": "FakeNode",
+      "incoming": [
+        "div_gat_1_to_F2"
+      ],
+      "outgoing": [
+        "F2_to_conv_gat_2"
+      ]
+    },
+    "div_gat_1": {
+      "id": "div_gat_1",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "A3_to_div_gat_1"
+      ],
+      "outgoing": [
+        "div_gat_1_to_A4",
+        "div_gat_1_to_F2"
+      ]
+    },
+    "conv_gat_2": {
+      "id": "conv_gat_2",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "A4_to_conv_gat_2",
+        "F2_to_conv_gat_2"
+      ],
+      "outgoing": [
+        "conv_gat_2_to_conv_gat_4"
+      ]
+    },
+    "div_gat_3": {
+      "id": "div_gat_3",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "A2_to_div_gat_3"
+      ],
+      "outgoing": [
+        "div_gat_3_to_A3",
+        "div_gat_3_to_F1"
+      ]
+    },
+    "conv_gat_4": {
+      "id": "conv_gat_4",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "F1_to_conv_gat_4",
+        "conv_gat_2_to_conv_gat_4"
+      ],
+      "outgoing": [
+        "conv_gat_4_to_end_node"
+      ]
+    }
+  },
+  "edges": {
+    "A1_to_A2": {
+      "id": "A1_to_A2",
+      "source": "A1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_div_gat_1": {
+      "id": "A3_to_div_gat_1",
+      "source": "A3",
+      "target": "div_gat_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_1_to_A4": {
+      "id": "div_gat_1_to_A4",
+      "source": "div_gat_1",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%procedure_result = \"abnormal\"",
+        "description": "If indicated by the specialist"
+      }
+    },
+    "div_gat_1_to_F2": {
+      "id": "div_gat_1_to_F2",
+      "source": "div_gat_1",
+      "target": "F2",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "A4_to_conv_gat_2": {
+      "id": "A4_to_conv_gat_2",
+      "source": "A4",
+      "target": "conv_gat_2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "F2_to_conv_gat_2": {
+      "id": "F2_to_conv_gat_2",
+      "source": "F2",
+      "target": "conv_gat_2",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "A2_to_div_gat_3": {
+      "id": "A2_to_div_gat_3",
+      "source": "A2",
+      "target": "div_gat_3",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_3_to_A3": {
+      "id": "div_gat_3_to_A3",
+      "source": "div_gat_3",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%imaging_result = \"to_investigate\"",
+        "description": "If the results require further investigation"
+      }
+    },
+    "div_gat_3_to_F1": {
+      "id": "div_gat_3_to_F1",
+      "source": "div_gat_3",
+      "target": "F1",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "F1_to_conv_gat_4": {
+      "id": "F1_to_conv_gat_4",
+      "source": "F1",
+      "target": "conv_gat_4",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "conv_gat_2_to_conv_gat_4": {
+      "id": "conv_gat_2_to_conv_gat_4",
+      "source": "conv_gat_2",
+      "target": "conv_gat_4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "conv_gat_4_to_end_node": {
+      "id": "conv_gat_4_to_end_node",
+      "source": "conv_gat_4",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "resourceType": "RequestOrchestration",
+  "id": "3",
+  "instantiatesCanonical": [
+    "http://localhost:8080/fhir/PlanDefinition/3|1.0.0"
+  ],
+  "status": "draft",
+  "intent": "plan",
+  "subject": {
+    "reference": "Patient/PT1"
+  },
+  "action": [
+    {
+      "linkId": "A1",
+      "title": "The patient monitors blood glucose every morning",
+      "timingTiming": {
+        "repeat": {
+          "frequency": 1,
+          "period": 144,
+          "periodUnit": "s",
+          "boundsDuration": {
+            "value": 25920,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          }
+        },
+        "code": {
+          "text": "1 occurrence(s) every 144 seconds; for 25920 seconds"
+        }
+      },
+      "definitionCanonical": "ActivityDefinition/1058",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "blood glucose",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"365812005\", \"display\": \"Finding of blood glucose level\"}], \"text\": \"blood glucose\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P03A1"
+      }
+    },
+    {
+      "linkId": "A2",
+      "title": "If the blood glucose level exceeds the prescribed threshold, the practitioner is notified as soon as possible",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "description": "If the blood glucose level exceeds the prescribed threshold",
+            "language": "text/fhirpath",
+            "expression": "%glucose_level >= 200"
+          }
+        }
+      ],
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1051",
+      "dynamicValue": [
+        {
+          "path": "priority",
+          "expression": {
+            "description": "as soon as possible",
+            "language": "text/fhirpath",
+            "expression": "asap"
+          }
+        },
+        {
+          "path": "requester",
+          "expression": {
+            "description": "patient",
+            "language": "text/fhirpath",
+            "expression": "Patient/PT1"
+          }
+        },
+        {
+          "path": "recipient",
+          "expression": {
+            "description": "practitioner",
+            "language": "text/fhirpath",
+            "expression": "Practitioner/PR1"
+          }
+        },
+        {
+          "path": "payload[0].contentAttachment",
+          "expression": {
+            "description": "Glucose level is above 200 mg/dL",
+            "language": "text/fhirpath",
+            "expression": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Glucose level alert\", \"data\": \"R2x1Y29zZSBsZXZlbCBpcyBhYm92ZSAyMDAgbWcvZEw=\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "CommunicationRequest/P03A2"
+      }
+    },
+    {
+      "linkId": "A3",
+      "title": "Otherwise, the patient performs a 30-minute walking session.",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "description": "Otherwise",
+            "language": "text/fhirpath",
+            "expression": "Otherwise"
+          }
+        }
+      ],
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end"
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "duration": 3,
+          "durationUnit": "s"
+        },
+        "code": {
+          "text": "3 seconds"
+        }
+      },
+      "definitionCanonical": "ActivityDefinition/1001",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "walking session",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"129006008\", \"display\": \"Walking\"}], \"text\": \"walking session\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P03A3"
+      }
+    }
+  ]
+}

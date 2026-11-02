@@ -1,0 +1,305 @@
+{
+  "cfg_type": "gateway",
+  "id": "4",
+  "version": "1.0.0",
+  "title": "Post-surgical Infection Monitoring",
+  "name": "P04",
+  "description": "Every morning the patient applies the prescribed medication and measures body temperature. If body temperature exceeds 38\u00b0C, a post-surgical infection screening questionnaire is administered and then the practitioner is alerted as urgent.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "Every morning the patient applies the prescribed medication",
+      "activity_definition": "1000",
+      "fhir_temporal_constraint": {
+        "label": "Every morning",
+        "period": 1.0,
+        "period_max": null,
+        "period_unit": "d",
+        "frequency": 1,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [
+          "MORN"
+        ],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "div_gat_1_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_synchronized_choice_1_join"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "Every morning the patient measures body temperature",
+      "activity_definition": "1058",
+      "fhir_temporal_constraint": {
+        "label": "Every morning",
+        "period": 1.0,
+        "period_max": null,
+        "period_unit": "d",
+        "frequency": 1,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [
+          "MORN"
+        ],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"386725007\", \"display\": \"Body temperature\"}], \"text\": \"body temperature\"}"
+      },
+      "incoming": [
+        "div_gat_1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_synchronized_choice_1_join"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "If body temperature exceeds 38\u00b0C, a post-surgical infection screening questionnaire is administered",
+      "activity_definition": "1002",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "supportingInfo[0].reference": "Questionnaire/Q3"
+      },
+      "incoming": [
+        "div_gat_2_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_A4"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "the practitioner is alerted as urgent",
+      "activity_definition": "1051",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "priority": "urgent"
+      },
+      "incoming": [
+        "A3_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_conv_gat_3"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_div_gat_1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "conv_gat_3_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "F1": {
+      "id": "F1",
+      "node_type": "FakeNode",
+      "incoming": [
+        "div_gat_2_to_F1"
+      ],
+      "outgoing": [
+        "F1_to_conv_gat_3"
+      ]
+    },
+    "synchronized_choice_1_join": {
+      "id": "synchronized_choice_1_join",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "A1_to_synchronized_choice_1_join",
+        "A2_to_synchronized_choice_1_join"
+      ],
+      "outgoing": [
+        "synchronized_choice_1_join_to_div_gat_2"
+      ]
+    },
+    "div_gat_1": {
+      "id": "div_gat_1",
+      "node_type": "GatewayNode",
+      "gateway_class": "parallel",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "start_node_to_div_gat_1"
+      ],
+      "outgoing": [
+        "div_gat_1_to_A1",
+        "div_gat_1_to_A2"
+      ]
+    },
+    "div_gat_2": {
+      "id": "div_gat_2",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "divergent",
+      "incoming": [
+        "synchronized_choice_1_join_to_div_gat_2"
+      ],
+      "outgoing": [
+        "div_gat_2_to_A3",
+        "div_gat_2_to_F1"
+      ]
+    },
+    "conv_gat_3": {
+      "id": "conv_gat_3",
+      "node_type": "GatewayNode",
+      "gateway_class": "exclusive",
+      "gateway_direction": "convergent",
+      "incoming": [
+        "A4_to_conv_gat_3",
+        "F1_to_conv_gat_3"
+      ],
+      "outgoing": [
+        "conv_gat_3_to_end_node"
+      ]
+    }
+  },
+  "edges": {
+    "A3_to_A4": {
+      "id": "A3_to_A4",
+      "source": "A3",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A1_to_synchronized_choice_1_join": {
+      "id": "A1_to_synchronized_choice_1_join",
+      "source": "A1",
+      "target": "synchronized_choice_1_join",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_synchronized_choice_1_join": {
+      "id": "A2_to_synchronized_choice_1_join",
+      "source": "A2",
+      "target": "synchronized_choice_1_join",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_div_gat_1": {
+      "id": "start_node_to_div_gat_1",
+      "source": "start_node",
+      "target": "div_gat_1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_1_to_A1": {
+      "id": "div_gat_1_to_A1",
+      "source": "div_gat_1",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_1_to_A2": {
+      "id": "div_gat_1_to_A2",
+      "source": "div_gat_1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "div_gat_2_to_A3": {
+      "id": "div_gat_2_to_A3",
+      "source": "div_gat_2",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%body_temperature > 38.0",
+        "description": "If body temperature exceeds 38\u00b0C"
+      }
+    },
+    "div_gat_2_to_F1": {
+      "id": "div_gat_2_to_F1",
+      "source": "div_gat_2",
+      "target": "F1",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "A4_to_conv_gat_3": {
+      "id": "A4_to_conv_gat_3",
+      "source": "A4",
+      "target": "conv_gat_3",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "F1_to_conv_gat_3": {
+      "id": "F1_to_conv_gat_3",
+      "source": "F1",
+      "target": "conv_gat_3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "conv_gat_3_to_end_node": {
+      "id": "conv_gat_3_to_end_node",
+      "source": "conv_gat_3",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "synchronized_choice_1_join_to_div_gat_2": {
+      "id": "synchronized_choice_1_join_to_div_gat_2",
+      "source": "synchronized_choice_1_join",
+      "target": "div_gat_2",
+      "relationship": "after-end",
+      "execution_condition": null
+    }
+  }
+}

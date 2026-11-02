@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definition_4" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.51.1">
+  <bpmn:process id="P04" name="Post-surgical Infection Monitoring" isExecutable="false">
+    <bpmn:subProcess id="start_node_cycle_scope" triggeredByEvent="true">
+      <bpmn:task id="A1" name="Every morning the patient applies the prescribed medication">
+        <bpmn:incoming>div_gat_1_to_A1</bpmn:incoming>
+        <bpmn:outgoing>A1_to_synchronized_choice_1_join</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="A2" name="Every morning the patient measures body temperature">
+        <bpmn:incoming>div_gat_1_to_A2</bpmn:incoming>
+        <bpmn:outgoing>A2_to_synchronized_choice_1_join</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="A3" name="If body temperature exceeds 38°C, a post-surgical infection screening questionnaire is administered">
+        <bpmn:incoming>div_gat_2_to_A3</bpmn:incoming>
+        <bpmn:outgoing>A3_to_A4</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="A4" name="the practitioner is alerted as urgent">
+        <bpmn:incoming>A3_to_A4</bpmn:incoming>
+        <bpmn:outgoing>A4_to_conv_gat_3</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:startEvent id="start_node" name="Every morning" isInterrupting="false">
+        <bpmn:outgoing>start_node_to_div_gat_1</bpmn:outgoing>
+        <bpmn:timerEventDefinition id="start_node_definition">
+          <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">0 0 9 * * *</bpmn:timeCycle>
+        </bpmn:timerEventDefinition>
+      </bpmn:startEvent>
+      <bpmn:sequenceFlow id="A3_to_A4" sourceRef="A3" targetRef="A4" />
+      <bpmn:sequenceFlow id="A1_to_synchronized_choice_1_join" sourceRef="A1" targetRef="synchronized_choice_1_join" />
+      <bpmn:sequenceFlow id="A2_to_synchronized_choice_1_join" sourceRef="A2" targetRef="synchronized_choice_1_join" />
+      <bpmn:sequenceFlow id="start_node_to_div_gat_1" sourceRef="start_node" targetRef="div_gat_1" />
+      <bpmn:sequenceFlow id="div_gat_1_to_A1" sourceRef="div_gat_1" targetRef="A1" />
+      <bpmn:sequenceFlow id="div_gat_1_to_A2" sourceRef="div_gat_1" targetRef="A2" />
+      <bpmn:sequenceFlow id="div_gat_2_to_A3" name="If body temperature exceeds 38°C" sourceRef="div_gat_2" targetRef="A3">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">%body_temperature &gt; 38.0</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:sequenceFlow id="A4_to_conv_gat_3" sourceRef="A4" targetRef="conv_gat_3" />
+      <bpmn:sequenceFlow id="conv_gat_3_to_end_node" sourceRef="conv_gat_3" targetRef="end_node" />
+      <bpmn:sequenceFlow id="synchronized_choice_1_join_to_div_gat_2" sourceRef="synchronized_choice_1_join" targetRef="div_gat_2" />
+      <bpmn:sequenceFlow id="div_gat_2_to_conv_gat_3" name="Otherwise" sourceRef="div_gat_2" targetRef="conv_gat_3" />
+      <bpmn:parallelGateway id="synchronized_choice_1_join" gatewayDirection="Converging">
+        <bpmn:incoming>A1_to_synchronized_choice_1_join</bpmn:incoming>
+        <bpmn:incoming>A2_to_synchronized_choice_1_join</bpmn:incoming>
+        <bpmn:outgoing>synchronized_choice_1_join_to_div_gat_2</bpmn:outgoing>
+      </bpmn:parallelGateway>
+      <bpmn:parallelGateway id="div_gat_1" gatewayDirection="Diverging">
+        <bpmn:incoming>start_node_to_div_gat_1</bpmn:incoming>
+        <bpmn:outgoing>div_gat_1_to_A1</bpmn:outgoing>
+        <bpmn:outgoing>div_gat_1_to_A2</bpmn:outgoing>
+      </bpmn:parallelGateway>
+      <bpmn:exclusiveGateway id="div_gat_2" gatewayDirection="Diverging" default="div_gat_2_to_conv_gat_3">
+        <bpmn:incoming>synchronized_choice_1_join_to_div_gat_2</bpmn:incoming>
+        <bpmn:outgoing>div_gat_2_to_A3</bpmn:outgoing>
+        <bpmn:outgoing>div_gat_2_to_conv_gat_3</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:exclusiveGateway id="conv_gat_3" gatewayDirection="Converging">
+        <bpmn:incoming>A4_to_conv_gat_3</bpmn:incoming>
+        <bpmn:incoming>div_gat_2_to_conv_gat_3</bpmn:incoming>
+        <bpmn:outgoing>conv_gat_3_to_end_node</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:endEvent id="end_node">
+        <bpmn:incoming>conv_gat_3_to_end_node</bpmn:incoming>
+      </bpmn:endEvent>
+    </bpmn:subProcess>
+    <bpmn:startEvent id="ka_start_event_1">
+      <bpmn:outgoing>ka_start_event_1_to_ka_timer_event_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="ka_start_event_1_to_ka_timer_event_1" sourceRef="ka_start_event_1" targetRef="ka_timer_event_1" />
+    <bpmn:sequenceFlow id="ka_timer_event_1_to_ka_end_event_1" sourceRef="ka_timer_event_1" targetRef="ka_end_event_1" />
+    <bpmn:intermediateCatchEvent id="ka_timer_event_1" name="">
+      <bpmn:incoming>ka_start_event_1_to_ka_timer_event_1</bpmn:incoming>
+      <bpmn:outgoing>ka_timer_event_1_to_ka_end_event_1</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="ka_timer_event_1_definition" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:endEvent id="ka_end_event_1">
+      <bpmn:incoming>ka_timer_event_1_to_ka_end_event_1</bpmn:incoming>
+      <bpmn:terminateEventDefinition />
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="P04_diagram">
+    <bpmndi:BPMNPlane id="P04_plane" bpmnElement="P04">
+      <bpmndi:BPMNShape id="start_node_cycle_scope_shape" bpmnElement="start_node_cycle_scope" isExpanded="true">
+        <dc:Bounds x="160" y="60" width="1933" height="383" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A1_shape" bpmnElement="A1">
+        <dc:Bounds x="508" y="158" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A2_shape" bpmnElement="A2">
+        <dc:Bounds x="508" y="313" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A3_shape" bpmnElement="A3">
+        <dc:Bounds x="1247" y="120" width="170" height="114" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A4_shape" bpmnElement="A4">
+        <dc:Bounds x="1575" y="138" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="start_node_shape" bpmnElement="start_node">
+        <dc:Bounds x="200" y="263" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="183" y="299" width="71" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="synchronized_choice_1_join_shape" bpmnElement="synchronized_choice_1_join">
+        <dc:Bounds x="789" y="256" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="div_gat_1_shape" bpmnElement="div_gat_1">
+        <dc:Bounds x="347" y="256" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="div_gat_2_shape" bpmnElement="div_gat_2" isMarkerVisible="true">
+        <dc:Bounds x="950" y="256" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="conv_gat_3_shape" bpmnElement="conv_gat_3" isMarkerVisible="true">
+        <dc:Bounds x="1856" y="256" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_node_shape" bpmnElement="end_node">
+        <dc:Bounds x="2017" y="263" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="A3_to_A4_edge" bpmnElement="A3_to_A4">
+        <di:waypoint x="1416.59" y="183" />
+        <di:waypoint x="1574.9" y="183" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A1_to_synchronized_choice_1_join_edge" bpmnElement="A1_to_synchronized_choice_1_join">
+        <di:waypoint x="678" y="203" />
+        <di:waypoint x="814" y="203" />
+        <di:waypoint x="814" y="256" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A2_to_synchronized_choice_1_join_edge" bpmnElement="A2_to_synchronized_choice_1_join">
+        <di:waypoint x="678" y="358" />
+        <di:waypoint x="814" y="358" />
+        <di:waypoint x="814" y="306" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="start_node_to_div_gat_1_edge" bpmnElement="start_node_to_div_gat_1">
+        <di:waypoint x="236" y="281" />
+        <di:waypoint x="347" y="281" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_1_to_A1_edge" bpmnElement="div_gat_1_to_A1">
+        <di:waypoint x="372" y="256" />
+        <di:waypoint x="372" y="203" />
+        <di:waypoint x="508" y="203" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_1_to_A2_edge" bpmnElement="div_gat_1_to_A2">
+        <di:waypoint x="372" y="306" />
+        <di:waypoint x="372" y="358" />
+        <di:waypoint x="508" y="358" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_2_to_A3_edge" bpmnElement="div_gat_2_to_A3">
+        <di:waypoint x="975" y="256" />
+        <di:waypoint x="975" y="177" />
+        <di:waypoint x="1246.5" y="177" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1027" y="133" width="168" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A4_to_conv_gat_3_edge" bpmnElement="A4_to_conv_gat_3">
+        <di:waypoint x="1745" y="183" />
+        <di:waypoint x="1881" y="183" />
+        <di:waypoint x="1881" y="256" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="synchronized_choice_1_join_to_div_gat_2_edge" bpmnElement="synchronized_choice_1_join_to_div_gat_2">
+        <di:waypoint x="839" y="281" />
+        <di:waypoint x="950" y="281" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_2_to_conv_gat_3_edge" bpmnElement="div_gat_2_to_conv_gat_3">
+        <di:waypoint x="1000" y="281" />
+        <di:waypoint x="1856" y="281" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1464" y="299" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="conv_gat_3_to_end_node_edge" bpmnElement="conv_gat_3_to_end_node">
+        <di:waypoint x="1906.2" y="281" />
+        <di:waypoint x="2017.2" y="281" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ka_start_event_1_shape" bpmnElement="ka_start_event_1">
+        <dc:Bounds x="160" y="533" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ka_timer_event_1_shape" bpmnElement="ka_timer_event_1">
+        <dc:Bounds x="306" y="533" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ka_end_event_1_shape" bpmnElement="ka_end_event_1">
+        <dc:Bounds x="452" y="533" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="ka_start_event_1_to_ka_timer_event_1_edge" bpmnElement="ka_start_event_1_to_ka_timer_event_1">
+        <di:waypoint x="196.49" y="551" />
+        <di:waypoint x="305.65999999999997" y="551" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ka_timer_event_1_to_ka_end_event_1_edge" bpmnElement="ka_timer_event_1_to_ka_end_event_1">
+        <di:waypoint x="342.49" y="551" />
+        <di:waypoint x="451.66" y="551" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

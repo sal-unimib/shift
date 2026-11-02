@@ -1,0 +1,29 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P19A1",
+    "1002_questionnaire": "Questionnaire/Q4"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P19A2",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"90655003\", \"display\": \"Geriatrics specialist\"}], \"text\": \"geriatric specialist visit\"}"
+  },
+  "A3": {
+    "resource": "ServiceRequest/P19A3",
+    "1055_patient_instruction": null
+  },
+  "A4": {
+    "resource": "ServiceRequest/P19A4",
+    "1001_exercise_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"386293009\", \"display\": \"Balance exercise\"}], \"text\": \"balance exercise\"}"
+  },
+  "A5": {
+    "resource": "NutritionOrder/P19A5",
+    "1054_oral_diet": "\"protein-rich Mediterranean diet with adequate hydration and soft-textured foods\"",
+    "1054_supplement": null,
+    "1054_enteral_formula": null
+  },
+  "TC_A4_cycle": "R/PT56H",
+  "TC_A4_execution_duration": "PT20M",
+  "TC_A4_execution_bound": "PT30M",
+  "TC_A4_keep_alive_bound": "P100Y"
+}

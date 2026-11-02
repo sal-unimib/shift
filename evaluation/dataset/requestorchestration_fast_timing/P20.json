@@ -1,0 +1,197 @@
+{
+  "resourceType": "RequestOrchestration",
+  "id": "20",
+  "instantiatesCanonical": [
+    "http://localhost:8080/fhir/PlanDefinition/20|1.0.0"
+  ],
+  "status": "draft",
+  "intent": "plan",
+  "action": [
+    {
+      "linkId": "A1",
+      "title": "The patient completes a wound assessment survey",
+      "definitionCanonical": "ActivityDefinition/1002",
+      "dynamicValue": [
+        {
+          "path": "supportingInfo[0].reference",
+          "expression": {
+            "description": "wound assessment survey",
+            "language": "text/fhirpath",
+            "expression": "Questionnaire/Q7"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P20A1"
+      }
+    },
+    {
+      "linkId": "A2",
+      "title": "The patient undergoes specimen collection",
+      "definitionCanonical": "ActivityDefinition/1053",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "specimen wound",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"225150002\", \"display\": \"Specimen from wound\"}], \"text\": \"wound specimen\"}"
+          }
+        },
+        {
+          "path": "bodySite.concept",
+          "expression": {
+            "description": "right foot",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"7769000\", \"display\": \"Right foot\"}], \"text\": \"right foot\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P20A2"
+      }
+    },
+    {
+      "linkId": "A3",
+      "title": "If infection is suspected, therapeutic intervention is initiated",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "description": "If infection is suspected",
+            "language": "text/fhirpath",
+            "expression": "%specimen_result = \"infection\""
+          }
+        }
+      ],
+      "relatedAction": [
+        {
+          "targetId": "A1",
+          "relationship": "after-end"
+        },
+        {
+          "targetId": "A2",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1057",
+      "dynamicValue": [
+        {
+          "path": "code.concept",
+          "expression": {
+            "description": "Cleaning wound",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"225150002\", \"display\": \"Cleaning wound\"}], \"text\": \"Cleaning wound\"}"
+          }
+        },
+        {
+          "path": "bodySite.concept",
+          "expression": {
+            "description": "right foot",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"7769000\", \"display\": \"Right foot\"}], \"text\": \"right foot\"}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "ServiceRequest/P20A3"
+      }
+    },
+    {
+      "linkId": "A4",
+      "title": "the patient follows a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control",
+      "relatedAction": [
+        {
+          "targetId": "A3",
+          "relationship": "after-end"
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1054",
+      "dynamicValue": [
+        {
+          "path": "oralDiet.instruction",
+          "expression": {
+            "description": "a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control",
+            "language": "text/fhirpath",
+            "expression": "\"a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control\""
+          }
+        }
+      ],
+      "resource": {
+        "reference": "NutritionOrder/P20A4"
+      }
+    },
+    {
+      "linkId": "A5",
+      "title": "the patient takes amoxicillin 1 g every 8 hours for 7 days",
+      "relatedAction": [
+        {
+          "targetId": "A3",
+          "relationship": "after-end"
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "frequency": 1,
+          "period": 48,
+          "periodUnit": "s",
+          "boundsDuration": {
+            "value": 1008,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          }
+        },
+        "code": {
+          "text": "1 occurrence(s) every 48 seconds; for 1008 seconds"
+        }
+      },
+      "definitionCanonical": "ActivityDefinition/1000",
+      "dynamicValue": [
+        {
+          "path": "medication.concept",
+          "expression": {
+            "description": "amoxicillin",
+            "language": "text/fhirpath",
+            "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"372687004\", \"display\": \"Amoxicillin\"}], \"text\": \"amoxicillin\"}"
+          }
+        },
+        {
+          "path": "dosageInstruction[0].doseAndRate[0]",
+          "expression": {
+            "description": "1 mg",
+            "language": "text/fhirpath",
+            "expression": "{\"doseQuantity\": {\"value\": 1.0, \"unit\": \"mg\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"mg\"}}"
+          }
+        }
+      ],
+      "resource": {
+        "reference": "MedicationRequest/P20A5"
+      }
+    },
+    {
+      "linkId": "A6",
+      "title": "The patient attends a follow-up visit after four weeks",
+      "relatedAction": [
+        {
+          "targetId": "A3",
+          "relationship": "after-end",
+          "offsetDuration": {
+            "value": 4032,
+            "unit": "s",
+            "system": "http://unitsofmeasure.org",
+            "code": "s"
+          }
+        }
+      ],
+      "definitionCanonical": "ActivityDefinition/1059",
+      "dynamicValue": [],
+      "resource": {
+        "reference": "ServiceRequest/P20A6"
+      }
+    }
+  ],
+  "subject": {
+    "reference": "Patient/PT1"
+  }
+}

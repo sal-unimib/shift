@@ -1,0 +1,25 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P06A1",
+    "1057_therapy_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"313395003\", \"display\": \"Cardiac rehabilitation\"}], \"text\": \"cardiac rehabilitation therapy\"}",
+    "1057_body_site_concept": null
+  },
+  "A2": {
+    "resource": "ServiceRequest/P06A2",
+    "1001_exercise_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"1386227007\", \"display\": \"Aerobic exercise\"}], \"text\": \"aerobic exercises\"}"
+  },
+  "A3": {
+    "resource": "ServiceRequest/P06A3",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"364075005\", \"display\": \"Heart rate\"}], \"text\": \"heart rate\"}"
+  },
+  "A4": {
+    "resource": "ServiceRequest/P06A4",
+    "1002_questionnaire": "Questionnaire/Q4"
+  },
+  "TC_A1_exact": "2026-10-19T09:00:00+02:00",
+  "TC_A2+A3_cycle": "R/PT8H",
+  "TC_A2_execution_duration": "PT30M",
+  "TC_A2_execution_bound": "PT30M",
+  "TC_A2+A3_keep_alive_bound": "P1M"
+}

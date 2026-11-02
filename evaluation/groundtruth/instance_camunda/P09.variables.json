@@ -1,0 +1,34 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P09A1",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"106048009\", \"display\": \"Respiratory finding\"}], \"text\": \"respiratory observation\"}"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P09A2",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"431314004\", \"display\": \"Peripheral oxygen saturation\"}], \"text\": \"SpO2\"}"
+  },
+  "A3": {
+    "resource": "CommunicationRequest/P09A3",
+    "1051_priority": "asap",
+    "1051_payload": null,
+    "1051_requester": null,
+    "1051_recipient": null,
+    "1051_information_provider": null
+  },
+  "A4": {
+    "resource": "MedicationRequest/P09A4",
+    "1000_medication": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"372580007\", \"display\": \"Bronchodilator\"}], \"text\": \"Bronchodilator\"}",
+    "1000_dosage_dose_and_rate": "{\"doseRange\": {\"low\": {\"value\": 2.0, \"unit\": \"puffs\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"{{puff}}\"}, \"high\": {\"value\": 4.0, \"unit\": \"puffs\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"{{puff}}\"}}}"
+  },
+  "A5": {
+    "resource": "ServiceRequest/P09A5",
+    "1055_patient_instruction": "DocumentReference/D4"
+  },
+  "TC_A1+A2_cycle": "R/PT1H",
+  "TC_A4_cycle": "R/PT6H",
+  "TC_A1+A2_keep_alive_bound": "P100Y",
+  "TC_A4_keep_alive_bound": "P100Y",
+  "spo2": null,
+  "respiration_rate": null
+}

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="Definition_10_camunda" targetNamespace="http://bpmn.io/schema/bpmn" exporter="SHIFT" exporterVersion="1.0.0-beta">
+  <bpmn:process id="P10" name="Multimodal Preoperative Optimization Pathway" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="Form_10_1.0.0">{"id": "Form_10_1.0.0", "type": "default", "schemaVersion": 1, "components": [{"id": "Field_subject", "type": "textfield", "key": "subject"}, {"id": "Group_A1", "type": "group", "path": "A1", "components": [{"id": "Field_A1_resource", "type": "textfield", "key": "resource"}, {"id": "Field_A1_1002_questionnaire", "type": "textfield", "key": "1002_questionnaire"}]}, {"id": "Group_A2", "type": "group", "path": "A2", "components": [{"id": "Field_A2_resource", "type": "textfield", "key": "resource"}, {"id": "Field_A2_1053_specimen_concept", "type": "textfield", "key": "1053_specimen_concept"}, {"id": "Field_A2_1053_body_site_concept", "type": "textfield", "key": "1053_body_site_concept"}]}, {"id": "Group_A3", "type": "group", "path": "A3", "components": [{"id": "Field_A3_resource", "type": "textfield", "key": "resource"}, {"id": "Field_A3_1058_observation_concept", "type": "textfield", "key": "1058_observation_concept"}]}, {"id": "Group_A4", "type": "group", "path": "A4", "components": [{"id": "Field_A4_resource", "type": "textfield", "key": "resource"}, {"id": "Field_A4_1056_imaging_modality_concept", "type": "textfield", "key": "1056_imaging_modality_concept"}, {"id": "Field_A4_1056_body_site_concept", "type": "textfield", "key": "1056_body_site_concept"}]}, {"id": "Group_A5", "type": "group", "path": "A5", "components": [{"id": "Field_A5_resource", "type": "textfield", "key": "resource"}, {"id": "Field_A5_1059_visit_concept", "type": "textfield", "key": "1059_visit_concept"}]}, {"id": "Group_A6", "type": "group", "path": "A6", "components": [{"id": "Field_A6_resource", "type": "textfield", "key": "resource"}, {"id": "Field_A6_1055_patient_instruction", "type": "textfield", "key": "1055_patient_instruction"}]}]}</zeebe:userTaskForm>
+      <zeebe:versionTag value="1.0.0"/>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="start_node">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:Form_10_1.0.0"/>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>start_node_to_A1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="A1" name="The patient completes anamnesis">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ad_complete_questionnaire"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>start_node_to_A1</bpmn:incoming>
+      <bpmn:outgoing>A1_to_A2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="A2" name="blood sample collection">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ad_collect_specimen"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>A1_to_A2</bpmn:incoming>
+      <bpmn:outgoing>A2_to_A3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="A3" name="ECG recording">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ad_request_observation"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>A2_to_A3</bpmn:incoming>
+      <bpmn:outgoing>A3_to_A4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="A4" name="chest X-ray examination">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ad_perform_imaging"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>A3_to_A4</bpmn:incoming>
+      <bpmn:outgoing>A4_to_A5</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="A5" name="The patient then undergoes an anaesthesia consultation">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ad_specialist_visit"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>A4_to_A5</bpmn:incoming>
+      <bpmn:outgoing>A5_to_A6</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="A6" name="The patient receives preoperative education regarding the surgical procedure">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ad_educate_patient"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>A5_to_A6</bpmn:incoming>
+      <bpmn:outgoing>A6_to_end_node</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="A1_to_A2" sourceRef="A1" targetRef="A2"/>
+    <bpmn:sequenceFlow id="A2_to_A3" sourceRef="A2" targetRef="A3"/>
+    <bpmn:sequenceFlow id="A3_to_A4" sourceRef="A3" targetRef="A4"/>
+    <bpmn:sequenceFlow id="A4_to_A5" sourceRef="A4" targetRef="A5"/>
+    <bpmn:sequenceFlow id="A5_to_A6" sourceRef="A5" targetRef="A6"/>
+    <bpmn:sequenceFlow id="start_node_to_A1" sourceRef="start_node" targetRef="A1"/>
+    <bpmn:sequenceFlow id="A6_to_end_node" sourceRef="A6" targetRef="end_node"/>
+    <bpmn:endEvent id="end_node">
+      <bpmn:incoming>A6_to_end_node</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="P10_diagram">
+    <bpmndi:BPMNPlane id="P10_plane" bpmnElement="P10">
+      <bpmndi:BPMNShape id="A1_shape" bpmnElement="A1">
+        <dc:Bounds x="206.0" y="64.5" width="170" height="90"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A2_shape" bpmnElement="A2">
+        <dc:Bounds x="486.0" y="64.5" width="170" height="90"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A3_shape" bpmnElement="A3">
+        <dc:Bounds x="766.0" y="64.5" width="170" height="90"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A4_shape" bpmnElement="A4">
+        <dc:Bounds x="1046.0" y="64.5" width="170" height="90"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A5_shape" bpmnElement="A5">
+        <dc:Bounds x="1326.0" y="64.5" width="170" height="90"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A6_shape" bpmnElement="A6">
+        <dc:Bounds x="1606.0" y="60.0" width="170" height="99"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_node_shape" bpmnElement="end_node">
+        <dc:Bounds x="1886.0" y="91.5" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="start_node_shape" bpmnElement="start_node">
+        <dc:Bounds x="60.0" y="91.5" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="A1_to_A2_edge" bpmnElement="A1_to_A2">
+        <di:waypoint x="376.15" y="109.5"/>
+        <di:waypoint x="485.77" y="109.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A2_to_A3_edge" bpmnElement="A2_to_A3">
+        <di:waypoint x="656.15" y="109.5"/>
+        <di:waypoint x="765.77" y="109.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A3_to_A4_edge" bpmnElement="A3_to_A4">
+        <di:waypoint x="936.15" y="109.5"/>
+        <di:waypoint x="1045.77" y="109.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A4_to_A5_edge" bpmnElement="A4_to_A5">
+        <di:waypoint x="1216.15" y="109.5"/>
+        <di:waypoint x="1325.8" y="109.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A5_to_A6_edge" bpmnElement="A5_to_A6">
+        <di:waypoint x="1496.15" y="109.5"/>
+        <di:waypoint x="1605.8" y="109.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A6_to_end_node_edge" bpmnElement="A6_to_end_node">
+        <di:waypoint x="1776.41" y="109.5"/>
+        <di:waypoint x="1885.5" y="109.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="start_node_to_A1_edge" bpmnElement="start_node_to_A1">
+        <di:waypoint x="96.16" y="109.5"/>
+        <di:waypoint x="205.66" y="109.5"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

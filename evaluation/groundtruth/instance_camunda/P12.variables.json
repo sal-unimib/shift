@@ -1,0 +1,22 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P12A1",
+    "1002_questionnaire": "Questionnaire/Q6"
+  },
+  "A2": {
+    "resource": "MedicationRequest/P12A2",
+    "1000_medication": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"373529000\", \"display\": \"Morphine\"}], \"text\": \"Morphine\"}",
+    "1000_dosage_dose_and_rate": null
+  },
+  "A3": {
+    "resource": "CommunicationRequest/P12A3",
+    "1051_priority": "routine",
+    "1051_payload": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Pain monitoring\", \"data\": \"QW5hbGdlc2ljIHRyZWF0bWVudCBpcyBhZG1pbmlzdGVyZWQgdG8gdGhlIHBhdGllbnQ=\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "Practitioner/PR1",
+    "1051_information_provider": null
+  },
+  "TC_A1_cycle": "R/P1D",
+  "TC_A1_keep_alive_bound": "P1W"
+}

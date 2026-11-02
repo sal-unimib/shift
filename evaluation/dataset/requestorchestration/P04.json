@@ -1,0 +1,170 @@
+{
+    "resourceType": "RequestOrchestration",
+    "id": "4",
+    "instantiatesCanonical": [
+        "http://localhost:8080/fhir/PlanDefinition/4|1.0.0"
+    ],
+    "status": "draft",
+    "intent": "plan",
+    "subject": {
+        "reference": "Patient/PT1"
+    },
+    "action": [
+        {
+            "linkId": "A1",
+            "title": "Every morning the patient applies the prescribed medication",
+            "timingTiming": {
+                "repeat": {
+                    "frequency": 1,
+                    "period": 1,
+                    "periodUnit": "d",
+                    "when": [
+                        "MORN"
+                    ]
+                },
+                "code": {
+                    "text": "Every morning"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1000",
+            "dynamicValue": [
+                {
+                    "path": "medication.concept",
+                    "expression": {
+                        "description": "Amoxicillin",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"372687004\", \"display\": \"Amoxicillin\"}], \"text\": \"Amoxicillin\"}"
+                    }
+                },
+                {
+                    "path": "dosageInstruction[0].doseAndRate[0]",
+                    "expression": {
+                        "description": "1g",
+                        "language": "text/fhirpath",
+                        "expression": "{\"doseQuantity\": {\"value\": 1.0, \"unit\": \"g\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"g\"}}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "MedicationRequest/P04A1"
+            }
+        },
+        {
+            "linkId": "A2",
+            "title": "Every morning the patient measures body temperature",
+            "timingTiming": {
+                "repeat": {
+                    "frequency": 1,
+                    "period": 1,
+                    "periodUnit": "d",
+                    "when": [
+                        "MORN"
+                    ]
+                },
+                "code": {
+                    "text": "Every morning"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1058",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "body temperature",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"386725007\", \"display\": \"Body temperature\"}], \"text\": \"body temperature\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P04A2"
+            }
+        },
+        {
+            "linkId": "A3",
+            "title": "If body temperature exceeds 38°C, a post-surgical infection screening questionnaire is administered",
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "If body temperature exceeds 38°C",
+                        "language": "text/fhirpath",
+                        "expression": "%body_temperature > 38.0"
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A1",
+                    "relationship": "after-end"
+                },
+                {
+                    "targetId": "A2",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1002",
+            "dynamicValue": [
+                {
+                    "path": "supportingInfo[0].reference",
+                    "expression": {
+                        "description": "post-surgical infection screening questionnaire",
+                        "language": "text/fhirpath",
+                        "expression": "Questionnaire/Q3"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P04A3"
+            }
+        },
+        {
+            "linkId": "A4",
+            "title": "the practitioner is alerted as urgent",
+            "relatedAction": [
+                {
+                    "targetId": "A3",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1051",
+            "dynamicValue": [
+                {
+                    "path": "priority",
+                    "expression": {
+                        "description": "urgent",
+                        "language": "text/fhirpath",
+                        "expression": "urgent"
+                    }
+                },
+                {
+                    "path": "requester",
+                    "expression": {
+                        "description": "patient",
+                        "language": "text/fhirpath",
+                        "expression": "Patient/PT1"
+                    }
+                },
+                {
+                    "path": "recipient",
+                    "expression": {
+                        "description": "practitioner",
+                        "language": "text/fhirpath",
+                        "expression": "Practitioner/PR1"
+                    }
+                },
+                {
+                    "path": "payload[0].contentAttachment",
+                    "expression": {
+                        "description": "Body temperature of the patient is above 38 degrees celsius",
+                        "language": "text/fhirpath",
+                        "expression": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Post-surgical infection screening\", \"data\": \"Qm9keSB0ZW1wZXJhdHVyZSBvZiB0aGUgcGF0aWVudCBpcyBhYm92ZSAzOCBkZWdyZWVzIGNlbHNpdXM=\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "CommunicationRequest/P04A4"
+            }
+        }
+    ]
+}

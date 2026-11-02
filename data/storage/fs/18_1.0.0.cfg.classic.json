@@ -1,0 +1,208 @@
+{
+  "cfg_type": "classic",
+  "id": "18",
+  "version": "1.0.0",
+  "title": "Breast Cancer Diagnostic Pathway",
+  "name": "P18",
+  "description": "The patient undergoes mammography followed by breast ultrasound examination. If the results require further investigation, a breast examination is performed. If indicated by the specialist, a breast biopsy is subsequently carried out.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient undergoes mammography",
+      "activity_definition": "1056",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"71651007\", \"display\": \"Mammography\"}], \"text\": \"mammography\"}"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_A2"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "breast ultrasound examination",
+      "activity_definition": "1056",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"47079000\", \"display\": \"Ultrasonography of breast\"}], \"text\": \"breast ultrasound examination\"}",
+        "bodySite.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"76752008\", \"display\": \"Breast structure\"}], \"text\": \"breast\"}"
+      },
+      "incoming": [
+        "A1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_A3",
+        "A2_to_F1"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "If results require further investigation, a breast examination is performed",
+      "activity_definition": "1052",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"46662001\", \"display\": \"Examination of breast\"}], \"text\": \"breast examination\"}",
+        "bodySite.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"76752008\", \"display\": \"Breast structure\"}], \"text\": \"breast\"}"
+      },
+      "incoming": [
+        "A2_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_A4",
+        "A3_to_F2"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "a breast biopsy is carried out",
+      "activity_definition": "1053",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"122548005\", \"display\": \"Biopsy of breast\"}], \"text\": \"breast biopsy\"}",
+        "bodySite.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"76752008\", \"display\": \"Breast structure\"}], \"text\": \"breast\"}"
+      },
+      "incoming": [
+        "A3_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_end_node"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "A4_to_end_node",
+        "F1_to_end_node",
+        "F2_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "F1": {
+      "id": "F1",
+      "node_type": "FakeNode",
+      "incoming": [
+        "A2_to_F1"
+      ],
+      "outgoing": [
+        "F1_to_end_node"
+      ]
+    },
+    "F2": {
+      "id": "F2",
+      "node_type": "FakeNode",
+      "incoming": [
+        "A3_to_F2"
+      ],
+      "outgoing": [
+        "F2_to_end_node"
+      ]
+    }
+  },
+  "edges": {
+    "A1_to_A2": {
+      "id": "A1_to_A2",
+      "source": "A1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_A3": {
+      "id": "A2_to_A3",
+      "source": "A2",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%imaging_result = \"to_investigate\"",
+        "description": "If the results require further investigation"
+      }
+    },
+    "A3_to_A4": {
+      "id": "A3_to_A4",
+      "source": "A3",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%procedure_result = \"abnormal\"",
+        "description": "If indicated by the specialist"
+      }
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A4_to_end_node": {
+      "id": "A4_to_end_node",
+      "source": "A4",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_F1": {
+      "id": "A2_to_F1",
+      "source": "A2",
+      "target": "F1",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "F1_to_end_node": {
+      "id": "F1_to_end_node",
+      "source": "F1",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "A3_to_F2": {
+      "id": "A3_to_F2",
+      "source": "A3",
+      "target": "F2",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "F2_to_end_node": {
+      "id": "F2_to_end_node",
+      "source": "F2",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definition_19" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.51.1">
+  <bpmn:process id="P19" name="Frailty Assessment Pathway" isExecutable="false">
+    <bpmn:task id="A1" name="The patient completes a general health questionnaire">
+      <bpmn:incoming>start_node_to_A1</bpmn:incoming>
+      <bpmn:outgoing>A1_to_A2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="A2" name="The patient attends a geriatric specialist visit">
+      <bpmn:incoming>A1_to_A2</bpmn:incoming>
+      <bpmn:outgoing>A2_to_A3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="A3" name="the patient receives education on the prescribed care plan">
+      <bpmn:incoming>A2_to_A3</bpmn:incoming>
+      <bpmn:outgoing>A3_to_div_gat_1</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="A4" name="the patient performs the prescribed exercises for 30 minutes">
+      <bpmn:incoming>div_gat_1_to_A4</bpmn:incoming>
+      <bpmn:outgoing>A4_to_conv_gat_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="A5" name="the patient follows a protein-rich Mediterranean diet with adequate hydration and soft-textured foods">
+      <bpmn:incoming>div_gat_1_to_A5</bpmn:incoming>
+      <bpmn:outgoing>A5_to_conv_gat_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:startEvent id="start_node">
+      <bpmn:outgoing>start_node_to_A1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="A1_to_A2" sourceRef="A1" targetRef="A2" />
+    <bpmn:sequenceFlow id="A2_to_A3" sourceRef="A2" targetRef="A3" />
+    <bpmn:sequenceFlow id="start_node_to_A1" sourceRef="start_node" targetRef="A1" />
+    <bpmn:sequenceFlow id="A3_to_div_gat_1" sourceRef="A3" targetRef="div_gat_1" />
+    <bpmn:sequenceFlow id="div_gat_1_to_A4" sourceRef="div_gat_1" targetRef="A4" />
+    <bpmn:sequenceFlow id="div_gat_1_to_A5" sourceRef="div_gat_1" targetRef="A5" />
+    <bpmn:sequenceFlow id="A4_to_conv_gat_2" sourceRef="A4" targetRef="conv_gat_2" />
+    <bpmn:sequenceFlow id="A5_to_conv_gat_2" sourceRef="A5" targetRef="conv_gat_2" />
+    <bpmn:sequenceFlow id="conv_gat_2_to_end_node" sourceRef="conv_gat_2" targetRef="end_node" />
+    <bpmn:parallelGateway id="div_gat_1" gatewayDirection="Diverging">
+      <bpmn:incoming>A3_to_div_gat_1</bpmn:incoming>
+      <bpmn:outgoing>div_gat_1_to_A4</bpmn:outgoing>
+      <bpmn:outgoing>div_gat_1_to_A5</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="conv_gat_2" gatewayDirection="Converging">
+      <bpmn:incoming>A4_to_conv_gat_2</bpmn:incoming>
+      <bpmn:incoming>A5_to_conv_gat_2</bpmn:incoming>
+      <bpmn:outgoing>conv_gat_2_to_end_node</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="end_node">
+      <bpmn:incoming>conv_gat_2_to_end_node</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="P19_diagram">
+    <bpmndi:BPMNPlane id="P19_plane" bpmnElement="P19">
+      <bpmndi:BPMNShape id="A1_shape" bpmnElement="A1">
+        <dc:Bounds x="296" y="140" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A2_shape" bpmnElement="A2">
+        <dc:Bounds x="576" y="140" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A3_shape" bpmnElement="A3">
+        <dc:Bounds x="856" y="140" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A4_shape" bpmnElement="A4">
+        <dc:Bounds x="1316" y="60" width="170" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A5_shape" bpmnElement="A5">
+        <dc:Bounds x="1296" y="216" width="210" height="99" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="start_node_shape" bpmnElement="start_node">
+        <dc:Bounds x="150" y="167" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="div_gat_1_shape" bpmnElement="div_gat_1">
+        <dc:Bounds x="1136" y="160" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="conv_gat_2_shape" bpmnElement="conv_gat_2">
+        <dc:Bounds x="1616" y="160" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_node_shape" bpmnElement="end_node">
+        <dc:Bounds x="1776" y="167" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="A1_to_A2_edge" bpmnElement="A1_to_A2">
+        <di:waypoint x="466.15" y="185" />
+        <di:waypoint x="575.77" y="185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A2_to_A3_edge" bpmnElement="A2_to_A3">
+        <di:waypoint x="746.15" y="185" />
+        <di:waypoint x="855.77" y="185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="start_node_to_A1_edge" bpmnElement="start_node_to_A1">
+        <di:waypoint x="186.16" y="185" />
+        <di:waypoint x="295.65999999999997" y="185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A3_to_div_gat_1_edge" bpmnElement="A3_to_div_gat_1">
+        <di:waypoint x="1026" y="185" />
+        <di:waypoint x="1136" y="185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_1_to_A4_edge" bpmnElement="div_gat_1_to_A4">
+        <di:waypoint x="1161" y="160" />
+        <di:waypoint x="1161" y="105" />
+        <di:waypoint x="1316" y="105" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="div_gat_1_to_A5_edge" bpmnElement="div_gat_1_to_A5">
+        <di:waypoint x="1161" y="210" />
+        <di:waypoint x="1161" y="265" />
+        <di:waypoint x="1296" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A4_to_conv_gat_2_edge" bpmnElement="A4_to_conv_gat_2">
+        <di:waypoint x="1486" y="105" />
+        <di:waypoint x="1641" y="105" />
+        <di:waypoint x="1641" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A5_to_conv_gat_2_edge" bpmnElement="A5_to_conv_gat_2">
+        <di:waypoint x="1506" y="265" />
+        <di:waypoint x="1641" y="265" />
+        <di:waypoint x="1641" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="conv_gat_2_to_end_node_edge" bpmnElement="conv_gat_2_to_end_node">
+        <di:waypoint x="1666" y="185" />
+        <di:waypoint x="1776" y="185" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

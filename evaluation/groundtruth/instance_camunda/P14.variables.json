@@ -1,0 +1,27 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P14A1",
+    "1002_questionnaire": "Questionnaire/Q4"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P14A2",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"106048009\", \"display\": \"Respiratory finding\"}], \"text\": \"respiratory parameters\"}"
+  },
+  "A3": {
+    "resource": "CommunicationRequest/P14A3",
+    "1051_priority": "urgent",
+    "1051_payload": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Respiratory parameters monitoring\", \"data\": \"YWJub3JtYWwgcmVzcGlyYXRvcnkgcGFyYW1ldGVycyBkZXRlY3RlZA==\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "Practitioner/PR1",
+    "1051_information_provider": null
+  },
+  "A4": {
+    "resource": "ServiceRequest/P14A4",
+    "1055_patient_instruction": "DocumentReference/D4"
+  },
+  "TC_A1_cycle": "R/P1D",
+  "TC_A2_execution_duration": "PT30M",
+  "TC_A1_keep_alive_bound": "P100Y",
+  "respiration_rate": null
+}

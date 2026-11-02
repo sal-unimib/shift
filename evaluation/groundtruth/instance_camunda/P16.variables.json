@@ -1,0 +1,28 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P16A1",
+    "1059_visit_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"41672002\", \"display\": \"Respiratory disease specialist\"}], \"text\": \"respiratory disease specialist visit\"}"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P16A2",
+    "1001_exercise_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"1409619008\", \"display\": \"Respiratory muscle strengthening training exercises\"}], \"text\": \"Respiratory muscle strengthening training exercises\"}"
+  },
+  "A3": {
+    "resource": "ServiceRequest/P16A3",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"431314004\", \"display\": \"Peripheral oxygen saturation\"}], \"text\": \"SpO2\"}"
+  },
+  "A4": {
+    "resource": "CommunicationRequest/P16A4",
+    "1051_priority": null,
+    "1051_payload": "{ \"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Respiratory deseases monitoring\", \"data\": \"T3h5Z2VuIHNhdHVyYXRpb24gZmFsbHMgYmVsb3cgdGhlIHByZXNjcmliZWQgdGhyZXNob2xkIGR1cmluZyBleGVyY2lzZXM=\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "Practitioner/PR1",
+    "1051_information_provider": null
+  },
+  "TC_A2_cycle": "R/PT8H",
+  "TC_A2_keep_alive_bound": "P4W",
+  "TC_A3_cycle": "R/PT4H",
+  "TC_A3_keep_alive_bound": "P4W",
+  "spo2": null
+}

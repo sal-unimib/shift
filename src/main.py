@@ -1,3 +1,4 @@
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from datetime import datetime
@@ -5,6 +6,11 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 import os
 import sys
+from src.api.webhooks import router as webhooks_router
+from src.database.connection import engine
+from src.database.initialization import initialize_database
+from src.utils.settings import settings
+from src.sources.camunda_source import CamundaSource
 
 # Logging
 logger = logging.getLogger("shift")
@@ -23,7 +29,7 @@ console_handler.setFormatter(console_formatter)
 logger.addHandler(console_handler)
 
 # Logging - File handler
-log_dir = "logs"
+log_dir = settings.filesystem.logs_dir
 os.makedirs(log_dir, exist_ok=True)
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 log_file = os.path.join(log_dir, f"shift_{timestamp}.log")
@@ -43,29 +49,31 @@ logger.addHandler(file_handler)
 logger.propagate = False
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """
-    Lifespan method for handling startup and shutdown operation of this service.
+    Initialize missing tables and close Camunda and database clients on shutdown.
 
-    :param app: FastAPI application object
-    :type app: FastAPI
+    Startup errors propagate and prevent the application from accepting requests.
+
+    :param app: FastAPI application using this lifespan context manager.
+    :type app: fastapi.FastAPI
+    :return: Async iterator yielding after successful schema initialization.
+    :rtype: collections.abc.AsyncIterator[None]
     """
     # Startup Phase
     logger.info("SHIFT Service starting up ...")
 
-    # 1. Initialize DB
-    # logger.info("Initializing the database connection...")
-    # db_source = DatabaseSource()
-    # await db_source.connect()
-    # await db_source.init_database()
-    
-    yield
-
-    # Shutdown Phase
-    logger.info("SHIFT Service shutting up ...")
-    
-    # Close DB connection
-    # logger.info("Closing the database connection...")
-    # await db_source.close()
+    try:
+        await initialize_database()
+        logger.info("SHIFT database schema initialized")
+        yield
+    finally:
+        logger.info("SHIFT Service shutting down ...")
+        try:
+            await CamundaSource.close()
+        finally:
+            await engine.dispose()
 
 app = FastAPI(lifespan=lifespan, redirect_slashes=False)
+
+app.include_router(webhooks_router)

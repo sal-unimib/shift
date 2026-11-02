@@ -1,0 +1,27 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "MedicationRequest/P04A1",
+    "1000_medication": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"372687004\", \"display\": \"Amoxicillin\"}], \"text\": \"Amoxicillin\"}",
+    "1000_dosage_dose_and_rate": "{\"doseQuantity\": {\"value\": 1.0, \"unit\": \"g\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"g\"}}"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P04A2",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"386725007\", \"display\": \"Body temperature\"}], \"text\": \"body temperature\"}"
+  },
+  "A3": {
+    "resource": "ServiceRequest/P04A3",
+    "1002_questionnaire": "Questionnaire/Q3"
+  },
+  "A4": {
+    "resource": "CommunicationRequest/P04A4",
+    "1051_priority": "urgent",
+    "1051_payload": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Post-surgical infection screening\", \"data\": \"Qm9keSB0ZW1wZXJhdHVyZSBvZiB0aGUgcGF0aWVudCBpcyBhYm92ZSAzOCBkZWdyZWVzIGNlbHNpdXM=\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "Practitioner/PR1",
+    "1051_information_provider": null
+  },
+  "TC_A1+A2_cycle": "R/P1D",
+  "TC_A1+A2_keep_alive_bound": "P100Y",
+  "body_temperature": null
+}

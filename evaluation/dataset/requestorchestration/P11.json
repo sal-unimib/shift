@@ -1,0 +1,246 @@
+{
+    "resourceType": "RequestOrchestration",
+    "id": "11",
+    "instantiatesCanonical": [
+        "http://localhost:8080/fhir/PlanDefinition/11|1.0.0"
+    ],
+    "status": "draft",
+    "intent": "plan",
+    "subject": {
+        "reference": "Patient/PT1"
+    },
+    "action": [
+        {
+            "linkId": "A1",
+            "title": "The patient completes a general health questionnaire twice a day",
+            "timingTiming": {
+                "repeat": {
+                    "frequency": 2,
+                    "period": 1,
+                    "periodUnit": "d"
+                },
+                "code": {
+                    "text": "Twice a day"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1002",
+            "dynamicValue": [
+                {
+                    "path": "supportingInfo[0].reference",
+                    "expression": {
+                        "description": "general health questionnaire",
+                        "language": "text/fhirpath",
+                        "expression": "Questionnaire/Q4"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P11A1"
+            }
+        },
+        {
+            "linkId": "A2",
+            "title": "The patient measures blood pressure",
+            "relatedAction": [
+                {
+                    "targetId": "A1",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1058",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "blood pressure",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"75367002\", \"display\": \"Blood pressure\"}], \"text\": \"blood pressure\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P11A2"
+            }
+        },
+        {
+            "linkId": "A3",
+            "title": "If blood pressure is between the defined low and high thresholds, the practitioner is alerted urgently",
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "If blood pressure is between the defined low and high thresholds",
+                        "language": "text/fhirpath",
+                        "expression": "%systolic > 160 and %systolic < 180 and %diastolic > 100 and %diastolic < 110"
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A2",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1051",
+            "dynamicValue": [
+                {
+                    "path": "priority",
+                    "expression": {
+                        "description": "urgently",
+                        "language": "text/fhirpath",
+                        "expression": "urgent"
+                    }
+                },
+                {
+                    "path": "requester",
+                    "expression": {
+                        "description": "patient",
+                        "language": "text/fhirpath",
+                        "expression": "Patient/PT1"
+                    }
+                },
+                {
+                    "path": "recipient",
+                    "expression": {
+                        "description": "practitioner",
+                        "language": "text/fhirpath",
+                        "expression": "Practitioner/PR1"
+                    }
+                },
+                {
+                    "path": "payload[0].contentAttachment",
+                    "expression": {
+                        "description": "Blood pressure is between the defined low and high thresholds",
+                        "language": "text/fhirpath",
+                        "expression": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Blood pressure monitoring\", \"data\": \"Qmxvb2QgcHJlc3N1cmUgaXMgYmV0d2VlbiB0aGUgZGVmaW5lZCBsb3cgYW5kIGhpZ2ggdGhyZXNob2xkcw==\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "CommunicationRequest/P11A3"
+            }
+        },
+        {
+            "linkId": "A4",
+            "title": "if it exceeds the high threshold, the emergency team is alerted with stat priority",
+            "condition": [
+                {
+                    "kind": "applicability",
+                    "expression": {
+                        "description": "if blood pressure exceeds the high threshold",
+                        "language": "text/fhirpath",
+                        "expression": "%systolic >= 180 and %diastolic >= 110"
+                    }
+                }
+            ],
+            "relatedAction": [
+                {
+                    "targetId": "A2",
+                    "relationship": "after-end"
+                }
+            ],
+            "definitionCanonical": "ActivityDefinition/1051",
+            "dynamicValue": [
+                {
+                    "path": "priority",
+                    "expression": {
+                        "description": "stat priority",
+                        "language": "text/fhirpath",
+                        "expression": "stat"
+                    }
+                },
+                {
+                    "path": "requester",
+                    "expression": {
+                        "description": "patient",
+                        "language": "text/fhirpath",
+                        "expression": "Patient/PT1"
+                    }
+                },
+                {
+                    "path": "recipient",
+                    "expression": {
+                        "description": "emergency team",
+                        "language": "text/fhirpath",
+                        "expression": "CareTeam/CT1"
+                    }
+                },
+                {
+                    "path": "payload[0].contentAttachment",
+                    "expression": {
+                        "description": "Blood pressure exceeds the high threshold",
+                        "language": "text/fhirpath",
+                        "expression": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Blood pressure monitoring\", \"data\": \"Qmxvb2QgcHJlc3N1cmUgZXhjZWVkcyB0aGUgaGlnaCB0aHJlc2hvbGQ=\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "CommunicationRequest/P11A4"
+            }
+        },
+        {
+            "linkId": "A5",
+            "title": "The patient takes ramipril 2.5 mg once daily",
+            "timingTiming": {
+                "repeat": {
+                    "frequency": 1,
+                    "period": 1,
+                    "periodUnit": "d"
+                },
+                "code": {
+                    "text": "Daily"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1000",
+            "dynamicValue": [
+                {
+                    "path": "medication.concept",
+                    "expression": {
+                        "description": "ramipril",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"386872004\", \"display\": \"Ramipril\"}], \"text\": \"ramipril\"}"
+                    }
+                },
+                {
+                    "path": "dosageInstruction[0].doseAndRate[0]",
+                    "expression": {
+                        "description": "2.5 mg",
+                        "language": "text/fhirpath",
+                        "expression": "{\"doseQuantity\": {\"value\": 2.5, \"unit\": \"mg\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"mg\"}}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "MedicationRequest/P11A5"
+            }
+        },
+        {
+            "linkId": "A6",
+            "title": "Every six months, the patient attends a cardiology specialist follow-up visit",
+            "timingTiming": {
+                "repeat": {
+                    "frequency": 1,
+                    "period": 6,
+                    "periodUnit": "mo"
+                },
+                "code": {
+                    "text": "Every 6 months"
+                }
+            },
+            "definitionCanonical": "ActivityDefinition/1059",
+            "dynamicValue": [
+                {
+                    "path": "code.concept",
+                    "expression": {
+                        "description": "cardiology specialist follow-up visit",
+                        "language": "text/fhirpath",
+                        "expression": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"310134005\", \"display\": \"Cardiology\"}], \"text\": \"cardiology specialist follow-up visit\"}"
+                    }
+                }
+            ],
+            "resource": {
+                "reference": "ServiceRequest/P11A6"
+            }
+        }
+    ]
+}

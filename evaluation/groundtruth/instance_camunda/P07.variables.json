@@ -1,0 +1,32 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P07A1",
+    "1053_specimen_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"119297000\", \"display\": \"Blood specimen\"}], \"text\": \"blood sample collection\"}",
+    "1053_body_site_concept": null
+  },
+  "A2": {
+    "resource": "ServiceRequest/P07A2",
+    "1052_clinical_procedure_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"367336001\", \"display\": \"Chemotherapy\"}], \"text\": \"chemotherapy\"}",
+    "1052_body_site_concept": null
+  },
+  "A3": {
+    "resource": "ServiceRequest/P07A3",
+    "1058_observation_concept": null
+  },
+  "A4": {
+    "resource": "CommunicationRequest/P07A4",
+    "1051_priority": null,
+    "1051_payload": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Chemotherapy patient alert\", \"data\": \"QWJub3JtYWwgYmxvb2QgY29sbGVjdGlvbiBleGFtIHJlc3VsdHM=\"}",
+    "1051_requester": "Patient/PT1",
+    "1051_recipient": "Practitioner/PR1",
+    "1051_information_provider": null
+  },
+  "A5": {
+    "resource": "ServiceRequest/P07A5",
+    "1058_observation_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"29303009\", \"display\": \"Electrocardiographic procedure\"}], \"text\": \"ECG\"}"
+  },
+  "TC_A1_cycle": "R/P2W",
+  "TC_A1_keep_alive_bound": "P100Y",
+  "specimen_result": null
+}

@@ -1,0 +1,255 @@
+{
+  "cfg_type": "classic",
+  "id": "2",
+  "version": "1.0.0",
+  "title": "Heart Failure Follow-up Management",
+  "name": "P02",
+  "description": "The patient completes a post-stroke follow up questionnaire. Thereafter, vital signs are monitored for ten days, and the practitioner is alerted with urgent priority if abnormal values are detected. In parallel, the patient attends a cardiology specialist follow-up visit and subsequently receives post-stroke lifestyle education.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient completes a post-stroke follow up questionnaire",
+      "activity_definition": "1002",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "supportingInfo[0].reference": "Questionnaire/Q2"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_A2",
+        "A1_to_A4"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "vital signs are monitored for ten days",
+      "activity_definition": "1058",
+      "fhir_temporal_constraint": {
+        "label": "1 occurrence(s) every 6 seconds; for 1440 seconds",
+        "period": 6.0,
+        "period_max": null,
+        "period_unit": "s",
+        "frequency": 1,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": 1440.0,
+        "bounds_duration_unit": "s",
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "A1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_A3",
+        "A2_to_F1"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "the practitioner is alerted with urgent priority if abnormal values are detected",
+      "activity_definition": "1051",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "priority": "urgent",
+        "requester": "Patient/PT1",
+        "recipient": "Practitioner/PR1",
+        "payload[0].contentAttachment": "{\"contentType\": \"text/plain; charset=utf-8\", \"language\": \"en\", \"title\": \"Abormal Vital Signs\", \"data\": \"QWJub3JtYWwgdml0YWwgc2lnbnMgd2hlcmUgaGF2ZSBiZWVuIGRldGVjdGVk\"}"
+      },
+      "incoming": [
+        "A2_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_end_node"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "the patient attends a cardiology specialist follow-up visit",
+      "activity_definition": "1059",
+      "fhir_temporal_constraint": {
+        "label": "2026-10-19T09:00:00+02:00",
+        "period": null,
+        "period_max": null,
+        "period_unit": null,
+        "frequency": null,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": null,
+        "duration_unit": null,
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": "2026-10-19T09:00:00+02:00",
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"310134005\", \"display\": \"Cardiology\"}], \"text\": \"cardiology specialist follow-up visit\"}"
+      },
+      "incoming": [
+        "A1_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_A5"
+      ]
+    },
+    "A5": {
+      "id": "A5",
+      "node_type": "ActionNode",
+      "title": "The patient receives post-stroke lifestyle education",
+      "activity_definition": "1055",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "patientInstruction[0].instructionReference": "DocumentReference/D2"
+      },
+      "incoming": [
+        "A4_to_A5"
+      ],
+      "outgoing": [
+        "A5_to_end_node"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "A3_to_end_node",
+        "A5_to_end_node",
+        "F1_to_end_node"
+      ],
+      "outgoing": []
+    },
+    "F1": {
+      "id": "F1",
+      "node_type": "FakeNode",
+      "incoming": [
+        "A2_to_F1"
+      ],
+      "outgoing": [
+        "F1_to_end_node"
+      ]
+    }
+  },
+  "edges": {
+    "A1_to_A2": {
+      "id": "A1_to_A2",
+      "source": "A1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_A3": {
+      "id": "A2_to_A3",
+      "source": "A2",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%vital_sign_result = \"abnormal\"",
+        "description": "if abnormal values are detected"
+      }
+    },
+    "A1_to_A4": {
+      "id": "A1_to_A4",
+      "source": "A1",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A4_to_A5": {
+      "id": "A4_to_A5",
+      "source": "A4",
+      "target": "A5",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_end_node": {
+      "id": "A3_to_end_node",
+      "source": "A3",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A5_to_end_node": {
+      "id": "A5_to_end_node",
+      "source": "A5",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_F1": {
+      "id": "A2_to_F1",
+      "source": "A2",
+      "target": "F1",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "F1_to_end_node": {
+      "id": "F1_to_end_node",
+      "source": "F1",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    }
+  },
+  "graph_type": "instance",
+  "subject_id": "PT1",
+  "request_orchestration_id": "2"
+}

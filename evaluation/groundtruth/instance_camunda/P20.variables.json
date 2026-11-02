@@ -1,0 +1,36 @@
+{
+  "subject": "PT1",
+  "A1": {
+    "resource": "ServiceRequest/P20A1",
+    "1002_questionnaire": "Questionnaire/Q7"
+  },
+  "A2": {
+    "resource": "ServiceRequest/P20A2",
+    "1053_specimen_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"225150002\", \"display\": \"Specimen from wound\"}], \"text\": \"wound specimen\"}",
+    "1053_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"7769000\", \"display\": \"Right foot\"}], \"text\": \"right foot\"}"
+  },
+  "A3": {
+    "resource": "ServiceRequest/P20A3",
+    "1057_therapy_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"225150002\", \"display\": \"Cleaning wound\"}], \"text\": \"Cleaning wound\"}",
+    "1057_body_site_concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"7769000\", \"display\": \"Right foot\"}], \"text\": \"right foot\"}"
+  },
+  "A4": {
+    "resource": "NutritionOrder/P20A4",
+    "1054_oral_diet": "\"a high-protein, micronutrient-dense diet rich in vitamin C and zinc, with optimal hydration and strict glycemic control\"",
+    "1054_supplement": null,
+    "1054_enteral_formula": null
+  },
+  "A5": {
+    "resource": "MedicationRequest/P20A5",
+    "1000_medication": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"372687004\", \"display\": \"Amoxicillin\"}], \"text\": \"amoxicillin\"}",
+    "1000_dosage_dose_and_rate": "{\"doseQuantity\": {\"value\": 1.0, \"unit\": \"mg\", \"system\": \"http://unitsofmeasure.org\", \"code\": \"mg\"}}"
+  },
+  "A6": {
+    "resource": "ServiceRequest/P20A6",
+    "1059_visit_concept": null
+  },
+  "TC_A6_offset": "P4W",
+  "TC_A5_cycle": "R/PT8H",
+  "TC_A5_keep_alive_bound": "P1W",
+  "specimen_result": null
+}

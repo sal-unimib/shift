@@ -1,0 +1,182 @@
+{
+  "cfg_type": "classic",
+  "id": "15",
+  "version": "1.0.0",
+  "title": "Diabetic Foot Care Pathway",
+  "name": "P15",
+  "description": "The patient undergoes wound specimen collection. If an ulcer is detected, the patient attends a general surgery specialist visit. If signs of infection worsen, the clinical team is alerted and therapeutic intervention is initiated. Otherwise, the patient receives education on home wound care and medication guidelines.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient undergoes wound specimen collection",
+      "activity_definition": "1053",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"119365002\", \"display\": \"Specimen from wound\"}], \"text\": \"wound specimen\"}"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_A2",
+        "A1_to_A3",
+        "A1_to_A5"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "If an ulcer is detected, the patient attends a general surgery specialist visit",
+      "activity_definition": "1059",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"394609007\", \"display\": \"General surgery\"}], \"text\": \"general surgery specialist visit\"}"
+      },
+      "incoming": [
+        "A1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_end_node"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "If signs of infection worsen, the clinical team is alerted",
+      "activity_definition": "1051",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "A1_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_A4"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "therapeutic intervention is initiated",
+      "activity_definition": "1057",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "A3_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_end_node"
+      ]
+    },
+    "A5": {
+      "id": "A5",
+      "node_type": "ActionNode",
+      "title": "Otherwise, the patient receives education on home wound care and medication guidelines",
+      "activity_definition": "1055",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "patientInstruction[0].instructionReference": "DocumentReference/D6"
+      },
+      "incoming": [
+        "A1_to_A5"
+      ],
+      "outgoing": [
+        "A5_to_end_node"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "A2_to_end_node",
+        "A4_to_end_node",
+        "A5_to_end_node"
+      ],
+      "outgoing": []
+    }
+  },
+  "edges": {
+    "A1_to_A2": {
+      "id": "A1_to_A2",
+      "source": "A1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%specimen_result = \"ulcer\" or %specimen_result = \"infection\"",
+        "description": "If an ulcer is detected"
+      }
+    },
+    "A1_to_A3": {
+      "id": "A1_to_A3",
+      "source": "A1",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "%specialist_result = \"infection\"",
+        "description": "If signs of infection worsen"
+      }
+    },
+    "A3_to_A4": {
+      "id": "A3_to_A4",
+      "source": "A3",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A1_to_A5": {
+      "id": "A1_to_A5",
+      "source": "A1",
+      "target": "A5",
+      "relationship": "after-end",
+      "execution_condition": {
+        "expression": "Otherwise",
+        "description": "Otherwise"
+      }
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_end_node": {
+      "id": "A2_to_end_node",
+      "source": "A2",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A4_to_end_node": {
+      "id": "A4_to_end_node",
+      "source": "A4",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A5_to_end_node": {
+      "id": "A5_to_end_node",
+      "source": "A5",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    }
+  }
+}

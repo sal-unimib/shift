@@ -1,0 +1,188 @@
+{
+  "cfg_type": "classic",
+  "id": "19",
+  "version": "1.0.0",
+  "title": "Frailty Assessment Pathway",
+  "name": "P19",
+  "description": "The patient completes a general health questionnaire and subsequently attends a geriatric specialist visit. Following the clinical assessment, the patient receives education on the prescribed care plan. Thereafter, the patient performs the prescribed exercises for 30 minutes and follows a protein-rich Mediterranean diet with adequate hydration and soft-textured foods.",
+  "start_node": "start_node",
+  "end_node": "end_node",
+  "nodes": {
+    "A1": {
+      "id": "A1",
+      "node_type": "ActionNode",
+      "title": "The patient completes a general health questionnaire",
+      "activity_definition": "1002",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "supportingInfo[0].reference": "Questionnaire/Q4"
+      },
+      "incoming": [
+        "start_node_to_A1"
+      ],
+      "outgoing": [
+        "A1_to_A2"
+      ]
+    },
+    "A2": {
+      "id": "A2",
+      "node_type": "ActionNode",
+      "title": "The patient attends a geriatric specialist visit",
+      "activity_definition": "1059",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "code.concept": "{\"coding\": [{\"system\": \"http://snomed.info/sct\", \"code\": \"90655003\", \"display\": \"Geriatrics specialist\"}], \"text\": \"geriatric specialist visit\"}"
+      },
+      "incoming": [
+        "A1_to_A2"
+      ],
+      "outgoing": [
+        "A2_to_A3"
+      ]
+    },
+    "A3": {
+      "id": "A3",
+      "node_type": "ActionNode",
+      "title": "the patient receives education on the prescribed care plan",
+      "activity_definition": "1055",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "A2_to_A3"
+      ],
+      "outgoing": [
+        "A3_to_A4",
+        "A3_to_A5"
+      ]
+    },
+    "A4": {
+      "id": "A4",
+      "node_type": "ActionNode",
+      "title": "the patient performs the prescribed exercises for 30 minutes",
+      "activity_definition": "1001",
+      "fhir_temporal_constraint": {
+        "label": "30 minutes",
+        "period": null,
+        "period_max": null,
+        "period_unit": null,
+        "frequency": null,
+        "frequency_max": null,
+        "count": null,
+        "count_max": null,
+        "day_of_week": [],
+        "time_of_day": [],
+        "when": [],
+        "offset": null,
+        "code": null,
+        "duration": 30.0,
+        "duration_unit": "min",
+        "duration_max": null,
+        "bounds_duration": null,
+        "bounds_duration_unit": null,
+        "bounds_period_start": null,
+        "bounds_period_end": null,
+        "event": null,
+        "offset_duration": null,
+        "offset_duration_unit": null
+      },
+      "temporal_constraint": null,
+      "attributes": {},
+      "incoming": [
+        "A3_to_A4"
+      ],
+      "outgoing": [
+        "A4_to_end_node"
+      ]
+    },
+    "A5": {
+      "id": "A5",
+      "node_type": "ActionNode",
+      "title": "the patient follows a protein-rich Mediterranean diet with adequate hydration and soft-textured foods",
+      "activity_definition": "1054",
+      "fhir_temporal_constraint": null,
+      "temporal_constraint": null,
+      "attributes": {
+        "oralDiet.instruction": "\"protein-rich Mediterranean diet with adequate hydration and soft-textured foods\""
+      },
+      "incoming": [
+        "A3_to_A5"
+      ],
+      "outgoing": [
+        "A5_to_end_node"
+      ]
+    },
+    "start_node": {
+      "id": "start_node",
+      "node_type": "EventNode",
+      "event_type": "start",
+      "incoming": [],
+      "outgoing": [
+        "start_node_to_A1"
+      ]
+    },
+    "end_node": {
+      "id": "end_node",
+      "node_type": "EventNode",
+      "event_type": "end",
+      "incoming": [
+        "A4_to_end_node",
+        "A5_to_end_node"
+      ],
+      "outgoing": []
+    }
+  },
+  "edges": {
+    "A1_to_A2": {
+      "id": "A1_to_A2",
+      "source": "A1",
+      "target": "A2",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A2_to_A3": {
+      "id": "A2_to_A3",
+      "source": "A2",
+      "target": "A3",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_A4": {
+      "id": "A3_to_A4",
+      "source": "A3",
+      "target": "A4",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A3_to_A5": {
+      "id": "A3_to_A5",
+      "source": "A3",
+      "target": "A5",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "start_node_to_A1": {
+      "id": "start_node_to_A1",
+      "source": "start_node",
+      "target": "A1",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A4_to_end_node": {
+      "id": "A4_to_end_node",
+      "source": "A4",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    },
+    "A5_to_end_node": {
+      "id": "A5_to_end_node",
+      "source": "A5",
+      "target": "end_node",
+      "relationship": "after-end",
+      "execution_condition": null
+    }
+  }
+}
